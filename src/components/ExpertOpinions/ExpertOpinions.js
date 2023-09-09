@@ -1,13 +1,13 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import LinguisticTermsChip from "../LinguisticTermsChip/LinguisticTermsChip";
-import TestChip from "../TestChip/TestChip";
-import expertOpinionsData from "../../DataTemplate/expertOpinionsData";
+import ExpertOpinionsChip from "../ExpertOpinionsChip/ExpertOpinionsChip";
 
 export default function ExpertOpinions({
   configurationData,
   expertOpinions,
   setExpertOpinions,
+  linguisticTerms,
+  operations,
 }) {
   const criteria = 3;
 
@@ -34,12 +34,15 @@ export default function ExpertOpinions({
               {expertOpinions
                 ?.slice(dataIndex, dataIndex + criteria)
                 ?.map((data, index) => (
-                  <TestChip
+                  <ExpertOpinionsChip
                     key={index}
                     label={data.label}
                     values={data.values}
                     selectedValues={data.selectedValues}
                     setExpertOpinions={setExpertOpinions}
+                    expertOpinions={expertOpinions}
+                    linguisticTerms={linguisticTerms}
+                    operations={operations}
                   />
                 ))}
             </Box>

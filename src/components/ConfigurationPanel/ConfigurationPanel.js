@@ -5,14 +5,21 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Divider from "@mui/material/Divider";
+
+// Import your data here
 import expertOpinionsData from "../../DataTemplate/expertOpinionsData";
+import linguisticTermsData from "../../DataTemplate/linguisticTermsData";
+import operationsData from "../../DataTemplate/operationsData";
 
-export default function ConfigurationPanel({ setExpertOpinions }) {
-  const [state, setState] = React.useState({
-    right: false,
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
+export default function ConfigurationPanel({
+  setExpertOpinions,
+  setLinguisticTerms,
+  setOperations,
+  setIsConfigurationPanelOpen,
+  isConfigurationPanelOpen,
+}) {
+  const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
@@ -20,13 +27,16 @@ export default function ConfigurationPanel({ setExpertOpinions }) {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
-  };
-  const handleSetExpertOpinions = () => {
-    setExpertOpinions(expertOpinionsData);
+    setIsConfigurationPanelOpen(open);
   };
 
-  const list = (anchor) => (
+  const handleSetData = () => {
+    setExpertOpinions(expertOpinionsData);
+    setLinguisticTerms(linguisticTermsData);
+    setOperations(operationsData);
+  };
+
+  const list = () => (
     <Box
       sx={{
         width: 450,
@@ -40,20 +50,26 @@ export default function ConfigurationPanel({ setExpertOpinions }) {
       <Typography variant="h4" gutterBottom align="center">
         Configuration
       </Typography>
-      <Stack spacing={2} direction="row">
-        <Button variant="contained" onClick={handleSetExpertOpinions}>
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+        divider={<Divider orientation="vertical" flexItem />}
+      >
+        <Button variant="contained" onClick={handleSetData}>
           Set Data #1
         </Button>
-        <Button variant="contained" onClick={handleSetExpertOpinions}>
+        <Button variant="contained" onClick={handleSetData}>
           Set Data #2
         </Button>
-        <Button variant="contained" onClick={handleSetExpertOpinions}>
+        <Button variant="contained" onClick={handleSetData}>
           Set Data #3
         </Button>
       </Stack>
       <TextField
         id="outlined-basic"
-        label="Number of alernatives"
+        label="Number of alternatives"
         variant="outlined"
       />
       <TextField
@@ -67,27 +83,37 @@ export default function ConfigurationPanel({ setExpertOpinions }) {
         variant="outlined"
       />
       <TextField id="outlined-basic" label="Alpha (α)" variant="outlined" />
+
+      <Button
+        variant="contained"
+        sx={{
+          marginTop: "20px",
+        }}
+        disabled
+      >
+        Next
+      </Button>
     </Box>
   );
 
   return (
     <div>
-      <Button
+      {/* <Button
         variant="contained"
-        onClick={toggleDrawer("right", true)}
+        onClick={toggleDrawer(true)}
         sx={{
           marginTop: "20px",
         }}
       >
         Open Configuration Panel
-      </Button>
+      </Button> */}
 
       <Drawer
-        anchor={"right"}
-        open={state["right"]}
-        onClose={toggleDrawer("right", false)}
+        anchor="right"
+        open={isConfigurationPanelOpen}
+        onClose={toggleDrawer(false)}
       >
-        {list("right")}
+        {list()}
       </Drawer>
     </div>
   );
