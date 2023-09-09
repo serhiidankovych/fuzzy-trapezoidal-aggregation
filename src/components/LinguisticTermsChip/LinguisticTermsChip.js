@@ -1,5 +1,4 @@
-import * as React from "react";
-import { useTheme } from "@mui/material/styles";
+import React from "react";
 import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -7,51 +6,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
-import LinguisticTermsSelect from "./LinguisticTermsSelect";
-
-//Linguistic Terms Template
-const linguisticTerms = [
-  {
-    fullName: "Low",
-    shortName: "L",
-    confines: { left: 0, middle: 0, right: 25 },
-  },
-  {
-    fullName: "Low middle",
-    shortName: "LM",
-    confines: { left: 0, middle: 25, right: 50 },
-  },
-  {
-    fullName: "Middle",
-    shortName: "M",
-    confines: { left: 25, middle: 50, right: 75 },
-  },
-  {
-    fullName: "High Middle",
-    shortName: "HM",
-    confines: { left: 50, middle: 75, right: 100 },
-  },
-  {
-    fullName: "High",
-    shortName: "H",
-    confines: { left: 75, middle: 100, right: 100 },
-  },
-];
-
-const operations = [
-  {
-    symbol: ">",
-    definition: "greater than",
-  },
-  {
-    symbol: "<",
-    definition: "less than",
-  },
-  {
-    symbol: "&",
-    definition: "and",
-  },
-];
+import linguisticTermsData from "../../DataTemplate/linguisticTermsData";
+import operations from "../../DataTemplate/operationsData";
+import expertOpinionsData from "../../DataTemplate/expertOpinionsData";
 
 //Menu
 const ITEM_HEIGHT = 48;
@@ -60,21 +17,21 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 100,
+      width: 150,
     },
   },
 };
 
 //Adding weight for sorting
-linguisticTerms.forEach((term) => {
-  const { left, middle, right } = term.confines;
-  term.weight = parseInt(left) + parseInt(middle) + parseInt(right);
-});
+// linguisticTermsData.forEach((term) => {
+//   const { left, middle, right } = term.confines;
+//   term.weight = parseInt(left) + parseInt(middle) + parseInt(right);
+// });
 
 export default function LinguisticTermsChip({
   criteria,
   alternative,
-  setSelectedLinguisticTerms,
+  setExpertOpinions,
 }) {
   const [terms, setTerms] = React.useState([]);
 
@@ -86,18 +43,25 @@ export default function LinguisticTermsChip({
     // value.sort((a, b) => parseFloat(a.weight) - parseFloat(b.weight));
     setTerms(value);
     handleSelectedLinguisticTerms(value);
+    console.log(terms);
   };
 
   const handleSelectedLinguisticTerms = (value) => {
-    setSelectedLinguisticTerms((prevTerms) => ({
+    setExpertOpinions((prevTerms) => ({
       ...prevTerms,
-      [`${alternative}-${criteria}`]: value,
+      value,
     }));
+  };
+  const handleSetDefaults = () => {
+    const defaultValues = [
+      /* your default values here */
+    ];
+    setTerms(defaultValues);
   };
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
+      <FormControl sx={{ m: 1, width: 200 }}>
         <InputLabel id="terms-chip-label">{`${alternative}-${criteria}`}</InputLabel>
         <Select
           labelId="terms-chip-label"
@@ -110,8 +74,16 @@ export default function LinguisticTermsChip({
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
               {selected.map((value) => (
                 <Chip
-                  key={value.shortName ? value.shortName : value.definition}
-                  label={value.shortName ? value.shortName : value.definition}
+                  key={
+                    value.shortLinguisticTerm
+                      ? value.shortLinguisticTerm
+                      : value.definition
+                  }
+                  label={
+                    value.shortLinguisticTerm
+                      ? value.shortLinguisticTerm
+                      : value.definition
+                  }
                 />
               ))}
             </Box>
@@ -123,13 +95,14 @@ export default function LinguisticTermsChip({
               {name.definition}
             </MenuItem>
           ))}
-          {linguisticTerms.map((name) => (
-            <MenuItem key={name.shortName} value={name}>
-              {name.shortName}
+          {linguisticTermsData.map((name) => (
+            <MenuItem key={name.shortLinguisticTerm} value={name}>
+              {name.shortLinguisticTerm}
             </MenuItem>
           ))}
         </Select>
       </FormControl>
+      {/* <Button onClick={handleSetDefaults}>Set Defaults</Button> */}
     </div>
   );
 }
