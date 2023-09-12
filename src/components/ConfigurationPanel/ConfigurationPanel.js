@@ -52,7 +52,7 @@ export default function ConfigurationPanel({
       </Typography>
       <Stack
         direction="row"
-        justifyContent="center"
+        justifyContent="space-between"
         alignItems="center"
         spacing={2}
         divider={<Divider orientation="vertical" flexItem />}

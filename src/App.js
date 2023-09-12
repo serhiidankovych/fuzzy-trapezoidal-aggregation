@@ -17,10 +17,13 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
   },
+  typography: {
+    fontFamily: "Abel",
+  },
 });
 
 function App() {
-  const [expertOpinions, setExpertOpinions] = React.useState();
+  const [expertOpinions, setExpertOpinions] = React.useState([]);
   const [linguisticTerms, setLinguisticTerms] = React.useState();
   const [operations, setOperations] = React.useState();
   const [isConfigurationPanelOpen, setIsConfigurationPanelOpen] =
@@ -29,16 +32,17 @@ function App() {
     React.useState(true);
 
   React.useEffect(() => {
-    console.log("Expert Opinion Data:", JSON.stringify(expertOpinions));
+    // console.log("Expert Opinion Data:", JSON.stringify(expertOpinions));
+    console.log("Expert Opinion Data:", expertOpinions);
   }, [expertOpinions]);
 
   return (
     <ThemeProvider theme={darkTheme}>
       <Container
-        maxWidth="lg"
+        maxWidth="md"
         sx={{
           display: "flex",
-          gap: "6px",
+          gap: "10px",
           flexDirection: "column",
         }}
       >
@@ -51,12 +55,12 @@ function App() {
         />
         <CssBaseline />
         <Title />
-        {isConfigurationPanelNotSet && (
+        {!expertOpinions.length > 0 && (
           <Box
             sx={{
-              border: "1px solid #00ff05",
+              border: "1px dotted #90caf9",
               borderRadius: 2,
-              marginTop: "10px",
+              backgroundColor: "#181819",
               textAlign: "center",
               padding: "40px",
             }}
@@ -69,7 +73,7 @@ function App() {
             </Button>
           </Box>
         )}
-        {expertOpinions && (
+        {expertOpinions.length > 0 && (
           <ExpertOpinions
             configurationData={configurationData}
             expertOpinions={expertOpinions}

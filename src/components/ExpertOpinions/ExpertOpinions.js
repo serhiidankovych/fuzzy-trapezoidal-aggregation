@@ -9,45 +9,32 @@ export default function ExpertOpinions({
   linguisticTerms,
   operations,
 }) {
-  const criteria = 3;
-
+  const { alternative } = configurationData;
   return (
     <Box
       sx={{
         display: "flex",
-        overflowX: "scroll",
-        overflowY: "hidden",
-        whiteSpace: "nowrap",
+
         flexDirection: "column",
-        border: "1px solid #00ff05",
+        border: "1px solid #515151",
         borderRadius: 2,
-        marginTop: "10px",
+        backgroundColor: "#181819",
+        alignItems: "center",
+        padding: "40px",
       }}
     >
-      {expertOpinions?.map(
-        (data, dataIndex) =>
-          dataIndex % criteria === 0 && (
-            <Box
-              sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}
-              key={dataIndex}
-            >
-              {expertOpinions
-                ?.slice(dataIndex, dataIndex + criteria)
-                ?.map((data, index) => (
-                  <ExpertOpinionsChip
-                    key={index}
-                    label={data.label}
-                    values={data.values}
-                    selectedValues={data.selectedValues}
-                    setExpertOpinions={setExpertOpinions}
-                    expertOpinions={expertOpinions}
-                    linguisticTerms={linguisticTerms}
-                    operations={operations}
-                  />
-                ))}
-            </Box>
-          )
-      )}
+      {expertOpinions?.map((data, index) => (
+        <ExpertOpinionsChip
+          key={index}
+          label={data.label}
+          values={data.values}
+          selectedValues={data.selectedValues}
+          setExpertOpinions={setExpertOpinions}
+          expertOpinions={expertOpinions}
+          linguisticTerms={linguisticTerms}
+          operations={operations}
+        />
+      ))}
     </Box>
   );
 }

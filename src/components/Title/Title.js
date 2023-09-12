@@ -11,10 +11,12 @@ export default function Title() {
         padding: "20px",
         border: "1px solid  rgba(81, 81, 81, 1)",
         marginTop: "50px",
+        backgroundColor: "#181819",
+        marginBottom: "0",
       }}
     >
-      <Typography variant="h4" gutterBottom align="center">
-        The method of aggregation of trapezoidal linguistic terms 🤓📐
+      <Typography variant="h5" gutterBottom align="center">
+        THE METHOD OF AGGREGATION OF TRAPEZOIDAL LINGUISTIC TERMS
       </Typography>
     </Box>
   );

@@ -36,9 +36,11 @@ export default function ExpertOpinionsChip({
 
     setExpertOpinion(value);
     handleChangeSelectedLinguisticTerm(label, value);
+    console.log(label);
   };
 
   const handleChangeSelectedLinguisticTerm = (label, value) => {
+    //fix update data
     const updatedData = expertOpinions.map((item) => ({
       ...item,
       selectedValues: item.label === label ? value : item.selectedValues,
