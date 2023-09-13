@@ -2,6 +2,7 @@
 
 Aggregation of trapezoidal linguistic terms is a computational process used in fuzzy logic and decision-making systems to combine or consolidate multiple linguistic terms represented as trapezoidal membership functions into a single, more comprehensive linguistic representation. This technique is particularly valuable in fields where subjective or expert knowledge needs to be incorporated into quantitative models or systems.
 
+## Example
 ![Example](https://github.com/serhiidankovych/trapezoidal-aggregation/tree/main/src/assets/example.png)
 
 ## Contributing
