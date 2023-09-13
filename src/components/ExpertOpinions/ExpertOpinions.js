@@ -1,20 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import ExpertOpinionsChip from "../ExpertOpinionsChip/ExpertOpinionsChip";
+import Pagination from "@mui/material/Pagination";
 
 export default function ExpertOpinions({
-  configurationData,
+  configuration,
   expertOpinions,
   setExpertOpinions,
   linguisticTerms,
-  operations,
+  operators,
 }) {
-  const { alternative } = configurationData;
+  const { alternatives, criteria } = configuration;
+  const itemsPerPage = criteria.length;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Calculate the start and end indices for the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  // Get the current page's data
+  const currentExpertOpinions = expertOpinions.slice(startIndex, endIndex);
+
+  // Function to handle page change
+  const handlePageChange = (event, newPage) => {
+    setCurrentPage(newPage);
+  };
+
   return (
     <Box
       sx={{
         display: "flex",
-
         flexDirection: "column",
         border: "1px solid #515151",
         borderRadius: 2,
@@ -23,7 +38,7 @@ export default function ExpertOpinions({
         padding: "40px",
       }}
     >
-      {expertOpinions?.map((data, index) => (
+      {currentExpertOpinions.map((data, index) => (
         <ExpertOpinionsChip
           key={index}
           label={data.label}
@@ -32,9 +47,18 @@ export default function ExpertOpinions({
           setExpertOpinions={setExpertOpinions}
           expertOpinions={expertOpinions}
           linguisticTerms={linguisticTerms}
-          operations={operations}
+          operators={operators}
         />
       ))}
+
+      {/* Pagination */}
+      <Pagination
+        count={Math.ceil(expertOpinions.length / itemsPerPage)}
+        page={currentPage}
+        onChange={handlePageChange}
+        variant="outlined"
+        shape="rounded"
+      />
     </Box>
   );
 }

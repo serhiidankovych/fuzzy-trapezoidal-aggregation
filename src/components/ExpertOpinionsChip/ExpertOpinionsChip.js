@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -25,27 +25,41 @@ export default function ExpertOpinionsChip({
   setExpertOpinions,
   expertOpinions,
   linguisticTerms,
-  operations,
+  operators,
 }) {
   const [expertOpinion, setExpertOpinion] = useState(selectedValues || []);
+  const [selectedOpinion, setSelectedOpinion] = useState("");
 
   const handleChange = (event) => {
     const {
       target: { value },
     } = event;
-
     setExpertOpinion(value);
-    handleChangeSelectedLinguisticTerm(label, value);
-    console.log(label);
+    handleUpdateExpertOpinions(label, value);
   };
 
-  const handleChangeSelectedLinguisticTerm = (label, value) => {
-    //fix update data
+  const handleUpdateExpertOpinions = (label, value) => {
+    const allSelectedLinguisticTerms = value.filter(
+      (item) => item.type === "linguistic term"
+    );
+    const allSelectedOperators = value.filter(
+      (item) => item.type === "operator"
+    );
+
     const updatedData = expertOpinions.map((item) => ({
       ...item,
       selectedValues: item.label === label ? value : item.selectedValues,
+      selectedLinguisticTerms:
+        item.label === label
+          ? allSelectedLinguisticTerms
+          : item.selectedLinguisticTerms,
+      selectedOperators:
+        item.label === label ? allSelectedOperators : item.selectedOperators,
     }));
+
     setExpertOpinions(updatedData);
+    console.log(updatedData);
+    console.log(value);
   };
 
   return (
@@ -64,21 +78,43 @@ export default function ExpertOpinionsChip({
           renderValue={(selected) => (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
               {selected.map((value) => (
-                <Chip key={value} label={value} />
+                <Chip
+                  key={value.linguisticTerm || value.operator}
+                  label={value.linguisticTerm || value.operator}
+                />
               ))}
             </Box>
           )}
           MenuProps={MenuProps}
         >
-          {operations.map((value) => (
-            <MenuItem key={value.definition} value={value.definition}>
-              {value.definition}
+          <MenuItem
+            key={"operators"}
+            disabled
+            sx={{ backgroundColor: "#1f1f1f" }}
+          >
+            {" available operators:"}
+          </MenuItem>
+          {operators.map((value) => (
+            <MenuItem
+              key={value.operator}
+              value={value}
+              onClick={() => setSelectedOpinion(value.type)}
+            >
+              {value.operator}
             </MenuItem>
           ))}
+          <MenuItem
+            key={"linguistic terms"}
+            disabled
+            sx={{ backgroundColor: "#1f1f1f" }}
+          >
+            {"available linguistic terms:"}
+          </MenuItem>
           {linguisticTerms.map((value) => (
             <MenuItem
               key={value.shortLinguisticTerm}
-              value={value.shortLinguisticTerm}
+              value={value}
+              onClick={() => setSelectedOpinion(value.type)}
             >
               {value.shortLinguisticTerm}
             </MenuItem>

@@ -10,15 +10,23 @@ import Divider from "@mui/material/Divider";
 // Import your data here
 import expertOpinionsData from "../../DataTemplate/expertOpinionsData";
 import linguisticTermsData from "../../DataTemplate/linguisticTermsData";
-import operationsData from "../../DataTemplate/operationsData";
+import operatorsData from "../../DataTemplate/operatorsData";
+import configurationData from "../../DataTemplate/configurationData";
 
 export default function ConfigurationPanel({
   setExpertOpinions,
   setLinguisticTerms,
-  setOperations,
+  setOperators,
   setIsConfigurationPanelOpen,
   isConfigurationPanelOpen,
+  setConfiguration,
 }) {
+  const [numberOfAlternatives, setNumberOfAlternatives] = React.useState(0);
+  const [numberOfCriteria, setNumberOfCriteria] = React.useState(0);
+  const [numberOfLinguisticTerms, setNumberOfLinguisticTerms] =
+    React.useState(0);
+  const [alpha, setAlphaa] = React.useState(0);
+
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -30,10 +38,11 @@ export default function ConfigurationPanel({
     setIsConfigurationPanelOpen(open);
   };
 
-  const handleSetData = () => {
+  const handleSetTemplateData = () => {
     setExpertOpinions(expertOpinionsData);
     setLinguisticTerms(linguisticTermsData);
-    setOperations(operationsData);
+    setOperators(operatorsData);
+    setConfiguration(configurationData);
   };
 
   const list = () => (
@@ -56,14 +65,19 @@ export default function ConfigurationPanel({
         alignItems="center"
         spacing={2}
         divider={<Divider orientation="vertical" flexItem />}
+        sx={{
+          backgroundColor: "rgb(78 78 78)",
+          padding: "20px",
+          borderRadius: "8px",
+        }}
       >
-        <Button variant="contained" onClick={handleSetData}>
+        <Button variant="contained" onClick={handleSetTemplateData}>
           Set Data #1
         </Button>
-        <Button variant="contained" onClick={handleSetData}>
+        <Button variant="contained" onClick={handleSetTemplateData}>
           Set Data #2
         </Button>
-        <Button variant="contained" onClick={handleSetData}>
+        <Button variant="contained" onClick={handleSetTemplateData}>
           Set Data #3
         </Button>
       </Stack>
@@ -71,18 +85,26 @@ export default function ConfigurationPanel({
         id="outlined-basic"
         label="Number of alternatives"
         variant="outlined"
+        type="number"
       />
       <TextField
         id="outlined-basic"
-        label="Number of Criteria"
+        label="Number of criteria"
         variant="outlined"
+        type="number"
       />
       <TextField
         id="outlined-basic"
         label="Number of linguistic terms"
         variant="outlined"
+        type="number"
       />
-      <TextField id="outlined-basic" label="Alpha (α)" variant="outlined" />
+      <TextField
+        id="outlined-basic"
+        label="Alpha (α)"
+        variant="outlined"
+        type="number"
+      />
 
       <Button
         variant="contained"

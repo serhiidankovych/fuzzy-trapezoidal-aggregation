@@ -11,8 +11,6 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
-import configurationData from "./DataTemplate/configurationData";
-
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -25,15 +23,22 @@ const darkTheme = createTheme({
 function App() {
   const [expertOpinions, setExpertOpinions] = React.useState([]);
   const [linguisticTerms, setLinguisticTerms] = React.useState();
-  const [operations, setOperations] = React.useState();
+  const [operators, setOperators] = React.useState();
   const [isConfigurationPanelOpen, setIsConfigurationPanelOpen] =
     React.useState(false);
-  const [isConfigurationPanelNotSet, setIsConfigurationPanelNotSet] =
-    React.useState(true);
+  const [configuration, setConfiguration] = React.useState({
+    alternatives: [],
+    criteria: [],
+    linguisticTerms: [],
+    alpha: null,
+  });
 
   React.useEffect(() => {
-    // console.log("Expert Opinion Data:", JSON.stringify(expertOpinions));
-    console.log("Expert Opinion Data:", expertOpinions);
+    console.log(
+      "Expert Opinion Data:",
+      JSON.stringify(expertOpinions, undefined, 4)
+    );
+    // console.log("Expert Opinion Data:", expertOpinions);
   }, [expertOpinions]);
 
   return (
@@ -49,9 +54,10 @@ function App() {
         <ConfigurationPanel
           setExpertOpinions={setExpertOpinions}
           setLinguisticTerms={setLinguisticTerms}
-          setOperations={setOperations}
+          setOperators={setOperators}
           setIsConfigurationPanelOpen={setIsConfigurationPanelOpen}
           isConfigurationPanelOpen={isConfigurationPanelOpen}
+          setConfiguration={setConfiguration}
         />
         <CssBaseline />
         <Title />
@@ -75,10 +81,10 @@ function App() {
         )}
         {expertOpinions.length > 0 && (
           <ExpertOpinions
-            configurationData={configurationData}
+            configuration={configuration}
             expertOpinions={expertOpinions}
             linguisticTerms={linguisticTerms}
-            operations={operations}
+            operators={operators}
             setExpertOpinions={setExpertOpinions}
           />
         )}
