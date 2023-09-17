@@ -11,7 +11,8 @@ export default function ExpertOpinions({
   operators,
 }) {
   const { alternatives, criteria } = configuration;
-  const itemsPerPage = criteria.length;
+  // const itemsPerPage = criteria.length;
+  const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
 
   // Calculate the start and end indices for the current page

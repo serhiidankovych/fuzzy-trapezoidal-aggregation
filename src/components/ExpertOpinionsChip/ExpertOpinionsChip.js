@@ -27,8 +27,11 @@ export default function ExpertOpinionsChip({
   linguisticTerms,
   operators,
 }) {
-  const [expertOpinion, setExpertOpinion] = useState(selectedValues || []);
-  const [selectedOpinion, setSelectedOpinion] = useState("");
+  const [expertOpinion, setExpertOpinion] = useState(selectedValues);
+
+  useEffect(() => {
+    setExpertOpinion(selectedValues);
+  }, [selectedValues]);
 
   const handleChange = (event) => {
     const {
@@ -39,24 +42,23 @@ export default function ExpertOpinionsChip({
   };
 
   const handleUpdateExpertOpinions = (label, value) => {
-    const allSelectedLinguisticTerms = value.filter(
-      (item) => item.type === "linguistic term"
-    );
-    const allSelectedOperators = value.filter(
-      (item) => item.type === "operator"
-    );
+    const updatedData = expertOpinions.map((item) => {
+      if (item.label === label) {
+        const selectedOperators = value.filter(
+          (item) => item.type === "operator"
+        );
 
-    const updatedData = expertOpinions.map((item) => ({
-      ...item,
-      selectedValues: item.label === label ? value : item.selectedValues,
-      selectedLinguisticTerms:
-        item.label === label
-          ? allSelectedLinguisticTerms
-          : item.selectedLinguisticTerms,
-      selectedOperators:
-        item.label === label ? allSelectedOperators : item.selectedOperators,
-    }));
-
+        return {
+          ...item,
+          selectedValues: value,
+          selectedLinguisticTerms: value.filter(
+            (item) => item.type === "linguistic term"
+          ),
+          selectedOperators: selectedOperators,
+        };
+      }
+      return item;
+    });
     setExpertOpinions(updatedData);
     console.log(updatedData);
     console.log(value);
@@ -95,11 +97,7 @@ export default function ExpertOpinionsChip({
             {" available operators:"}
           </MenuItem>
           {operators.map((value) => (
-            <MenuItem
-              key={value.operator}
-              value={value}
-              onClick={() => setSelectedOpinion(value.type)}
-            >
+            <MenuItem key={value.operator} value={value}>
               {value.operator}
             </MenuItem>
           ))}
@@ -111,11 +109,7 @@ export default function ExpertOpinionsChip({
             {"available linguistic terms:"}
           </MenuItem>
           {linguisticTerms.map((value) => (
-            <MenuItem
-              key={value.shortLinguisticTerm}
-              value={value}
-              onClick={() => setSelectedOpinion(value.type)}
-            >
+            <MenuItem key={value.shortLinguisticTerm} value={value}>
               {value.shortLinguisticTerm}
             </MenuItem>
           ))}

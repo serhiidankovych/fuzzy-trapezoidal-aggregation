@@ -5,11 +5,13 @@ import ConfigurationPanel from "./components/ConfigurationPanel/ConfigurationPan
 
 import Title from "./components/Title/Title";
 import ExpertOpinions from "./components/ExpertOpinions/ExpertOpinions";
+import IntervalExpertOpinions from "./components/IntervalExpertOpinions/IntervalExpertOpinions";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const darkTheme = createTheme({
   palette: {
@@ -38,7 +40,7 @@ function App() {
       "Expert Opinion Data:",
       JSON.stringify(expertOpinions, undefined, 4)
     );
-    // console.log("Expert Opinion Data:", expertOpinions);
+    // console.log("Expert Opinion Data has Changed");
   }, [expertOpinions]);
 
   return (
@@ -61,6 +63,7 @@ function App() {
         />
         <CssBaseline />
         <Title />
+        {expertOpinions.length > 0 && <Typography>Set opinions</Typography>}
         {!expertOpinions.length > 0 && (
           <Box
             sx={{
@@ -87,6 +90,12 @@ function App() {
             operators={operators}
             setExpertOpinions={setExpertOpinions}
           />
+        )}
+        {expertOpinions.length > 0 && (
+          <>
+            <Typography>Interval opinions</Typography>
+            <IntervalExpertOpinions expertOpinions={expertOpinions} />
+          </>
         )}
       </Container>
     </ThemeProvider>
