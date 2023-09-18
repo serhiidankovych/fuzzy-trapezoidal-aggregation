@@ -6,6 +6,9 @@ import ConfigurationPanel from "./components/ConfigurationPanel/ConfigurationPan
 import Title from "./components/Title/Title";
 import ExpertOpinions from "./components/ExpertOpinions/ExpertOpinions";
 import IntervalExpertOpinions from "./components/IntervalExpertOpinions/IntervalExpertOpinions";
+import TrapezoidalExpertOpinions from "./components/TrapezoidalExpertOpinions/TrapezoidalExpertOpinions";
+import IntervalEstimates from "./components/IntervalEstimates/IntervalEstimates";
+import TrapezoidalChart from "./components/TrapezoidalChart/TrapezoidalChart";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import Button from "@mui/material/Button";
@@ -24,29 +27,38 @@ const darkTheme = createTheme({
 
 function App() {
   const [expertOpinions, setExpertOpinions] = React.useState([]);
+  const [intervalExpertOpinions, setIntervalExpertOpinions] = React.useState(
+    []
+  );
+  const [trapezoidalExpertOpinions, setTrapezoidalExpertOpinions] =
+    React.useState([]);
+  const [intervalEstimates, setIntervalEstimates] = React.useState([]);
+
   const [linguisticTerms, setLinguisticTerms] = React.useState();
   const [operators, setOperators] = React.useState();
-  const [isConfigurationPanelOpen, setIsConfigurationPanelOpen] =
-    React.useState(false);
+
   const [configuration, setConfiguration] = React.useState({
     alternatives: [],
     criteria: [],
     linguisticTerms: [],
-    alpha: null,
+    alpha: 0.5,
   });
 
+  const [isConfigurationPanelOpen, setIsConfigurationPanelOpen] =
+    React.useState(false);
+
   React.useEffect(() => {
-    console.log(
-      "Expert Opinion Data:",
-      JSON.stringify(expertOpinions, undefined, 4)
-    );
+    // console.log(
+    //   "Expert Opinion Data:",
+    //   JSON.stringify(expertOpinions, undefined, 4)
+    // );
     // console.log("Expert Opinion Data has Changed");
   }, [expertOpinions]);
 
   return (
     <ThemeProvider theme={darkTheme}>
       <Container
-        maxWidth="md"
+        maxWidth="lg"
         sx={{
           display: "flex",
           gap: "10px",
@@ -83,18 +95,40 @@ function App() {
           </Box>
         )}
         {expertOpinions.length > 0 && (
-          <ExpertOpinions
-            configuration={configuration}
-            expertOpinions={expertOpinions}
-            linguisticTerms={linguisticTerms}
-            operators={operators}
-            setExpertOpinions={setExpertOpinions}
-          />
+          <>
+            <ExpertOpinions
+              configuration={configuration}
+              expertOpinions={expertOpinions}
+              linguisticTerms={linguisticTerms}
+              operators={operators}
+              setExpertOpinions={setExpertOpinions}
+              setIntervalExpertOpinions={setIntervalExpertOpinions}
+              setTrapezoidalExpertOpinions={setTrapezoidalExpertOpinions}
+              intervalExpertOpinions={intervalExpertOpinions}
+              setIntervalEstimates={setIntervalEstimates}
+            />
+          </>
         )}
-        {expertOpinions.length > 0 && (
+        {intervalExpertOpinions.length > 0 && (
           <>
             <Typography>Interval opinions</Typography>
-            <IntervalExpertOpinions expertOpinions={expertOpinions} />
+            <IntervalExpertOpinions
+              intervalExpertOpinions={intervalExpertOpinions}
+            />
+          </>
+        )}
+        {trapezoidalExpertOpinions.length > 0 && (
+          <>
+            <Typography>Trapezoidal opinions</Typography>
+            <TrapezoidalExpertOpinions
+              trapezoidalExpertOpinions={trapezoidalExpertOpinions}
+            />
+          </>
+        )}
+        {intervalEstimates.length > 0 && (
+          <>
+            <Typography>Interval Estimates</Typography>
+            <IntervalEstimates intervalEstimates={intervalEstimates} />
           </>
         )}
       </Container>

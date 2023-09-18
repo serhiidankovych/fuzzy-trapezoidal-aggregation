@@ -7,25 +7,24 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Button,
 } from "@mui/material";
 
 import configurationData from "../../DataTemplate/configurationData";
 
-function IntervalExpertOpinions({ intervalExpertOpinions }) {
+function TrapezoidalExpertOpinions({ trapezoidalExpertOpinions }) {
   // Organize the data into a table structure
   const tableData = {};
 
   const criteriaList = ["a/c", ...configurationData.criteria];
 
-  intervalExpertOpinions?.forEach((data) => {
-    const { alternative, criteria, selectedIntervals } = data;
+  trapezoidalExpertOpinions?.forEach((data) => {
+    const { alternative, criteria, selectedTrapezoidal } = data;
 
     if (!tableData[alternative]) {
       tableData[alternative] = {};
     }
 
-    tableData[alternative][criteria] = selectedIntervals;
+    tableData[alternative][criteria] = selectedTrapezoidal;
   });
 
   return (
@@ -45,13 +44,11 @@ function IntervalExpertOpinions({ intervalExpertOpinions }) {
                 <TableCell>{alternative}</TableCell>
                 {criteriaList.slice(1).map((criteria) => (
                   <TableCell key={criteria}>
-                    {"{ "}
+                    {"["}
                     {tableData[alternative][criteria]
-                      ? tableData[alternative][criteria]
-                          .map((item, index) => item.shortLinguisticTerm)
-                          .join(", ")
+                      ? tableData[alternative][criteria].join(", ")
                       : "error"}
-                    {" }"}
+                    {"]"}
                   </TableCell>
                 ))}
               </TableRow>
@@ -62,4 +59,4 @@ function IntervalExpertOpinions({ intervalExpertOpinions }) {
     </>
   );
 }
-export default IntervalExpertOpinions;
+export default TrapezoidalExpertOpinions;

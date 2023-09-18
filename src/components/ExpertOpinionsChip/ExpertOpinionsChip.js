@@ -20,7 +20,7 @@ const MenuProps = {
 
 export default function ExpertOpinionsChip({
   label,
-  values,
+
   selectedValues,
   setExpertOpinions,
   expertOpinions,

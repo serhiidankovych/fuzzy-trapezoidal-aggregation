@@ -1,7 +1,35 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import ExpertOpinionsChip from "../ExpertOpinionsChip/ExpertOpinionsChip";
 import Pagination from "@mui/material/Pagination";
+import linguisticTermsData from "../../DataTemplate/linguisticTermsData";
+
+const getValuesBetweenTerms = (terms, data) => {
+  // Extract the start and end values from the terms array
+  const [start, end] = terms.map((term) => {
+    // Find the term data in the data array
+    const termData = data.find(
+      (item) => item.shortLinguisticTerm === term.shortLinguisticTerm
+    );
+    // Return the middle value if the term data exists, otherwise return null
+    return termData ? termData.confines.middle : null;
+  });
+  // Check if both start and end values are not null
+  if (start !== null && end !== null) {
+    // Filter the data array based on the middle value of each item
+    return data.filter(
+      (item) => item.confines.middle >= start && item.confines.middle <= end
+    );
+  } else {
+    // Return an empty array if either start or end value is null
+    return [];
+  }
+};
+
+const sortLinguisticTerm = (terms) => {
+  return terms.sort((a, b) => a.confines.middle - b.confines.middle);
+};
 
 export default function ExpertOpinions({
   configuration,
@@ -9,9 +37,154 @@ export default function ExpertOpinions({
   setExpertOpinions,
   linguisticTerms,
   operators,
+  setIntervalExpertOpinions,
+  setTrapezoidalExpertOpinions,
+  setIntervalEstimates,
 }) {
-  const { alternatives, criteria } = configuration;
+  const linguisticToIntervalExpertOpinions = () => {
+    const intervalOpinions = expertOpinions.map((data) => {
+      const { selectedValues, selectedOperators, selectedLinguisticTerms } =
+        data;
+
+      if (selectedOperators.length > 0) {
+        const symbol = selectedOperators[0]?.symbol;
+        let selectedIntervals;
+
+        if (symbol === "&") {
+          selectedIntervals = getValuesBetweenTerms(
+            selectedLinguisticTerms,
+            linguisticTermsData
+          );
+        } else if (symbol === "<") {
+          const maxLinguisticTerm =
+            linguisticTermsData[linguisticTermsData.length - 1];
+          const greaterThanLinguisticTerms = [
+            maxLinguisticTerm,
+            ...selectedLinguisticTerms,
+          ];
+          const sortedGreaterThanLinguisticTerms = sortLinguisticTerm(
+            greaterThanLinguisticTerms
+          );
+          selectedIntervals = getValuesBetweenTerms(
+            sortedGreaterThanLinguisticTerms,
+            linguisticTermsData
+          );
+        } else if (symbol === ">") {
+          const minLinguisticTerm = linguisticTermsData[0];
+          const lessThanLinguisticTerms = [
+            minLinguisticTerm,
+            ...selectedLinguisticTerms,
+          ];
+
+          selectedIntervals = getValuesBetweenTerms(
+            lessThanLinguisticTerms,
+            linguisticTermsData
+          );
+        }
+
+        return {
+          ...data,
+          selectedIntervals,
+          selectedOperators: symbol,
+        };
+      } else {
+        return {
+          ...data,
+          selectedIntervals: selectedValues,
+        };
+      }
+    });
+
+    setIntervalExpertOpinions(intervalOpinions);
+    intervalToTrapezoidalExpertOpinions(intervalOpinions);
+  };
+
+  // const intervalToTrapezoidalExpertOpinions = (intervalOpinions) => {
+  //   const trapezoidalOpinions = intervalOpinions.map((data) => {
+  //     const { selectedIntervals } = data;
+  //     let selectedTrapezoidal;
+
+  //     if (selectedIntervals.length == 1) {
+  //       selectedTrapezoidal = [
+  //         selectedIntervals[0].confines.left,
+  //         selectedIntervals[0].confines.middle,
+  //         selectedIntervals[0].confines.middle,
+  //         selectedIntervals[0].confines.right,
+  //       ];
+  //     }
+
+  //     if (selectedIntervals.length > 1) {
+  //       selectedTrapezoidal = [
+  //         selectedIntervals[0].confines.left,
+  //         selectedIntervals[0].confines.middle,
+  //         selectedIntervals[selectedIntervals.length - 1].confines.middle,
+  //         selectedIntervals[selectedIntervals.length - 1].confines.right,
+  //       ];
+  //     }
+  //     return {
+  //       ...data,
+  //       selectedTrapezoidal,
+  //     };
+  //   });
+  //   setTrapezoidalExpertOpinions(trapezoidalOpinions);
+  //   console.log(trapezoidalOpinions);
+  // };
+  // const { alternatives, criteria } = configuration;
   // const itemsPerPage = criteria.length;
+  const intervalToTrapezoidalExpertOpinions = (intervalOpinions) => {
+    const trapezoidalOpinions = intervalOpinions.map((data) => {
+      const { selectedIntervals } = data;
+      const firstInterval = selectedIntervals[0];
+      const lastInterval = selectedIntervals[selectedIntervals.length - 1];
+      const selectedTrapezoidal =
+        selectedIntervals.length === 1
+          ? [
+              firstInterval.confines.left,
+              firstInterval.confines.middle,
+              firstInterval.confines.middle,
+              firstInterval.confines.right,
+            ]
+          : [
+              firstInterval.confines.left,
+              firstInterval.confines.middle,
+              lastInterval.confines.middle,
+              lastInterval.confines.right,
+            ];
+      return {
+        ...data,
+        selectedTrapezoidal,
+      };
+    });
+    setTrapezoidalExpertOpinions(trapezoidalOpinions);
+    estimateIntervals(trapezoidalOpinions);
+  };
+
+  const estimateIntervals = (trapezoidalOpinions) => {
+    const alpha = configuration.alpha;
+    const intervalEstimates = trapezoidalOpinions.map((data) => {
+      const { selectedTrapezoidal } = data;
+
+      const leftBorderOfIntervalEstimate =
+        alpha * (selectedTrapezoidal[1] - selectedTrapezoidal[0]) +
+        selectedTrapezoidal[0];
+      const rightBorderOfIntervalEstimate =
+        selectedTrapezoidal[3] -
+        alpha * (selectedTrapezoidal[3] - selectedTrapezoidal[2]);
+
+      const selectedIntervalsEstimate = [
+        leftBorderOfIntervalEstimate,
+        rightBorderOfIntervalEstimate,
+      ];
+      console.log(selectedIntervalsEstimate);
+
+      return {
+        ...data,
+        selectedIntervalsEstimate,
+      };
+    });
+    setIntervalEstimates(intervalEstimates);
+    console.log(intervalEstimates);
+  };
   const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -60,6 +233,13 @@ export default function ExpertOpinions({
         variant="outlined"
         shape="rounded"
       />
+      <Button
+        onClick={linguisticToIntervalExpertOpinions}
+        variant="outlined"
+        sx={{ marginTop: "20px" }}
+      >
+        transform opinios
+      </Button>
     </Box>
   );
 }

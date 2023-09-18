@@ -12,20 +12,20 @@ import {
 
 import configurationData from "../../DataTemplate/configurationData";
 
-function IntervalExpertOpinions({ intervalExpertOpinions }) {
+function IntervalEstimates({ intervalEstimates }) {
   // Organize the data into a table structure
   const tableData = {};
 
   const criteriaList = ["a/c", ...configurationData.criteria];
 
-  intervalExpertOpinions?.forEach((data) => {
-    const { alternative, criteria, selectedIntervals } = data;
+  intervalEstimates?.forEach((data) => {
+    const { alternative, criteria, selectedIntervalsEstimate } = data;
 
     if (!tableData[alternative]) {
       tableData[alternative] = {};
     }
 
-    tableData[alternative][criteria] = selectedIntervals;
+    tableData[alternative][criteria] = selectedIntervalsEstimate;
   });
 
   return (
@@ -45,13 +45,11 @@ function IntervalExpertOpinions({ intervalExpertOpinions }) {
                 <TableCell>{alternative}</TableCell>
                 {criteriaList.slice(1).map((criteria) => (
                   <TableCell key={criteria}>
-                    {"{ "}
+                    {"["}
                     {tableData[alternative][criteria]
-                      ? tableData[alternative][criteria]
-                          .map((item, index) => item.shortLinguisticTerm)
-                          .join(", ")
+                      ? tableData[alternative][criteria].join(", ")
                       : "error"}
-                    {" }"}
+                    {"]"}
                   </TableCell>
                 ))}
               </TableRow>
@@ -62,4 +60,4 @@ function IntervalExpertOpinions({ intervalExpertOpinions }) {
     </>
   );
 }
-export default IntervalExpertOpinions;
+export default IntervalEstimates;
