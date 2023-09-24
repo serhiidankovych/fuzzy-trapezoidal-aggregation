@@ -98,39 +98,6 @@ export default function ExpertOpinions({
     setIntervalExpertOpinions(intervalOpinions);
     intervalToTrapezoidalExpertOpinions(intervalOpinions);
   };
-
-  // const intervalToTrapezoidalExpertOpinions = (intervalOpinions) => {
-  //   const trapezoidalOpinions = intervalOpinions.map((data) => {
-  //     const { selectedIntervals } = data;
-  //     let selectedTrapezoidal;
-
-  //     if (selectedIntervals.length == 1) {
-  //       selectedTrapezoidal = [
-  //         selectedIntervals[0].confines.left,
-  //         selectedIntervals[0].confines.middle,
-  //         selectedIntervals[0].confines.middle,
-  //         selectedIntervals[0].confines.right,
-  //       ];
-  //     }
-
-  //     if (selectedIntervals.length > 1) {
-  //       selectedTrapezoidal = [
-  //         selectedIntervals[0].confines.left,
-  //         selectedIntervals[0].confines.middle,
-  //         selectedIntervals[selectedIntervals.length - 1].confines.middle,
-  //         selectedIntervals[selectedIntervals.length - 1].confines.right,
-  //       ];
-  //     }
-  //     return {
-  //       ...data,
-  //       selectedTrapezoidal,
-  //     };
-  //   });
-  //   setTrapezoidalExpertOpinions(trapezoidalOpinions);
-  //   console.log(trapezoidalOpinions);
-  // };
-  // const { alternatives, criteria } = configuration;
-  // const itemsPerPage = criteria.length;
   const intervalToTrapezoidalExpertOpinions = (intervalOpinions) => {
     const trapezoidalOpinions = intervalOpinions.map((data) => {
       const { selectedIntervals } = data;
@@ -183,7 +150,7 @@ export default function ExpertOpinions({
       };
     });
     setIntervalEstimates(intervalEstimates);
-    console.log(intervalEstimates);
+    // console.log(JSON.stringify(intervalEstimates, undefined, 4));
   };
   const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);

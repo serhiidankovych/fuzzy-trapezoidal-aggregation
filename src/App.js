@@ -9,6 +9,7 @@ import IntervalExpertOpinions from "./components/IntervalExpertOpinions/Interval
 import TrapezoidalExpertOpinions from "./components/TrapezoidalExpertOpinions/TrapezoidalExpertOpinions";
 import IntervalEstimates from "./components/IntervalEstimates/IntervalEstimates";
 import TrapezoidalChart from "./components/TrapezoidalChart/TrapezoidalChart";
+import DecisionMaker from "./components/DecisionMaker/DecisionMaker";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import Button from "@mui/material/Button";
@@ -35,7 +36,23 @@ function App() {
   const [intervalEstimates, setIntervalEstimates] = React.useState([]);
 
   const [linguisticTerms, setLinguisticTerms] = React.useState();
-  const [operators, setOperators] = React.useState();
+  const [operators, setOperators] = React.useState([
+    {
+      symbol: "<",
+      operator: "greater than",
+      type: "operator",
+    },
+    {
+      symbol: ">",
+      operator: "less than",
+      type: "operator",
+    },
+    {
+      symbol: "&",
+      operator: "and",
+      type: "operator",
+    },
+  ]);
 
   const [configuration, setConfiguration] = React.useState({
     alternatives: [],
@@ -74,7 +91,7 @@ function App() {
           setConfiguration={setConfiguration}
         />
         <CssBaseline />
-        <Title />
+        <Title setIsConfigurationPanelOpen={setIsConfigurationPanelOpen} />
         {expertOpinions.length > 0 && <Typography>Set opinions</Typography>}
         {!expertOpinions.length > 0 && (
           <Box
@@ -130,6 +147,12 @@ function App() {
             <Typography>Interval Estimates</Typography>
             <IntervalEstimates intervalEstimates={intervalEstimates} />
           </>
+        )}
+        {intervalEstimates.length > 0 && (
+          <DecisionMaker
+            intervalEstimates={intervalEstimates}
+            configuration={configuration}
+          />
         )}
       </Container>
     </ThemeProvider>
