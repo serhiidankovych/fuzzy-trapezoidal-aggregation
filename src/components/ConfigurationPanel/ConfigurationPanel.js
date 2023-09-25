@@ -12,8 +12,10 @@ import configurationData from "../../DataTemplate/configurationData";
 import DataTemplateConfiguration from "../DataTemplateConfiguration/DataTemplateConfiguration";
 import NumberConfiguration from "../NumberConfiguration/NumberConfiguration";
 import NameConfiguration from "../NameConfiguration/NameConfiguration";
+import LinguisticTermsConfiguration from "../LinguisticTermsConfiguration/LinguisticTermsConfiguration";
 
 export default function ConfigurationPanel({
+  linguisticTerms,
   setExpertOpinions,
   setLinguisticTerms,
   setOperators,
@@ -163,9 +165,9 @@ export default function ConfigurationPanel({
     setIsConfigurationPanelOpen(open);
   };
 
-  const handleNamesChange = (nameType, index, value) => {
+  const handleNamesChange = (fieldName, index, value) => {
     const updatedNames = { ...names };
-    updatedNames[nameType][index] = value;
+    updatedNames[fieldName][index] = value;
     setNames(updatedNames);
   };
 
@@ -186,9 +188,11 @@ export default function ConfigurationPanel({
       }}
       role="presentation"
     >
-      <DataTemplateConfiguration
-        handleSetTemplateData={handleSetTemplateData}
-      />
+      {configurationMenuStep === 0 && (
+        <DataTemplateConfiguration
+          handleSetTemplateData={handleSetTemplateData}
+        />
+      )}
 
       {configurationMenuStep === 0 && (
         <NumberConfiguration
@@ -204,6 +208,15 @@ export default function ConfigurationPanel({
           shortNames={shortNames}
           showNames={showNames}
           handleNamesChange={handleNamesChange}
+          handleConfigurationMenuStepBack={handleConfigurationMenuStepBack}
+          handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
+        />
+      )}
+
+      {configurationMenuStep === 2 && (
+        <LinguisticTermsConfiguration
+          names={names}
+          linguisticTerms={linguisticTerms}
           handleConfigurationMenuStepBack={handleConfigurationMenuStepBack}
           handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
         />

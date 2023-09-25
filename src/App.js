@@ -83,6 +83,7 @@ function App() {
         }}
       >
         <ConfigurationPanel
+          linguisticTerms={linguisticTerms}
           setExpertOpinions={setExpertOpinions}
           setLinguisticTerms={setLinguisticTerms}
           setOperators={setOperators}

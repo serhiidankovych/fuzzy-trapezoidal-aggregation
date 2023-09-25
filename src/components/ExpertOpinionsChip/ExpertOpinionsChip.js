@@ -26,41 +26,33 @@ export default function ExpertOpinionsChip({
   linguisticTerms,
   operators,
 }) {
-  const [expertOpinion, setExpertOpinion] = useState(selectedValues);
-
-  useEffect(() => {
-    setExpertOpinion(selectedValues);
-  }, [selectedValues]);
-
   const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setExpertOpinion(value);
-    handleUpdateExpertOpinions(label, value);
+    const newValue = event.target.value;
+    handleUpdateExpertOpinions(label, newValue);
   };
 
-  const handleUpdateExpertOpinions = (label, value) => {
+  const handleUpdateExpertOpinions = (label, newValue) => {
     const updatedData = expertOpinions.map((item) => {
       if (item.label === label) {
-        const selectedOperators = value.filter(
-          (item) => item.type === "operator"
+        const selectedValues = newValue.filter(
+          (value) =>
+            value.type === "linguistic term" || value.type === "operator"
         );
 
         return {
           ...item,
-          selectedValues: value,
-          selectedLinguisticTerms: value.filter(
-            (item) => item.type === "linguistic term"
+          selectedValues: selectedValues,
+          selectedLinguisticTerms: selectedValues.filter(
+            (value) => value.type === "linguistic term"
           ),
-          selectedOperators: selectedOperators,
+          selectedOperators: selectedValues.filter(
+            (value) => value.type === "operator"
+          ),
         };
       }
       return item;
     });
     setExpertOpinions(updatedData);
-    console.log(updatedData);
-    console.log(value);
   };
 
   return (
@@ -71,7 +63,7 @@ export default function ExpertOpinionsChip({
           labelId={`multiple-chip-label-${label}`}
           id={`multiple-chip-${label}`}
           multiple
-          value={expertOpinion}
+          value={selectedValues}
           onChange={handleChange}
           input={
             <OutlinedInput id={`select-multiple-chip-${label}`} label={label} />
@@ -80,8 +72,8 @@ export default function ExpertOpinionsChip({
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
               {selected.map((value) => (
                 <Chip
-                  key={value.linguisticTerm || value.operator}
-                  label={value.linguisticTerm || value.operator}
+                  key={value.shortLinguisticTerm || value.operator}
+                  label={value.shortLinguisticTerm || value.operator}
                 />
               ))}
             </Box>

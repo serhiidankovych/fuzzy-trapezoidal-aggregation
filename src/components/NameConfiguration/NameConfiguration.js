@@ -9,6 +9,7 @@ import Divider from "@mui/material/Divider";
 export default function NameConfiguration({
   shortNames,
   handleConfigurationMenuStepBack,
+  handleConfigurationMenuStepNext,
   showNames,
   names,
   handleNamesChange,
@@ -96,7 +97,7 @@ export default function NameConfiguration({
             sx={{
               marginTop: "20px",
             }}
-            onClick={showNames}
+            onClick={handleConfigurationMenuStepNext}
           >
             Next step
           </Button>
