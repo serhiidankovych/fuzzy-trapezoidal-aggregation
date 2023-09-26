@@ -65,10 +65,10 @@ function App() {
     React.useState(false);
 
   React.useEffect(() => {
-    // console.log(
-    //   "Expert Opinion Data:",
-    //   JSON.stringify(expertOpinions, undefined, 4)
-    // );
+    console.log(
+      "Expert Opinion Data:",
+      JSON.stringify(expertOpinions, undefined, 4)
+    );
     // console.log("Expert Opinion Data has Changed");
   }, [expertOpinions]);
 
@@ -83,8 +83,8 @@ function App() {
         }}
       >
         <ConfigurationPanel
-          linguisticTerms={linguisticTerms}
           setExpertOpinions={setExpertOpinions}
+          linguisticTerms={linguisticTerms}
           setLinguisticTerms={setLinguisticTerms}
           setOperators={setOperators}
           setIsConfigurationPanelOpen={setIsConfigurationPanelOpen}

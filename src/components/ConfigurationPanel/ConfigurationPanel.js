@@ -141,7 +141,6 @@ export default function ConfigurationPanel({
     generateShortNames();
     // generateListicTerms();
     // generateExpertOpinions();
-
     handleConfigurationMenuStepNext();
   };
 
@@ -169,6 +168,12 @@ export default function ConfigurationPanel({
     const updatedNames = { ...names };
     updatedNames[fieldName][index] = value;
     setNames(updatedNames);
+  };
+
+  const handleLinguisticTermsChange = (fieldName, index, value) => {
+    const updatedLinguisticTerms = { ...linguisticTerms };
+    updatedLinguisticTerms[fieldName][index] = value;
+    setLinguisticTerms(updatedLinguisticTerms);
   };
 
   // TODO: generate data by names
@@ -216,7 +221,9 @@ export default function ConfigurationPanel({
       {configurationMenuStep === 2 && (
         <LinguisticTermsConfiguration
           names={names}
+          shortNames={shortNames}
           linguisticTerms={linguisticTerms}
+          handleLinguisticTermsChange={handleLinguisticTermsChange}
           handleConfigurationMenuStepBack={handleConfigurationMenuStepBack}
           handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
         />

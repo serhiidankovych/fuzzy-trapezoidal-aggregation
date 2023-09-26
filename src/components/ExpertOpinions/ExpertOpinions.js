@@ -142,7 +142,6 @@ export default function ExpertOpinions({
         leftBorderOfIntervalEstimate,
         rightBorderOfIntervalEstimate,
       ];
-      console.log(selectedIntervalsEstimate);
 
       return {
         ...data,
