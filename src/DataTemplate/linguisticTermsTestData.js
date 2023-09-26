@@ -2,31 +2,31 @@ const linguisticTermsData = [
   {
     linguisticTerm: "low",
     shortLinguisticTerm: "L",
-    confines: [0, 0, 25],
+    confines: { left: 0, middle: 0, right: 25 },
     type: "linguistic term",
   },
   {
     linguisticTerm: "low middle",
     shortLinguisticTerm: "LM",
-    confines: [0, 25, 50],
+    confines: { left: 0, middle: 25, right: 50 },
     type: "linguistic term",
   },
   {
     linguisticTerm: "middle",
     shortLinguisticTerm: "M",
-    confines: [25, 50, 75],
+    confines: { left: 25, middle: 50, right: 75 },
     type: "linguistic term",
   },
   {
     linguisticTerm: "high middle",
     shortLinguisticTerm: "HM",
-    confines: [50, 75, 100],
+    confines: { left: 50, middle: 75, right: 100 },
     type: "linguistic term",
   },
   {
     linguisticTerm: "high",
     shortLinguisticTerm: "H",
-    confines: [75, 100, 100],
+    confines: { left: 75, middle: 100, right: 100 },
     type: "linguistic term",
   },
 ];

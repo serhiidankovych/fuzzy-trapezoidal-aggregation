@@ -25,6 +25,8 @@ export default function ConfigurationPanel({
 }) {
   const [configurationMenuStep, setConfigurationMenuStep] = React.useState(0);
 
+  const [isDataTemplateSet, setIsDataTemplateSet] = React.useState(false);
+
   const handleConfigurationMenuStepNext = () => {
     setConfigurationMenuStep(configurationMenuStep + 1);
   };
@@ -77,7 +79,7 @@ export default function ConfigurationPanel({
     setOperators(operatorsData);
     setConfiguration(configurationData);
     setNumbersTemplate();
-    setNamesTemplate();
+    // setNamesTemplate();
   };
 
   const generateShortNames = () => {
@@ -103,7 +105,10 @@ export default function ConfigurationPanel({
       criteria: criteria,
       linguisticTerms: linguisticTerms,
     });
+    handleConfigurationMenuStepNext();
   };
+
+  //fix set names
 
   const generateExpertOpinions = () => {
     const generatedExpertOpinions = [];
@@ -122,27 +127,34 @@ export default function ConfigurationPanel({
 
     setExpertOpinions(generatedExpertOpinions);
   };
-  const generateListicTerms = () => {
+  const generateLinguisticTerms = () => {
     const generatedLinguisticTerms = [];
-
+    //Fixed  confines type
     for (let i = 0; i < numbers.linguisticTerms; i++) {
       generatedLinguisticTerms.push({
         linguisticTerm: `l${i + 1}`,
         shortLinguisticTerm: `l${i + 1}`,
-        confines: { left: 0, middle: 0, right: 0 },
+        confines: [0, 0, 0],
         type: "linguistic term",
       });
     }
 
     setLinguisticTerms(generatedLinguisticTerms);
-  };
-
-  const setNumbersForConfiguration = () => {
-    generateShortNames();
-    // generateListicTerms();
-    // generateExpertOpinions();
     handleConfigurationMenuStepNext();
   };
+
+  // generateListicTerms();
+
+  // const generateNames = () => {
+  //   generateShortNames();
+  //   handleConfigurationMenuStepNext();
+  // };
+  // const generateLinguisticTerms = () => {
+  //   generateLinguisticTerms();
+
+  // };
+
+  // generateExpertOpinions();
 
   const handleNumbersChange = (event) => {
     const { id, value } = event.target;
@@ -171,8 +183,18 @@ export default function ConfigurationPanel({
   };
 
   const handleLinguisticTermsChange = (fieldName, index, value) => {
-    const updatedLinguisticTerms = { ...linguisticTerms };
-    updatedLinguisticTerms[fieldName][index] = value;
+    // Create a copy of the linguisticTerms array
+    const updatedLinguisticTerms = [...linguisticTerms];
+
+    const confinesArray = value.split(",").map(Number);
+
+    // Update the confines property of the specific object
+    updatedLinguisticTerms[index] = {
+      ...updatedLinguisticTerms[index],
+      confines: confinesArray,
+    };
+
+    // Update the state with the new array
     setLinguisticTerms(updatedLinguisticTerms);
   };
 
@@ -203,7 +225,7 @@ export default function ConfigurationPanel({
         <NumberConfiguration
           numbers={numbers}
           handleNumbersChange={handleNumbersChange}
-          setNumbersForConfiguration={setNumbersForConfiguration}
+          generateShortNames={generateShortNames}
         />
       )}
 
@@ -215,6 +237,7 @@ export default function ConfigurationPanel({
           handleNamesChange={handleNamesChange}
           handleConfigurationMenuStepBack={handleConfigurationMenuStepBack}
           handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
+          generateLinguisticTerms={generateLinguisticTerms}
         />
       )}
 
@@ -226,6 +249,8 @@ export default function ConfigurationPanel({
           handleLinguisticTermsChange={handleLinguisticTermsChange}
           handleConfigurationMenuStepBack={handleConfigurationMenuStepBack}
           handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
+          generateExpertOpinions={generateExpertOpinions}
+          // generateDataFromConfigurationMenu={generateDataFromConfigurationMenu}
         />
       )}
     </Box>

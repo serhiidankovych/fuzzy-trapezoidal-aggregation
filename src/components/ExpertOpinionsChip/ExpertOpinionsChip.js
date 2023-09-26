@@ -72,8 +72,8 @@ export default function ExpertOpinionsChip({
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
               {selected.map((value) => (
                 <Chip
-                  key={value.shortLinguisticTerm || value.operator}
-                  label={value.shortLinguisticTerm || value.operator}
+                  key={value.linguisticTerm || value.operator}
+                  label={value.linguisticTerm || value.operator}
                 />
               ))}
             </Box>

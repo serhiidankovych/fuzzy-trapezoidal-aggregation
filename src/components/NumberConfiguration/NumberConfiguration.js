@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 export default function NumberConfiguration({
   numbers,
   handleTextFieldChange,
-  setNumbersForConfiguration,
+  generateShortNames,
   handleNumbersChange,
 }) {
   // Define a function to check if any of the text fields are empty
@@ -71,7 +71,7 @@ export default function NumberConfiguration({
             marginTop: "20px",
           }}
           disabled={areTextFieldsEmpty()}
-          onClick={setNumbersForConfiguration}
+          onClick={generateShortNames}
         >
           Next step
         </Button>

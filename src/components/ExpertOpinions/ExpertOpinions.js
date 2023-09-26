@@ -13,13 +13,13 @@ const getValuesBetweenTerms = (terms, data) => {
       (item) => item.shortLinguisticTerm === term.shortLinguisticTerm
     );
     // Return the middle value if the term data exists, otherwise return null
-    return termData ? termData.confines.middle : null;
+    return termData ? termData.confines[1] : null;
   });
   // Check if both start and end values are not null
   if (start !== null && end !== null) {
     // Filter the data array based on the middle value of each item
     return data.filter(
-      (item) => item.confines.middle >= start && item.confines.middle <= end
+      (item) => item.confines[1] >= start && item.confines[1] <= end
     );
   } else {
     // Return an empty array if either start or end value is null
@@ -28,7 +28,7 @@ const getValuesBetweenTerms = (terms, data) => {
 };
 
 const sortLinguisticTerm = (terms) => {
-  return terms.sort((a, b) => a.confines.middle - b.confines.middle);
+  return terms.sort((a, b) => a.confines[1] - b.confines[1]);
 };
 
 export default function ExpertOpinions({
@@ -98,24 +98,27 @@ export default function ExpertOpinions({
     setIntervalExpertOpinions(intervalOpinions);
     intervalToTrapezoidalExpertOpinions(intervalOpinions);
   };
+
+  // FIX HERE
   const intervalToTrapezoidalExpertOpinions = (intervalOpinions) => {
-    const trapezoidalOpinions = intervalOpinions.map((data) => {
+    console.log(intervalOpinions);
+    const trapezoidalOpinions = intervalOpinions?.map((data) => {
       const { selectedIntervals } = data;
       const firstInterval = selectedIntervals[0];
       const lastInterval = selectedIntervals[selectedIntervals.length - 1];
       const selectedTrapezoidal =
         selectedIntervals.length === 1
           ? [
-              firstInterval.confines.left,
-              firstInterval.confines.middle,
-              firstInterval.confines.middle,
-              firstInterval.confines.right,
+              firstInterval.normalizedConfines[0],
+              firstInterval.normalizedConfines[1],
+              firstInterval.normalizedConfines[1],
+              firstInterval.normalizedConfines[2],
             ]
           : [
-              firstInterval.confines.left,
-              firstInterval.confines.middle,
-              lastInterval.confines.middle,
-              lastInterval.confines.right,
+              firstInterval.normalizedConfines[0],
+              firstInterval.normalizedConfines[1],
+              lastInterval.normalizedConfines[1],
+              lastInterval.normalizedConfines[2],
             ];
       return {
         ...data,

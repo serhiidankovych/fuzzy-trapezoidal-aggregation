@@ -22,6 +22,8 @@ export default function LinguisticTermsConfiguration({
   handleLinguisticTermsChange,
   handleConfigurationMenuStepBack,
   handleConfigurationMenuStepNext,
+  generateDataFromConfigurationMenu,
+  generateExpertOpinions,
 }) {
   const [linguisticTermsInTriangleForm, setLinguisticTermsInTriangleForm] =
     useState([]);
@@ -43,44 +45,78 @@ export default function LinguisticTermsConfiguration({
       const { confines } = linguisticTerm;
       return {
         ...linguisticTerm,
-        data: [
-          { x: confines.left, y: 0 },
-          { x: confines.middle, y: 1 },
-          { x: confines.right, y: 0 },
+        triangularChart: [
+          { x: confines[0], y: 0 },
+          { x: confines[1], y: 1 },
+          { x: confines[2], y: 0 },
         ],
       };
     });
 
     triangularNumbers?.forEach((triangularNumber) => {
-      const { data } = triangularNumber;
-      data.forEach((point) => {
+      const { triangularChart } = triangularNumber;
+      triangularChart.forEach((point) => {
         minTriangularNumber = Math.min(minTriangularNumber, point.x);
         maxTriangularNumber = Math.max(maxTriangularNumber, point.x);
       });
     });
 
+    const normalizeValue = (
+      value,
+      minTriangularNumber,
+      maxTriangularNumber
+    ) => {
+      return (
+        (value - minTriangularNumber) /
+        (maxTriangularNumber - minTriangularNumber)
+      );
+    };
+
     const triangularNumbersNormalized = triangularNumbers?.map(
       (linguisticTerm) => {
-        const { data } = linguisticTerm;
+        const { triangularChart } = linguisticTerm;
         return {
           ...linguisticTerm,
-          normalizedData: [
+          normalizedConfines: [
+            normalizeValue(
+              triangularChart[0].x,
+              minTriangularNumber,
+              maxTriangularNumber
+            ),
+            normalizeValue(
+              triangularChart[1].x,
+              minTriangularNumber,
+              maxTriangularNumber
+            ),
+            normalizeValue(
+              triangularChart[2].x,
+              minTriangularNumber,
+              maxTriangularNumber
+            ),
+          ],
+          normalizedTriangularChart: [
             {
-              x:
-                (data[0].x - minTriangularNumber) /
-                (maxTriangularNumber - minTriangularNumber),
+              x: normalizeValue(
+                triangularChart[0].x,
+                minTriangularNumber,
+                maxTriangularNumber
+              ),
               y: 0,
             },
             {
-              x:
-                (data[1].x - minTriangularNumber) /
-                (maxTriangularNumber - minTriangularNumber),
+              x: normalizeValue(
+                triangularChart[1].x,
+                minTriangularNumber,
+                maxTriangularNumber
+              ),
               y: 1,
             },
             {
-              x:
-                (data[2].x - minTriangularNumber) /
-                (maxTriangularNumber - minTriangularNumber),
+              x: normalizeValue(
+                triangularChart[2].x,
+                minTriangularNumber,
+                maxTriangularNumber
+              ),
               y: 0,
             },
           ],
@@ -129,7 +165,7 @@ export default function LinguisticTermsConfiguration({
         key={`${nameType}-${index}`}
         variant="outlined"
         type="text"
-        value={[name.confines.left, name.confines.middle, name.confines.right]}
+        value={name.confines}
         onChange={(e) =>
           handleLinguisticTermsChange(nameType, index, e.target.value)
         }
@@ -174,7 +210,7 @@ export default function LinguisticTermsConfiguration({
                 <Scatter
                   key={index}
                   fill={contrastColors[index]}
-                  data={linguisticTerm.data}
+                  data={linguisticTerm.triangularChart}
                   line
                 />
               ))}
@@ -193,7 +229,7 @@ export default function LinguisticTermsConfiguration({
                   <Scatter
                     key={index}
                     fill={contrastColors[index]}
-                    data={linguisticTerm.normalizedData}
+                    data={linguisticTerm.normalizedTriangularChart}
                     line
                   />
                 )
@@ -217,13 +253,13 @@ export default function LinguisticTermsConfiguration({
           >
             Back
           </Button>
-          //set names to state
+          //set generated examples
           <Button
             variant="contained"
             sx={{
               marginTop: "20px",
             }}
-            onClick={handleConfigurationMenuStepNext}
+            onClick={generateExpertOpinions}
           >
             Finish
           </Button>

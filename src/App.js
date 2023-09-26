@@ -64,13 +64,13 @@ function App() {
   const [isConfigurationPanelOpen, setIsConfigurationPanelOpen] =
     React.useState(false);
 
-  React.useEffect(() => {
-    console.log(
-      "Expert Opinion Data:",
-      JSON.stringify(expertOpinions, undefined, 4)
-    );
-    // console.log("Expert Opinion Data has Changed");
-  }, [expertOpinions]);
+  // React.useEffect(() => {
+  //   console.log(
+  //     "Expert Opinion Data:",
+  //     JSON.stringify(expertOpinions, undefined, 4)
+  //   );
+  //   // console.log("Expert Opinion Data has Changed");
+  // }, [expertOpinions]);
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -82,6 +82,14 @@ function App() {
           flexDirection: "column",
         }}
       >
+        <Button
+          variant="outlined"
+          onClick={() =>
+            console.log(JSON.stringify(expertOpinions, undefined, 4))
+          }
+        >
+          expertOpinions
+        </Button>
         <ConfigurationPanel
           setExpertOpinions={setExpertOpinions}
           linguisticTerms={linguisticTerms}
