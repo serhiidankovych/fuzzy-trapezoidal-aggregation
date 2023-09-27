@@ -12,11 +12,12 @@ import {
 
 import configurationData from "../../DataTemplate/configurationData";
 
-function IntervalExpertOpinions({ intervalExpertOpinions }) {
+//FIX GETTING DATA FROM DATA TEMPLATE
+function IntervalExpertOpinions({ intervalExpertOpinions, shortNames }) {
   // Organize the data into a table structure
   const tableData = {};
 
-  const criteriaList = ["a/c", ...configurationData.criteria];
+  const criteriaList = ["a/c", ...shortNames.criteria];
 
   intervalExpertOpinions?.forEach((data) => {
     const { alternative, criteria, selectedIntervals } = data;
@@ -27,6 +28,7 @@ function IntervalExpertOpinions({ intervalExpertOpinions }) {
 
     tableData[alternative][criteria] = selectedIntervals;
   });
+  // console.log(criteriaList);
 
   return (
     <>

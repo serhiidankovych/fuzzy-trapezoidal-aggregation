@@ -14,6 +14,7 @@ export default function NameConfiguration({
   names,
   handleNamesChange,
   generateLinguisticTerms,
+  isDataTemplateSet,
 }) {
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -99,7 +100,11 @@ export default function NameConfiguration({
             sx={{
               marginTop: "20px",
             }}
-            onClick={generateLinguisticTerms}
+            onClick={
+              isDataTemplateSet
+                ? handleConfigurationMenuStepNext
+                : generateLinguisticTerms
+            }
           >
             Next step
           </Button>

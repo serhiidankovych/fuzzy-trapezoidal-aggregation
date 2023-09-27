@@ -64,6 +64,24 @@ function App() {
   const [isConfigurationPanelOpen, setIsConfigurationPanelOpen] =
     React.useState(false);
 
+  const [shortNames, setShortNames] = React.useState({
+    alternatives: [],
+    criteria: [],
+    linguisticTerms: [],
+  });
+
+  const [names, setNames] = React.useState({
+    alternatives: [],
+    criteria: [],
+    linguisticTerms: [],
+  });
+  const [numbers, setNumbers] = React.useState({
+    alternatives: "",
+    criteria: "",
+    linguisticTerms: "",
+    alpha: "",
+  });
+
   // React.useEffect(() => {
   //   console.log(
   //     "Expert Opinion Data:",
@@ -82,14 +100,14 @@ function App() {
           flexDirection: "column",
         }}
       >
-        <Button
+        {/* <Button
           variant="outlined"
           onClick={() =>
             console.log(JSON.stringify(expertOpinions, undefined, 4))
           }
         >
           expertOpinions
-        </Button>
+        </Button> */}
         <ConfigurationPanel
           setExpertOpinions={setExpertOpinions}
           linguisticTerms={linguisticTerms}
@@ -98,6 +116,12 @@ function App() {
           setIsConfigurationPanelOpen={setIsConfigurationPanelOpen}
           isConfigurationPanelOpen={isConfigurationPanelOpen}
           setConfiguration={setConfiguration}
+          setShortNames={setShortNames}
+          shortNames={shortNames}
+          names={names}
+          setNames={setNames}
+          setNumbers={setNumbers}
+          numbers={numbers}
         />
         <CssBaseline />
         <Title setIsConfigurationPanelOpen={setIsConfigurationPanelOpen} />
@@ -132,6 +156,11 @@ function App() {
               setTrapezoidalExpertOpinions={setTrapezoidalExpertOpinions}
               intervalExpertOpinions={intervalExpertOpinions}
               setIntervalEstimates={setIntervalEstimates}
+              setLinguisticTerms={setLinguisticTerms}
+              names={names}
+              setNames={setNames}
+              setNumbers={setNumbers}
+              numbers={numbers}
             />
           </>
         )}
@@ -140,6 +169,7 @@ function App() {
             <Typography>Interval opinions</Typography>
             <IntervalExpertOpinions
               intervalExpertOpinions={intervalExpertOpinions}
+              shortNames={shortNames}
             />
           </>
         )}
@@ -148,13 +178,17 @@ function App() {
             <Typography>Trapezoidal opinions</Typography>
             <TrapezoidalExpertOpinions
               trapezoidalExpertOpinions={trapezoidalExpertOpinions}
+              shortNames={shortNames}
             />
           </>
         )}
         {intervalEstimates.length > 0 && (
           <>
             <Typography>Interval Estimates</Typography>
-            <IntervalEstimates intervalEstimates={intervalEstimates} />
+            <IntervalEstimates
+              intervalEstimates={intervalEstimates}
+              shortNames={shortNames}
+            />
           </>
         )}
         {intervalEstimates.length > 0 && (

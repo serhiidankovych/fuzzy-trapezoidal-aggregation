@@ -24,6 +24,8 @@ export default function LinguisticTermsConfiguration({
   handleConfigurationMenuStepNext,
   generateDataFromConfigurationMenu,
   generateExpertOpinions,
+  isDataTemplateSet,
+  setLinguisticTerms,
 }) {
   const [linguisticTermsInTriangleForm, setLinguisticTermsInTriangleForm] =
     useState([]);
@@ -32,11 +34,17 @@ export default function LinguisticTermsConfiguration({
     linguisticTermsInTriangleFormNormalized,
     setLinguisticTermsInTriangleFormNormalized,
   ] = useState([]);
-
-  useEffect(() => {
-    transformToTriangleForm();
-  }, [linguisticTerms]);
-
+  //fix uploading
+  // useEffect(() => {
+  //   transformToTriangleForm();
+  // }, [linguisticTerms]);
+  const normalizeValue = (value, minTriangularNumber, maxTriangularNumber) => {
+    return (
+      (value - minTriangularNumber) /
+      (maxTriangularNumber - minTriangularNumber)
+    );
+  };
+  //refactor code
   const transformToTriangleForm = () => {
     let minTriangularNumber = Infinity; // Initialize with a high value
     let maxTriangularNumber = -Infinity; // Initialize with a low value
@@ -60,17 +68,6 @@ export default function LinguisticTermsConfiguration({
         maxTriangularNumber = Math.max(maxTriangularNumber, point.x);
       });
     });
-
-    const normalizeValue = (
-      value,
-      minTriangularNumber,
-      maxTriangularNumber
-    ) => {
-      return (
-        (value - minTriangularNumber) /
-        (maxTriangularNumber - minTriangularNumber)
-      );
-    };
 
     const triangularNumbersNormalized = triangularNumbers?.map(
       (linguisticTerm) => {
@@ -124,10 +121,12 @@ export default function LinguisticTermsConfiguration({
       }
     );
 
-    console.log(triangularNumbers);
-    console.log(triangularNumbersNormalized);
+    // console.log(triangularNumbers);
+
+    // console.log(triangularNumbersNormalized);
     setLinguisticTermsInTriangleForm(triangularNumbers);
     setLinguisticTermsInTriangleFormNormalized(triangularNumbersNormalized);
+    setLinguisticTerms(triangularNumbersNormalized);
   };
 
   function generateContrastColor(index, total) {
@@ -236,6 +235,15 @@ export default function LinguisticTermsConfiguration({
               )}
             </ScatterChart>
           </ResponsiveContainer>
+          <Button
+            variant="contained"
+            sx={{
+              marginTop: "20px",
+            }}
+            onClick={transformToTriangleForm}
+          >
+            transform
+          </Button>
         </Box>
         <Stack
           direction="row"
@@ -253,13 +261,18 @@ export default function LinguisticTermsConfiguration({
           >
             Back
           </Button>
-          //set generated examples
+
           <Button
             variant="contained"
             sx={{
               marginTop: "20px",
             }}
-            onClick={generateExpertOpinions}
+            onClick={
+              isDataTemplateSet
+                ? handleConfigurationMenuStepNext
+                : generateExpertOpinions &&
+                  setLinguisticTerms(linguisticTermsInTriangleFormNormalized)
+            }
           >
             Finish
           </Button>

@@ -12,11 +12,11 @@ import {
 
 import configurationData from "../../DataTemplate/configurationData";
 
-function IntervalEstimates({ intervalEstimates }) {
+function IntervalEstimates({ intervalEstimates, shortNames }) {
   // Organize the data into a table structure
   const tableData = {};
-
-  const criteriaList = ["a/c", ...configurationData.criteria];
+  //FIX GETTING DATA FROM DATA TEMPLATE
+  const criteriaList = ["a/c", ...shortNames.criteria];
 
   intervalEstimates?.forEach((data) => {
     const { alternative, criteria, selectedIntervalsEstimate } = data;

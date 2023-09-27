@@ -22,6 +22,12 @@ export default function ConfigurationPanel({
   setIsConfigurationPanelOpen,
   isConfigurationPanelOpen,
   setConfiguration,
+  setShortNames,
+  shortNames,
+  names,
+  setNames,
+  setNumbers,
+  numbers,
 }) {
   const [configurationMenuStep, setConfigurationMenuStep] = React.useState(0);
 
@@ -35,26 +41,13 @@ export default function ConfigurationPanel({
     setConfigurationMenuStep(configurationMenuStep - 1);
   };
 
-  const [numbers, setNumbers] = React.useState({
-    alternatives: "",
-    criteria: "",
-    linguisticTerms: "",
-    alpha: "",
-  });
-
   // fix set names
-  const [names, setNames] = React.useState({
-    alternatives: [],
-    criteria: [],
-    linguisticTerms: [],
-    alpha: "",
-  });
 
-  const [shortNames, setShortNames] = React.useState({
-    alternatives: [],
-    criteria: [],
-    linguisticTerms: [],
-  });
+  // const [shortNames, setShortNames] = React.useState({
+  //   alternatives: [],
+  //   criteria: [],
+  //   linguisticTerms: [],
+  // });
 
   const setNumbersTemplate = () => {
     setNumbers({
@@ -79,6 +72,8 @@ export default function ConfigurationPanel({
     setOperators(operatorsData);
     setConfiguration(configurationData);
     setNumbersTemplate();
+
+    setIsDataTemplateSet(true);
     // setNamesTemplate();
   };
 
@@ -132,8 +127,8 @@ export default function ConfigurationPanel({
     //Fixed  confines type
     for (let i = 0; i < numbers.linguisticTerms; i++) {
       generatedLinguisticTerms.push({
-        linguisticTerm: `l${i + 1}`,
-        shortLinguisticTerm: `l${i + 1}`,
+        linguisticTerm: names.linguisticTerms[i],
+        shortLinguisticTerm: names.linguisticTerms[i],
         confines: [0, 0, 0],
         type: "linguistic term",
       });
@@ -238,6 +233,7 @@ export default function ConfigurationPanel({
           handleConfigurationMenuStepBack={handleConfigurationMenuStepBack}
           handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
           generateLinguisticTerms={generateLinguisticTerms}
+          isDataTemplateSet={isDataTemplateSet}
         />
       )}
 
@@ -250,6 +246,8 @@ export default function ConfigurationPanel({
           handleConfigurationMenuStepBack={handleConfigurationMenuStepBack}
           handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
           generateExpertOpinions={generateExpertOpinions}
+          isDataTemplateSet={isDataTemplateSet}
+          setLinguisticTerms={setLinguisticTerms}
           // generateDataFromConfigurationMenu={generateDataFromConfigurationMenu}
         />
       )}

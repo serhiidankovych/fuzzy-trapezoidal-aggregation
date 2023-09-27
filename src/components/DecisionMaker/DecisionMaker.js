@@ -21,18 +21,10 @@ export default function DecisionMaker({ intervalEstimates, configuration }) {
 
   const { alternatives, criteria } = configuration;
 
-  //   alternatives.forEach((_, i) => {
-  //     console.log("+++++++++++++++++");
-  //     criteria.forEach((_, j) => {
-  //       console.log("-----------------");
-  //       console.log(intervalEstimates[0], intervalEstimates[1]);
-  //     });
-  //   });
-
   const minIntervals = {};
 
   // Iterate over each item in the intervalEstimates array
-  intervalEstimates.forEach((item) => {
+  intervalEstimates.forEach((item, index) => {
     const { alternative, selectedIntervalsEstimate } = item;
 
     // Get the minimum intervals for the current alternative, or set them to Infinity if they don't exist yet
@@ -45,6 +37,14 @@ export default function DecisionMaker({ intervalEstimates, configuration }) {
     // Update the minIntervals object with the new minimum values
     minIntervals[alternative] = [newMin0, newMin1];
   });
+  //fix this code
+  minIntervals.forEach((item, index) => {
+    console.log(
+      Math.max(1 - Math.max((1 - item[0]) / (item[1] - item[0] + 1), 0), 0)
+    );
+  });
+
+  console.log(minIntervals);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
