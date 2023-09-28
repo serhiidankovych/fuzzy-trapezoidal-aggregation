@@ -5,7 +5,10 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 
-export default function DataTemplateConfiguration({ handleSetTemplateData }) {
+export default function DataTemplateConfiguration({
+  handleSetTemplateData1,
+  handleSetTemplateData2,
+}) {
   return (
     <div>
       <Typography>Data templates:</Typography>
@@ -21,13 +24,13 @@ export default function DataTemplateConfiguration({ handleSetTemplateData }) {
           borderRadius: "8px",
         }}
       >
-        <Button variant="contained" onClick={handleSetTemplateData}>
+        <Button variant="contained" onClick={handleSetTemplateData1}>
           Set Data #1
         </Button>
-        <Button variant="contained" onClick={handleSetTemplateData}>
+        <Button variant="contained" onClick={handleSetTemplateData2}>
           Set Data #2
         </Button>
-        <Button variant="contained" onClick={handleSetTemplateData}>
+        <Button variant="contained" onClick={handleSetTemplateData1}>
           Set Data #3
         </Button>
       </Stack>

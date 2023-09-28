@@ -120,14 +120,14 @@ function App() {
           flexDirection: "column",
         }}
       >
-        {/* <Button
+        <Button
           variant="outlined"
           onClick={() =>
             console.log(JSON.stringify(expertOpinions, undefined, 4))
           }
         >
           expertOpinions
-        </Button> */}
+        </Button>
         <ConfigurationPanel
           setExpertOpinions={setExpertOpinions}
           linguisticTerms={linguisticTerms}

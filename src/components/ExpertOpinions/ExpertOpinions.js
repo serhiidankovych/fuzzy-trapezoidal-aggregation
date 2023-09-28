@@ -212,6 +212,7 @@ export default function ExpertOpinions({
           expertOpinions={expertOpinions}
           linguisticTerms={linguisticTerms}
           operators={operators}
+          linguisticTermsNormalized={linguisticTermsNormalized}
         />
       ))}
 

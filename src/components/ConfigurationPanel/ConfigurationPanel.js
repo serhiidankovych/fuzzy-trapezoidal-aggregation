@@ -13,6 +13,7 @@ import DataTemplateConfiguration from "../DataTemplateConfiguration/DataTemplate
 import NumberConfiguration from "../NumberConfiguration/NumberConfiguration";
 import NameConfiguration from "../NameConfiguration/NameConfiguration";
 import LinguisticTermsConfiguration from "../LinguisticTermsConfiguration/LinguisticTermsConfiguration";
+import expertOpinionsData2 from "../../DataTemplate/expertOptionsData2";
 
 export default function ConfigurationPanel({
   linguisticTerms,
@@ -68,8 +69,19 @@ export default function ConfigurationPanel({
     // });
   };
 
-  const handleSetTemplateData = () => {
+  const handleSetTemplateData1 = () => {
     setExpertOpinions(expertOpinionsData);
+    setLinguisticTerms(linguisticTermsData);
+    setOperators(operatorsData);
+    setConfiguration(configurationData);
+    setNumbersTemplate();
+
+    setIsDataTemplateSet(true);
+    // setNamesTemplate();
+  };
+
+  const handleSetTemplateData2 = () => {
+    setExpertOpinions(expertOpinionsData2);
     setLinguisticTerms(linguisticTermsData);
     setOperators(operatorsData);
     setConfiguration(configurationData);
@@ -214,7 +226,8 @@ export default function ConfigurationPanel({
     >
       {configurationMenuStep === 0 && (
         <DataTemplateConfiguration
-          handleSetTemplateData={handleSetTemplateData}
+          handleSetTemplateData1={handleSetTemplateData1}
+          handleSetTemplateData2={handleSetTemplateData2}
         />
       )}
 

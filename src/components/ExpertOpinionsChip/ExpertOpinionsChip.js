@@ -25,6 +25,7 @@ export default function ExpertOpinionsChip({
   expertOpinions,
   linguisticTerms,
   operators,
+  linguisticTermsNormalized,
 }) {
   const handleChange = (event) => {
     const newValue = event.target.value;
@@ -99,7 +100,7 @@ export default function ExpertOpinionsChip({
           >
             {"available linguistic terms:"}
           </MenuItem>
-          {linguisticTerms.map((value) => (
+          {linguisticTermsNormalized.map((value) => (
             <MenuItem key={value.shortLinguisticTerm} value={value}>
               {value.shortLinguisticTerm}
             </MenuItem>
