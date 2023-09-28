@@ -28,6 +28,8 @@ export default function ConfigurationPanel({
   setNames,
   setNumbers,
   numbers,
+  setLinguisticTermsNormalized,
+  handleLinguisticTermsChange,
 }) {
   const [configurationMenuStep, setConfigurationMenuStep] = React.useState(0);
 
@@ -177,21 +179,21 @@ export default function ConfigurationPanel({
     setNames(updatedNames);
   };
 
-  const handleLinguisticTermsChange = (fieldName, index, value) => {
-    // Create a copy of the linguisticTerms array
-    const updatedLinguisticTerms = [...linguisticTerms];
+  // const handleLinguisticTermsChange = (fieldName, index, value) => {
+  //   // Create a copy of the linguisticTerms array
+  //   const updatedLinguisticTerms = [...linguisticTerms];
 
-    const confinesArray = value.split(",").map(Number);
+  //   const confinesArray = value.split(",").map(Number);
 
-    // Update the confines property of the specific object
-    updatedLinguisticTerms[index] = {
-      ...updatedLinguisticTerms[index],
-      confines: confinesArray,
-    };
+  //   // Update the confines property of the specific object
+  //   updatedLinguisticTerms[index] = {
+  //     ...updatedLinguisticTerms[index],
+  //     confines: confinesArray,
+  //   };
 
-    // Update the state with the new array
-    setLinguisticTerms(updatedLinguisticTerms);
-  };
+  //   // Update the state with the new array
+  //   setLinguisticTerms(updatedLinguisticTerms);
+  // };
 
   // TODO: generate data by names
 
@@ -248,6 +250,7 @@ export default function ConfigurationPanel({
           generateExpertOpinions={generateExpertOpinions}
           isDataTemplateSet={isDataTemplateSet}
           setLinguisticTerms={setLinguisticTerms}
+          setLinguisticTermsNormalized={setLinguisticTermsNormalized}
           // generateDataFromConfigurationMenu={generateDataFromConfigurationMenu}
         />
       )}

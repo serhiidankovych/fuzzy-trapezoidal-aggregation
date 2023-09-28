@@ -31,11 +31,15 @@ function App() {
   const [intervalExpertOpinions, setIntervalExpertOpinions] = React.useState(
     []
   );
+
   const [trapezoidalExpertOpinions, setTrapezoidalExpertOpinions] =
     React.useState([]);
   const [intervalEstimates, setIntervalEstimates] = React.useState([]);
 
   const [linguisticTerms, setLinguisticTerms] = React.useState();
+  const [linguisticTermsNormalized, setLinguisticTermsNormalized] =
+    React.useState();
+
   const [operators, setOperators] = React.useState([
     {
       symbol: "<",
@@ -90,6 +94,22 @@ function App() {
   //   // console.log("Expert Opinion Data has Changed");
   // }, [expertOpinions]);
 
+  const handleLinguisticTermsChange = (fieldName, index, value) => {
+    // Create a copy of the linguisticTerms array
+    const updatedLinguisticTerms = [...linguisticTerms];
+
+    const confinesArray = value.split(",").map(Number);
+
+    // Update the confines property of the specific object
+    updatedLinguisticTerms[index] = {
+      ...updatedLinguisticTerms[index],
+      confines: confinesArray,
+    };
+
+    // Update the state with the new array
+    setLinguisticTerms(updatedLinguisticTerms);
+  };
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Container
@@ -122,6 +142,8 @@ function App() {
           setNames={setNames}
           setNumbers={setNumbers}
           numbers={numbers}
+          setLinguisticTermsNormalized={setLinguisticTermsNormalized}
+          handleLinguisticTermsChange={handleLinguisticTermsChange}
         />
         <CssBaseline />
         <Title setIsConfigurationPanelOpen={setIsConfigurationPanelOpen} />
@@ -150,6 +172,7 @@ function App() {
               configuration={configuration}
               expertOpinions={expertOpinions}
               linguisticTerms={linguisticTerms}
+              linguisticTermsNormalized={linguisticTermsNormalized}
               operators={operators}
               setExpertOpinions={setExpertOpinions}
               setIntervalExpertOpinions={setIntervalExpertOpinions}

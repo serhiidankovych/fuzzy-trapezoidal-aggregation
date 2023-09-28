@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import ExpertOpinionsChip from "../ExpertOpinionsChip/ExpertOpinionsChip";
 import Pagination from "@mui/material/Pagination";
-// import linguisticTerms from "../../DataTemplate/linguisticTerms";
+// import linguisticTermsNormalized from "../../DataTemplate/linguisticTermsNormalized";
 //FIX ADDING CONFINES WITH NORMALIZED DATA
 const getValuesBetweenTerms = (terms, data) => {
   // Extract the start and end values from the terms array
@@ -38,6 +38,7 @@ export default function ExpertOpinions({
   expertOpinions,
   setExpertOpinions,
   linguisticTerms,
+  linguisticTermsNormalized,
   operators,
   setIntervalExpertOpinions,
   setTrapezoidalExpertOpinions,
@@ -47,6 +48,7 @@ export default function ExpertOpinions({
   setNumbers,
 }) {
   const linguisticToIntervalExpertOpinions = () => {
+    console.log(linguisticTermsNormalized);
     const intervalOpinions = expertOpinions.map((data) => {
       const { selectedValues, selectedOperators, selectedLinguisticTerms } =
         data;
@@ -58,10 +60,11 @@ export default function ExpertOpinions({
         if (symbol === "&") {
           selectedIntervals = getValuesBetweenTerms(
             selectedLinguisticTerms,
-            linguisticTerms
+            linguisticTermsNormalized
           );
         } else if (symbol === "<") {
-          const maxLinguisticTerm = linguisticTerms[linguisticTerms.length - 1];
+          const maxLinguisticTerm =
+            linguisticTermsNormalized[linguisticTermsNormalized.length - 1];
           const greaterThanLinguisticTerms = [
             maxLinguisticTerm,
             ...selectedLinguisticTerms,
@@ -71,10 +74,10 @@ export default function ExpertOpinions({
           );
           selectedIntervals = getValuesBetweenTerms(
             sortedGreaterThanLinguisticTerms,
-            linguisticTerms
+            linguisticTermsNormalized
           );
         } else if (symbol === ">") {
-          const minLinguisticTerm = linguisticTerms[0];
+          const minLinguisticTerm = linguisticTermsNormalized[0];
           const lessThanLinguisticTerms = [
             minLinguisticTerm,
             ...selectedLinguisticTerms,
@@ -82,7 +85,7 @@ export default function ExpertOpinions({
 
           selectedIntervals = getValuesBetweenTerms(
             lessThanLinguisticTerms,
-            linguisticTerms
+            linguisticTermsNormalized
           );
         }
 
@@ -94,7 +97,12 @@ export default function ExpertOpinions({
       } else {
         return {
           ...data,
-          selectedIntervals: selectedValues,
+          selectedIntervals: selectedValues.map((value) => {
+            const matchingTerm = linguisticTermsNormalized.find(
+              (term) => term.shortLinguisticTerm === value.shortLinguisticTerm
+            );
+            return matchingTerm || value; // Use the matching term or the original value if not found
+          }),
         };
       }
     });
@@ -105,15 +113,18 @@ export default function ExpertOpinions({
 
   // FIX HERE
   const intervalToTrapezoidalExpertOpinions = (intervalOpinions) => {
+    //no normaliszed here
     console.log(intervalOpinions);
     const trapezoidalOpinions = intervalOpinions?.map((data) => {
       const { selectedIntervals } = data;
+
+      console.log(selectedIntervals);
       const firstInterval = selectedIntervals[0];
       const lastInterval = selectedIntervals[selectedIntervals.length - 1];
 
-      // console.log(firstInterval);
+      console.log(firstInterval);
 
-      // console.log(lastInterval);
+      console.log(lastInterval);
       const selectedTrapezoidal =
         selectedIntervals.length === 1
           ? [
