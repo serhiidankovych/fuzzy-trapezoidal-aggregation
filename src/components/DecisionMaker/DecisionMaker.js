@@ -45,8 +45,6 @@ export default function DecisionMaker({ intervalEstimates, configuration }) {
     minIntervals[alternative] = [newMin0, newMin1];
     maxIntervals[alternative] = [newMax0, newMax1];
   });
-  console.log(minIntervals);
-  console.log(maxIntervals);
 
   const pessimisticProbability = {};
   Object.entries(minIntervals).forEach(([key, item]) => {
@@ -63,9 +61,6 @@ export default function DecisionMaker({ intervalEstimates, configuration }) {
       0
     );
   });
-
-  console.log(pessimisticProbability);
-  console.log(optimisticProbability);
 
   // The goal is to find the keys with the highest values in the "pessimisticProbability" object
 
@@ -116,8 +111,6 @@ export default function DecisionMaker({ intervalEstimates, configuration }) {
   ).keys;
 
   // Print the resulting keys with the highest values
-  console.log(pessimisticPositionResults);
-  console.log(optimisticPositionResults);
 
   // Calculate the neutral position
   const neutralPosition = {};
@@ -139,8 +132,6 @@ export default function DecisionMaker({ intervalEstimates, configuration }) {
     },
     { keys: [], maxValue: Number.NEGATIVE_INFINITY }
   ).keys;
-  console.log(neutralPosition);
-  console.log(neutralPositionResults);
 
   return (
     <Box sx={{ flexGrow: 1 }}>

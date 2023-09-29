@@ -8,6 +8,7 @@ import Divider from "@mui/material/Divider";
 export default function DataTemplateConfiguration({
   handleSetTemplateData1,
   handleSetTemplateData2,
+  handleSetTemplateData3,
 }) {
   return (
     <div>
@@ -24,13 +25,13 @@ export default function DataTemplateConfiguration({
           borderRadius: "8px",
         }}
       >
-        <Button variant="contained" onClick={handleSetTemplateData1}>
+        <Button variant="contained" onClick={() => handleSetTemplateData1()}>
           Set Data #1
         </Button>
-        <Button variant="contained" onClick={handleSetTemplateData2}>
+        <Button variant="contained" onClick={() => handleSetTemplateData2()}>
           Set Data #2
         </Button>
-        <Button variant="contained" onClick={handleSetTemplateData1}>
+        <Button variant="contained" onClick={() => handleSetTemplateData3()}>
           Set Data #3
         </Button>
       </Stack>

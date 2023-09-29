@@ -46,10 +46,10 @@ export default function ExpertOpinions({
   setLinguisticTerms,
   numbers,
   setNumbers,
+  showToastMessage = { showToastMessage },
 }) {
   const linguisticToIntervalExpertOpinions = () => {
-    console.log(linguisticTermsNormalized);
-    const intervalOpinions = expertOpinions.map((data) => {
+    const intervalOpinions = expertOpinions?.map((data) => {
       const { selectedValues, selectedOperators, selectedLinguisticTerms } =
         data;
 
@@ -107,51 +107,52 @@ export default function ExpertOpinions({
       }
     });
 
-    setIntervalExpertOpinions(intervalOpinions);
-    intervalToTrapezoidalExpertOpinions(intervalOpinions);
+    const nonEmptySelectedValues = intervalOpinions.filter(
+      (data) => data.selectedValues.length > 0
+    );
+    if (nonEmptySelectedValues.length > 0) {
+      setIntervalExpertOpinions(intervalOpinions);
+      intervalToTrapezoidalExpertOpinions(intervalOpinions);
+    } else {
+      showToastMessage("Expert opinions are empty", "error");
+    }
   };
 
-  // FIX HERE
   const intervalToTrapezoidalExpertOpinions = (intervalOpinions) => {
-    //no normaliszed here
-    console.log(intervalOpinions);
     const trapezoidalOpinions = intervalOpinions?.map((data) => {
       const { selectedIntervals } = data;
-
-      console.log(selectedIntervals);
       const firstInterval = selectedIntervals[0];
       const lastInterval = selectedIntervals[selectedIntervals.length - 1];
 
-      console.log(firstInterval);
-
-      console.log(lastInterval);
-      const selectedTrapezoidal =
-        selectedIntervals.length === 1
-          ? [
-              firstInterval.normalizedConfines[0],
-              firstInterval.normalizedConfines[1],
-              firstInterval.normalizedConfines[1],
-              firstInterval.normalizedConfines[2],
-            ]
-          : [
-              firstInterval.normalizedConfines[0],
-              firstInterval.normalizedConfines[1],
-              lastInterval.normalizedConfines[1],
-              lastInterval.normalizedConfines[2],
-            ];
-      return {
-        ...data,
-        selectedTrapezoidal,
-      };
+      if (selectedIntervals.length > 0) {
+        const selectedTrapezoidal =
+          selectedIntervals.length === 1
+            ? [
+                firstInterval.normalizedConfines[0],
+                firstInterval.normalizedConfines[1],
+                firstInterval.normalizedConfines[1],
+                firstInterval.normalizedConfines[2],
+              ]
+            : [
+                firstInterval.normalizedConfines[0],
+                firstInterval.normalizedConfines[1],
+                lastInterval.normalizedConfines[1],
+                lastInterval.normalizedConfines[2],
+              ];
+        return {
+          ...data,
+          selectedTrapezoidal,
+        };
+      }
     });
+
     setTrapezoidalExpertOpinions(trapezoidalOpinions);
     estimateIntervals(trapezoidalOpinions);
   };
 
   const estimateIntervals = (trapezoidalOpinions) => {
-    console.log(trapezoidalOpinions);
     const alpha = numbers.alpha;
-    console.log(alpha);
+
     const intervalEstimates = trapezoidalOpinions.map((data) => {
       const { selectedTrapezoidal } = data;
 
@@ -173,7 +174,7 @@ export default function ExpertOpinions({
       };
     });
     setIntervalEstimates(intervalEstimates);
-    // console.log(JSON.stringify(intervalEstimates, undefined, 4));
+    //
   };
   const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
@@ -216,7 +217,6 @@ export default function ExpertOpinions({
         />
       ))}
 
-      {/* Pagination */}
       <Pagination
         count={Math.ceil(expertOpinions.length / itemsPerPage)}
         page={currentPage}

@@ -28,7 +28,7 @@ function IntervalExpertOpinions({ intervalExpertOpinions, shortNames }) {
 
     tableData[alternative][criteria] = selectedIntervals;
   });
-  // console.log(criteriaList);
+  //
 
   return (
     <>

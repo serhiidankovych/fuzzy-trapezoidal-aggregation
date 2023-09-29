@@ -6,9 +6,10 @@ import Typography from "@mui/material/Typography";
 
 export default function NumberConfiguration({
   numbers,
-  handleTextFieldChange,
   generateShortNames,
   handleNumbersChange,
+  isDataTemplateSet,
+  handleConfigurationMenuStepNext,
 }) {
   // Define a function to check if any of the text fields are empty
   const areTextFieldsEmpty = () => {
@@ -40,6 +41,7 @@ export default function NumberConfiguration({
           type="number"
           value={numbers.alternatives}
           onChange={handleNumbersChange}
+          disabled={isDataTemplateSet}
         />
         <TextField
           id="criteria"
@@ -48,6 +50,7 @@ export default function NumberConfiguration({
           type="number"
           value={numbers.criteria}
           onChange={handleNumbersChange}
+          disabled={isDataTemplateSet}
         />
         <TextField
           id="linguisticTerms"
@@ -56,6 +59,7 @@ export default function NumberConfiguration({
           type="number"
           value={numbers.linguisticTerms}
           onChange={handleNumbersChange}
+          disabled={isDataTemplateSet}
         />
         <TextField
           id="alpha"
@@ -71,7 +75,11 @@ export default function NumberConfiguration({
             marginTop: "20px",
           }}
           disabled={areTextFieldsEmpty()}
-          onClick={generateShortNames}
+          onClick={
+            isDataTemplateSet
+              ? handleConfigurationMenuStepNext
+              : generateShortNames
+          }
         >
           Next step
         </Button>

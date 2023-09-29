@@ -13,6 +13,7 @@ import DataTemplateConfiguration from "../DataTemplateConfiguration/DataTemplate
 import NumberConfiguration from "../NumberConfiguration/NumberConfiguration";
 import NameConfiguration from "../NameConfiguration/NameConfiguration";
 import LinguisticTermsConfiguration from "../LinguisticTermsConfiguration/LinguisticTermsConfiguration";
+import InfoConfiguration from "../InfoConfiguration/InfoConfiguration";
 import expertOpinionsData2 from "../../DataTemplate/expertOptionsData2";
 
 export default function ConfigurationPanel({
@@ -31,6 +32,8 @@ export default function ConfigurationPanel({
   numbers,
   setLinguisticTermsNormalized,
   handleLinguisticTermsChange,
+  setIsConfigurationFinished,
+  linguisticTermsNormalized,
 }) {
   const [configurationMenuStep, setConfigurationMenuStep] = React.useState(0);
 
@@ -44,14 +47,6 @@ export default function ConfigurationPanel({
     setConfigurationMenuStep(configurationMenuStep - 1);
   };
 
-  // fix set names
-
-  // const [shortNames, setShortNames] = React.useState({
-  //   alternatives: [],
-  //   criteria: [],
-  //   linguisticTerms: [],
-  // });
-
   const setNumbersTemplate = () => {
     setNumbers({
       alternatives: configurationData.alternatives.length,
@@ -62,33 +57,65 @@ export default function ConfigurationPanel({
   };
 
   const setNamesTemplate = () => {
-    // setNames({
-    //   alternatives: ["x1", "x2", "x3", "x4"],
-    //   criteria: ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"],
-    //   linguisticTerms: ["c1", "c2", "c3"],
-    // });
+    setShortNames({
+      alternatives: ["x1", "x2", "x3", "x4"],
+      criteria: ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"],
+      linguisticTerms: ["lt1", "lt2", "lt3", "lt4", "lt5"],
+    });
+
+    setNames({
+      alternatives: ["SkyUA", "AeroDrones", "FlyMax", "SwiftFly"],
+      criteria: [
+        "Battery Life",
+        "Flight Stability",
+        "Camera Quality",
+        "Collision Avoidance",
+        "Data Transmission",
+        "Range",
+        "Price",
+        "Customer Support",
+      ],
+      linguisticTerms: ["L", "LM", "M", "HM", "H"],
+    });
   };
 
   const handleSetTemplateData1 = () => {
     setExpertOpinions(expertOpinionsData);
     setLinguisticTerms(linguisticTermsData);
+
+    setLinguisticTermsNormalized(linguisticTermsData);
     setOperators(operatorsData);
     setConfiguration(configurationData);
     setNumbersTemplate();
 
     setIsDataTemplateSet(true);
-    // setNamesTemplate();
+    setNamesTemplate();
   };
 
   const handleSetTemplateData2 = () => {
-    setExpertOpinions(expertOpinionsData2);
     setLinguisticTerms(linguisticTermsData);
+    setLinguisticTermsNormalized(linguisticTermsData);
     setOperators(operatorsData);
     setConfiguration(configurationData);
     setNumbersTemplate();
 
     setIsDataTemplateSet(true);
-    // setNamesTemplate();
+
+    setExpertOpinions(expertOpinionsData2);
+    setNamesTemplate();
+  };
+
+  const handleSetTemplateData3 = () => {
+    setLinguisticTerms(linguisticTermsData);
+    setLinguisticTermsNormalized(linguisticTermsData);
+    setOperators(operatorsData);
+    setConfiguration(configurationData);
+    setNumbersTemplate();
+
+    setIsDataTemplateSet(true);
+
+    setExpertOpinions(expertOpinionsData2);
+    setNamesTemplate();
   };
 
   const generateShortNames = () => {
@@ -152,19 +179,6 @@ export default function ConfigurationPanel({
     handleConfigurationMenuStepNext();
   };
 
-  // generateListicTerms();
-
-  // const generateNames = () => {
-  //   generateShortNames();
-  //   handleConfigurationMenuStepNext();
-  // };
-  // const generateLinguisticTerms = () => {
-  //   generateLinguisticTerms();
-
-  // };
-
-  // generateExpertOpinions();
-
   const handleNumbersChange = (event) => {
     const { id, value } = event.target;
     const updatedNumbers = { ...numbers };
@@ -186,32 +200,12 @@ export default function ConfigurationPanel({
   };
 
   const handleNamesChange = (fieldName, index, value) => {
-    const updatedNames = { ...names };
+    const updatedNames = JSON.parse(JSON.stringify(names));
     updatedNames[fieldName][index] = value;
     setNames(updatedNames);
   };
 
-  // const handleLinguisticTermsChange = (fieldName, index, value) => {
-  //   // Create a copy of the linguisticTerms array
-  //   const updatedLinguisticTerms = [...linguisticTerms];
-
-  //   const confinesArray = value.split(",").map(Number);
-
-  //   // Update the confines property of the specific object
-  //   updatedLinguisticTerms[index] = {
-  //     ...updatedLinguisticTerms[index],
-  //     confines: confinesArray,
-  //   };
-
-  //   // Update the state with the new array
-  //   setLinguisticTerms(updatedLinguisticTerms);
-  // };
-
-  // TODO: generate data by names
-
-  const showNames = () => {
-    console.log(names);
-  };
+  const showNames = () => {};
 
   const list = () => (
     <Box
@@ -228,6 +222,7 @@ export default function ConfigurationPanel({
         <DataTemplateConfiguration
           handleSetTemplateData1={handleSetTemplateData1}
           handleSetTemplateData2={handleSetTemplateData2}
+          handleSetTemplateData3={handleSetTemplateData3}
         />
       )}
 
@@ -236,6 +231,8 @@ export default function ConfigurationPanel({
           numbers={numbers}
           handleNumbersChange={handleNumbersChange}
           generateShortNames={generateShortNames}
+          isDataTemplateSet={isDataTemplateSet}
+          handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
         />
       )}
 
@@ -264,7 +261,17 @@ export default function ConfigurationPanel({
           isDataTemplateSet={isDataTemplateSet}
           setLinguisticTerms={setLinguisticTerms}
           setLinguisticTermsNormalized={setLinguisticTermsNormalized}
+          setIsConfigurationFinished={setIsConfigurationFinished}
+
           // generateDataFromConfigurationMenu={generateDataFromConfigurationMenu}
+        />
+      )}
+      {configurationMenuStep === 3 && (
+        <InfoConfiguration
+          linguisticTermsNormalized={linguisticTermsNormalized}
+          handleConfigurationMenuStepBack={handleConfigurationMenuStepBack}
+          names={names}
+          shortNames={shortNames}
         />
       )}
     </Box>

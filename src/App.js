@@ -16,6 +16,8 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const darkTheme = createTheme({
   palette: {
@@ -27,6 +29,9 @@ const darkTheme = createTheme({
 });
 
 function App() {
+  const [isConfigurationFinished, setIsConfigurationFinished] =
+    React.useState(false);
+
   const [expertOpinions, setExpertOpinions] = React.useState([]);
   const [intervalExpertOpinions, setIntervalExpertOpinions] = React.useState(
     []
@@ -86,14 +91,6 @@ function App() {
     alpha: "",
   });
 
-  // React.useEffect(() => {
-  //   console.log(
-  //     "Expert Opinion Data:",
-  //     JSON.stringify(expertOpinions, undefined, 4)
-  //   );
-  //   // console.log("Expert Opinion Data has Changed");
-  // }, [expertOpinions]);
-
   const handleLinguisticTermsChange = (fieldName, index, value) => {
     // Create a copy of the linguisticTerms array
     const updatedLinguisticTerms = [...linguisticTerms];
@@ -110,6 +107,21 @@ function App() {
     setLinguisticTerms(updatedLinguisticTerms);
   };
 
+  const showToastMessage = (message, typeMessage) => {
+    let toastOptions = {
+      position: toast.POSITION.BOTTOM_LEFT,
+    };
+
+    if (typeMessage === "success") {
+      toast.success(message, toastOptions);
+    } else if (typeMessage === "error") {
+      toast.error(message, toastOptions);
+    } else if (typeMessage === "warning") {
+      toast.warn(message, toastOptions);
+    } else {
+      toast.info(message, toastOptions);
+    }
+  };
   return (
     <ThemeProvider theme={darkTheme}>
       <Container
@@ -120,14 +132,14 @@ function App() {
           flexDirection: "column",
         }}
       >
-        <Button
+        {/* <Button
           variant="outlined"
           onClick={() =>
-            console.log(JSON.stringify(expertOpinions, undefined, 4))
+            
           }
         >
           expertOpinions
-        </Button>
+        </Button> */}
         <ConfigurationPanel
           setExpertOpinions={setExpertOpinions}
           linguisticTerms={linguisticTerms}
@@ -144,11 +156,13 @@ function App() {
           numbers={numbers}
           setLinguisticTermsNormalized={setLinguisticTermsNormalized}
           handleLinguisticTermsChange={handleLinguisticTermsChange}
+          setIsConfigurationFinished={setIsConfigurationFinished}
+          linguisticTermsNormalized={linguisticTermsNormalized}
         />
         <CssBaseline />
         <Title setIsConfigurationPanelOpen={setIsConfigurationPanelOpen} />
-        {expertOpinions.length > 0 && <Typography>Set opinions</Typography>}
-        {!expertOpinions.length > 0 && (
+        {isConfigurationFinished && <Typography>Set opinions</Typography>}
+        {!isConfigurationFinished && (
           <Box
             sx={{
               border: "1px dotted #90caf9",
@@ -166,7 +180,7 @@ function App() {
             </Button>
           </Box>
         )}
-        {expertOpinions.length > 0 && (
+        {isConfigurationFinished && (
           <>
             <ExpertOpinions
               configuration={configuration}
@@ -184,6 +198,7 @@ function App() {
               setNames={setNames}
               setNumbers={setNumbers}
               numbers={numbers}
+              showToastMessage={showToastMessage}
             />
           </>
         )}
@@ -221,6 +236,7 @@ function App() {
           />
         )}
       </Container>
+      <ToastContainer />
     </ThemeProvider>
   );
 }

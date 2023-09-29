@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import {
   ScatterChart,
   Scatter,
@@ -27,6 +28,7 @@ export default function LinguisticTermsConfiguration({
   isDataTemplateSet,
   setLinguisticTerms,
   setLinguisticTermsNormalized,
+  setIsConfigurationFinished,
 }) {
   const [linguisticTermsInTriangleForm, setLinguisticTermsInTriangleForm] =
     useState([]);
@@ -40,10 +42,14 @@ export default function LinguisticTermsConfiguration({
     transformToTriangleForm();
   }, [linguisticTerms]);
   const normalizeValue = (value, minTriangularNumber, maxTriangularNumber) => {
-    return (
-      (value - minTriangularNumber) /
-      (maxTriangularNumber - minTriangularNumber)
-    );
+    if (value === 0 && minTriangularNumber === 0 && maxTriangularNumber === 0) {
+      return 0;
+    } else {
+      return (
+        (value - minTriangularNumber) /
+        (maxTriangularNumber - minTriangularNumber)
+      );
+    }
   };
   //refactor code
   const transformToTriangleForm = () => {
@@ -122,9 +128,9 @@ export default function LinguisticTermsConfiguration({
       }
     );
 
-    // console.log(triangularNumbers);
+    //
 
-    // console.log(triangularNumbersNormalized);
+    //
     setLinguisticTermsInTriangleForm(triangularNumbers);
     setLinguisticTermsInTriangleFormNormalized(triangularNumbersNormalized);
     setLinguisticTermsNormalized(triangularNumbersNormalized);
@@ -157,11 +163,22 @@ export default function LinguisticTermsConfiguration({
     generateContrastColor(index, numberOfSets)
   );
 
+  const finishConfiguration = () => {
+    if (isDataTemplateSet) {
+      handleConfigurationMenuStepNext();
+      setIsConfigurationFinished(true);
+    } else {
+      generateExpertOpinions();
+      handleConfigurationMenuStepNext();
+      setIsConfigurationFinished(true);
+    }
+  };
+
   const renderInputs = (nameArray, nameType, shortName) => {
     return nameArray?.map((name, index) => (
       <TextField
         id={`${nameType}${index + 1}`}
-        label={`${name.linguisticTerm}`}
+        label={`${name.shortLinguisticTerm}`}
         key={`${nameType}-${index}`}
         variant="outlined"
         type="text"
@@ -175,6 +192,7 @@ export default function LinguisticTermsConfiguration({
 
   return (
     <>
+      <Typography>Set confines:</Typography>
       <Box
         component="span"
         sx={{
@@ -187,6 +205,7 @@ export default function LinguisticTermsConfiguration({
         }}
       >
         {renderInputs(linguisticTerms, "linguisticTerms", "lt")}
+        <Typography>Linguistic Terms:</Typography>
         <Box
           component="span"
           sx={{
@@ -216,6 +235,19 @@ export default function LinguisticTermsConfiguration({
               ))}
             </ScatterChart>
           </ResponsiveContainer>
+        </Box>
+        <Typography>~Linguistic Terms:</Typography>
+        <Box
+          component="span"
+          sx={{
+            p: 2,
+            border: "1px dashed grey",
+            borderRadius: "8px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "3px",
+          }}
+        >
           <ResponsiveContainer width="80%" height={150}>
             <ScatterChart>
               <CartesianGrid />
@@ -242,7 +274,7 @@ export default function LinguisticTermsConfiguration({
           justifyContent="space-between"
           alignItems="center"
           spacing={2}
-          divider={<Divider orientation="vertical" flexItem />}
+          sx={{ marginTop: "10px" }}
         >
           <Button
             variant="contained"
@@ -259,11 +291,7 @@ export default function LinguisticTermsConfiguration({
             sx={{
               marginTop: "20px",
             }}
-            onClick={
-              isDataTemplateSet
-                ? handleConfigurationMenuStepNext
-                : generateExpertOpinions
-            }
+            onClick={finishConfiguration}
           >
             Finish
           </Button>

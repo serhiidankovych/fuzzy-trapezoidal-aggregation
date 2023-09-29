@@ -6,16 +6,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -28,8 +30,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
       {
@@ -39,22 +42,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "high",
-        shortLinguisticTerm: "high",
+        shortLinguisticTerm: "H",
         confines: [75, 100, 100],
+        normalizedConfines: [0.75, 1, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
       {
         linguisticTerm: "high",
-        shortLinguisticTerm: "high",
+        shortLinguisticTerm: "H",
         confines: [75, 100, 100],
+        normalizedConfines: [0.75, 1, 1],
         type: "linguistic term",
       },
     ],
@@ -73,16 +79,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -95,16 +103,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -117,8 +127,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
@@ -128,22 +139,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -167,16 +181,18 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -195,16 +211,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -217,8 +235,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
@@ -228,22 +247,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -262,16 +284,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -283,9 +307,10 @@ const expertOpinionsData2 = [
     criteria: "c2",
     selectedValues: [
       {
-        linguisticTerm: "low",
-        shortLinguisticTerm: "low",
-        confines: [0, 0, 25],
+        linguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
+        confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
@@ -295,22 +320,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
-        linguisticTerm: "low",
-        shortLinguisticTerm: "low",
-        confines: [0, 0, 25],
+        linguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
+        confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -329,16 +357,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
@@ -351,16 +381,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -373,8 +405,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
@@ -384,22 +417,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -418,8 +454,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
@@ -429,22 +466,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -463,16 +503,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -485,8 +527,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
@@ -496,22 +539,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -530,16 +576,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -552,8 +600,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
@@ -563,22 +612,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -597,16 +649,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -619,16 +673,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -641,8 +697,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
@@ -652,22 +709,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -686,16 +746,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "high middle",
-        shortLinguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -708,16 +770,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -730,8 +794,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
@@ -740,23 +805,26 @@ const expertOpinionsData2 = [
         type: "operator",
       },
       {
-        linguisticTerm: "high",
-        shortLinguisticTerm: "high",
-        confines: [75, 100, 100],
+        linguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
+        confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
       {
-        linguisticTerm: "high",
-        shortLinguisticTerm: "high",
-        confines: [75, 100, 100],
+        linguisticTerm: "high middle",
+        shortLinguisticTerm: "HM",
+        confines: [50, 75, 100],
+        normalizedConfines: [0.5, 0.75, 1],
         type: "linguistic term",
       },
     ],
@@ -775,8 +843,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
@@ -786,22 +855,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -820,16 +892,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
@@ -847,16 +921,18 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
@@ -875,16 +951,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
@@ -897,8 +975,9 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
@@ -908,22 +987,25 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -942,16 +1024,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "low middle",
-        shortLinguisticTerm: "low middle",
+        shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
+        normalizedConfines: [0, 0.25, 0.5],
         type: "linguistic term",
       },
     ],
@@ -969,16 +1053,18 @@ const expertOpinionsData2 = [
       },
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
@@ -997,16 +1083,18 @@ const expertOpinionsData2 = [
     selectedValues: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
       {
         linguisticTerm: "middle",
-        shortLinguisticTerm: "middle",
+        shortLinguisticTerm: "M",
         confines: [25, 50, 75],
+        normalizedConfines: [0.25, 0.5, 0.75],
         type: "linguistic term",
       },
     ],

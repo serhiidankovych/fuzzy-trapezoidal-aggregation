@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
+import { GoChevronRight, GoChevronLeft } from "react-icons/go";
 
 export default function NameConfiguration({
   shortNames,
@@ -17,6 +18,7 @@ export default function NameConfiguration({
   isDataTemplateSet,
 }) {
   const [currentStep, setCurrentStep] = useState(0);
+  const steps = ["Alternatives", "Criteria", "Linguistic terms"];
 
   const handleStepChange = (step) => {
     if (step >= 0 && step <= 2) {
@@ -28,19 +30,20 @@ export default function NameConfiguration({
     return nameArray.map((name, index) => (
       <TextField
         id={`${nameType}${index + 1}`}
-        label={`${shortName}${index + 1}`}
+        label={`${name}${index + 1}`}
         key={`${nameType}-${index}`} // Use an index-based key
         variant="outlined"
         type="text"
         value={names[nameType][index]}
         onChange={(e) => handleNamesChange(nameType, index, e.target.value)}
+        disabled={isDataTemplateSet}
       />
     ));
   };
 
   return (
     <div>
-      <Typography>Name:</Typography>
+      <Typography>Set names:</Typography>
       <Box
         component="span"
         sx={{
@@ -52,38 +55,54 @@ export default function NameConfiguration({
           gap: "3px",
         }}
       >
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={2}
+          sx={{ marginBottom: "10px" }}
+        >
+          <Button
+            onClick={() => handleStepChange(currentStep - 1)}
+            disabled={currentStep === 0}
+            variant="outlined"
+          >
+            <GoChevronLeft />
+          </Button>
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              style={{
+                fontSize: "12px",
+                fontWeight: index === currentStep ? "bold" : "normal",
+                textDecoration: index === currentStep && "underline",
+                color: index === currentStep && "#90caf9",
+              }}
+            >
+              {step}
+            </div>
+          ))}
+          <Button
+            onClick={() => handleStepChange(currentStep + 1)}
+            disabled={currentStep === 2}
+            variant="outlined"
+          >
+            <GoChevronRight />
+          </Button>
+        </Stack>
         {currentStep === 0 &&
           renderInputs(shortNames.alternatives, "alternatives", "x")}
         {currentStep === 1 &&
           renderInputs(shortNames.criteria, "criteria", "c")}
         {currentStep === 2 &&
           renderInputs(shortNames.linguisticTerms, "linguisticTerms", "lt")}
-
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          spacing={2}
-        >
-          <Button
-            onClick={() => handleStepChange(currentStep - 1)}
-            disabled={currentStep === 0}
-          >
-            ⬅️
-          </Button>
-          <Button
-            onClick={() => handleStepChange(currentStep + 1)}
-            disabled={currentStep === 2}
-          >
-            ➡️
-          </Button>
-        </Stack>
         <Stack
           direction="row"
           justifyContent="space-between"
           alignItems="center"
           spacing={2}
           divider={<Divider orientation="vertical" flexItem />}
+          sx={{ marginTop: "10px" }}
         >
           <Button
             variant="contained"
