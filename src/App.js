@@ -158,6 +158,7 @@ function App() {
           handleLinguisticTermsChange={handleLinguisticTermsChange}
           setIsConfigurationFinished={setIsConfigurationFinished}
           linguisticTermsNormalized={linguisticTermsNormalized}
+          showToastMessage={showToastMessage}
         />
         <CssBaseline />
         <Title setIsConfigurationPanelOpen={setIsConfigurationPanelOpen} />

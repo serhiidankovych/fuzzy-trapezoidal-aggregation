@@ -10,6 +10,7 @@ export default function NumberConfiguration({
   handleNumbersChange,
   isDataTemplateSet,
   handleConfigurationMenuStepNext,
+  showToastMessage,
 }) {
   // Define a function to check if any of the text fields are empty
   const areTextFieldsEmpty = () => {
@@ -19,6 +20,27 @@ export default function NumberConfiguration({
       }
     }
     return false; // All fields are filled
+  };
+
+  const checkNumbersAndSet = () => {
+    if (
+      numbers.alternatives >= 2 &&
+      numbers.alternatives <= 10 &&
+      numbers.criteria >= 2 &&
+      numbers.criteria <= 10 &&
+      numbers.linguisticTerms >= 3 &&
+      numbers.linguisticTerms <= 7 &&
+      numbers.alpha >= 0 &&
+      numbers.alpha <= 1
+    ) {
+      if (isDataTemplateSet) {
+        handleConfigurationMenuStepNext();
+      } else {
+        generateShortNames();
+      }
+    } else {
+      showToastMessage("Please enter valid numbers", "error");
+    }
   };
   return (
     <>
@@ -75,11 +97,7 @@ export default function NumberConfiguration({
             marginTop: "20px",
           }}
           disabled={areTextFieldsEmpty()}
-          onClick={
-            isDataTemplateSet
-              ? handleConfigurationMenuStepNext
-              : generateShortNames
-          }
+          onClick={checkNumbersAndSet}
         >
           Next step
         </Button>

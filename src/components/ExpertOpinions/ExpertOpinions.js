@@ -107,14 +107,24 @@ export default function ExpertOpinions({
       }
     });
 
-    const nonEmptySelectedValues = intervalOpinions.filter(
-      (data) => data.selectedValues.length > 0
+    const nonEmptySelectedValues = intervalOpinions.every(
+      (data) => data.selectedValues.length !== 0
     );
-    if (nonEmptySelectedValues.length > 0) {
-      setIntervalExpertOpinions(intervalOpinions);
-      intervalToTrapezoidalExpertOpinions(intervalOpinions);
+
+    const selectedValuesEndsOnOperator = intervalOpinions.every(
+      (data) =>
+        data.selectedValues[data.selectedValues.length - 1]?.type !== "operator"
+    );
+
+    if (nonEmptySelectedValues) {
+      if (selectedValuesEndsOnOperator) {
+        setIntervalExpertOpinions(intervalOpinions);
+        intervalToTrapezoidalExpertOpinions(intervalOpinions);
+      } else {
+        showToastMessage("Expert opinions are ended by an operator", "error");
+      }
     } else {
-      showToastMessage("Expert opinions are empty", "error");
+      showToastMessage("Expert opinions are not full", "error");
     }
   };
 
@@ -209,6 +219,7 @@ export default function ExpertOpinions({
           label={data.label}
           values={data.values}
           selectedValues={data.selectedValues}
+          selectedLinguisticTerms={data.selectedLinguisticTerms}
           setExpertOpinions={setExpertOpinions}
           expertOpinions={expertOpinions}
           linguisticTerms={linguisticTerms}

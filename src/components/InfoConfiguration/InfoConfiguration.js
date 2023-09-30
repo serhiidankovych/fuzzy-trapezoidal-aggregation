@@ -22,7 +22,6 @@ export default function InfoConfiguration({
   names,
   shortNames,
 }) {
-  console.log(shortNames);
   return (
     <>
       <Typography>Info:</Typography>
@@ -81,7 +80,7 @@ export default function InfoConfiguration({
           }}
         >
           {shortNames?.alternatives.map((alternative, index) => (
-            <Typography>
+            <Typography key={index}>
               {alternative} - {names.alternatives[index]}
             </Typography>
           ))}
@@ -98,7 +97,7 @@ export default function InfoConfiguration({
           }}
         >
           {shortNames?.criteria.map((criteria, index) => (
-            <Typography>
+            <Typography key={index}>
               {criteria} - {names.criteria[index]}
             </Typography>
           ))}
@@ -115,12 +114,12 @@ export default function InfoConfiguration({
           }}
         >
           {shortNames?.linguisticTerms.map((linguisticTerm, index) => (
-            <Typography>
+            <Typography key={index}>
               {linguisticTerm} - {names.linguisticTerms[index]}
             </Typography>
           ))}
         </Box>
-        {/* <Button
+        <Button
           variant="contained"
           sx={{
             marginTop: "20px",
@@ -128,7 +127,7 @@ export default function InfoConfiguration({
           onClick={handleConfigurationMenuStepBack}
         >
           Back
-        </Button> */}
+        </Button>
       </Box>
     </>
   );

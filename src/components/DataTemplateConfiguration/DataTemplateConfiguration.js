@@ -28,10 +28,18 @@ export default function DataTemplateConfiguration({
         <Button variant="contained" onClick={() => handleSetTemplateData1()}>
           Set Data #1
         </Button>
-        <Button variant="contained" onClick={() => handleSetTemplateData2()}>
+        <Button
+          variant="contained"
+          onClick={() => handleSetTemplateData2()}
+          disabled={true}
+        >
           Set Data #2
         </Button>
-        <Button variant="contained" onClick={() => handleSetTemplateData3()}>
+        <Button
+          variant="contained"
+          onClick={() => handleSetTemplateData3()}
+          disabled={true}
+        >
           Set Data #3
         </Button>
       </Stack>

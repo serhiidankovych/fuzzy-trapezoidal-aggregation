@@ -16,6 +16,7 @@ export default function NameConfiguration({
   handleNamesChange,
   generateLinguisticTerms,
   isDataTemplateSet,
+  showToastMessage,
 }) {
   const [currentStep, setCurrentStep] = useState(0);
   const steps = ["Alternatives", "Criteria", "Linguistic terms"];
@@ -39,6 +40,58 @@ export default function NameConfiguration({
         disabled={isDataTemplateSet}
       />
     ));
+  };
+
+  const checkNamesAndSet = () => {
+    let isValid = true; // Assume all inputs are valid initially
+
+    names.alternatives.forEach((alternative) => {
+      if (alternative === "") {
+        showToastMessage("Please enter a name", "error");
+        isValid = false; // Invalid input found, set isValid to false
+        return;
+      }
+      if (alternative.length > 20) {
+        showToastMessage("Please enter a shorter name", "error");
+        isValid = false; // Invalid input found, set isValid to false
+        return;
+      }
+    });
+
+    names.criteria.forEach((criteria) => {
+      if (criteria === "") {
+        showToastMessage("Please enter a name", "error");
+        isValid = false; // Invalid input found, set isValid to false
+        return;
+      }
+      if (criteria.length > 20) {
+        showToastMessage("Please enter a shorter name", "error");
+        isValid = false; // Invalid input found, set isValid to false
+        return;
+      }
+    });
+
+    names.linguisticTerms.forEach((linguisticTerm) => {
+      if (linguisticTerm === "") {
+        showToastMessage("Please enter a name", "error");
+        isValid = false; // Invalid input found, set isValid to false
+        return;
+      }
+      if (linguisticTerm.length > 20) {
+        showToastMessage("Please enter a shorter name", "error");
+        isValid = false; // Invalid input found, set isValid to false
+        return;
+      }
+    });
+
+    if (isValid) {
+      // If all inputs are valid
+      if (isDataTemplateSet) {
+        handleConfigurationMenuStepNext();
+      } else {
+        generateLinguisticTerms();
+      }
+    }
   };
 
   return (
@@ -119,11 +172,7 @@ export default function NameConfiguration({
             sx={{
               marginTop: "20px",
             }}
-            onClick={
-              isDataTemplateSet
-                ? handleConfigurationMenuStepNext
-                : generateLinguisticTerms
-            }
+            onClick={checkNamesAndSet}
           >
             Next step
           </Button>

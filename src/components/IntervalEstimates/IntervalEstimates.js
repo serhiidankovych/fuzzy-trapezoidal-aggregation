@@ -47,7 +47,9 @@ function IntervalEstimates({ intervalEstimates, shortNames }) {
                   <TableCell key={criteria}>
                     {"["}
                     {tableData[alternative][criteria]
-                      ? tableData[alternative][criteria].join(", ")
+                      ? tableData[alternative][criteria]
+                          .map((item) => item.toFixed(2))
+                          .join(", ")
                       : "error"}
                     {"]"}
                   </TableCell>

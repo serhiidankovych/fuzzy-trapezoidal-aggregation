@@ -34,6 +34,7 @@ export default function ConfigurationPanel({
   handleLinguisticTermsChange,
   setIsConfigurationFinished,
   linguisticTermsNormalized,
+  showToastMessage,
 }) {
   const [configurationMenuStep, setConfigurationMenuStep] = React.useState(0);
 
@@ -181,10 +182,9 @@ export default function ConfigurationPanel({
 
   const handleNumbersChange = (event) => {
     const { id, value } = event.target;
+
     const updatedNumbers = { ...numbers };
-
     updatedNumbers[id] = value;
-
     setNumbers(updatedNumbers);
   };
 
@@ -233,6 +233,7 @@ export default function ConfigurationPanel({
           generateShortNames={generateShortNames}
           isDataTemplateSet={isDataTemplateSet}
           handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
+          showToastMessage={showToastMessage}
         />
       )}
 
@@ -246,6 +247,7 @@ export default function ConfigurationPanel({
           handleConfigurationMenuStepNext={handleConfigurationMenuStepNext}
           generateLinguisticTerms={generateLinguisticTerms}
           isDataTemplateSet={isDataTemplateSet}
+          showToastMessage={showToastMessage}
         />
       )}
 
