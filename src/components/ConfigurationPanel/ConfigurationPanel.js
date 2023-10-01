@@ -63,7 +63,7 @@ export default function ConfigurationPanel({
       criteria: ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"],
       linguisticTerms: ["lt1", "lt2", "lt3", "lt4", "lt5"],
     });
-
+    //just template data
     setNames({
       alternatives: ["SkyUA", "AeroDrones", "FlyMax", "SwiftFly"],
       criteria: [
@@ -264,8 +264,7 @@ export default function ConfigurationPanel({
           setLinguisticTerms={setLinguisticTerms}
           setLinguisticTermsNormalized={setLinguisticTermsNormalized}
           setIsConfigurationFinished={setIsConfigurationFinished}
-
-          // generateDataFromConfigurationMenu={generateDataFromConfigurationMenu}
+          showToastMessage={showToastMessage}
         />
       )}
       {configurationMenuStep === 3 && (

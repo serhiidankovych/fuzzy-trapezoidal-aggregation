@@ -19,7 +19,7 @@ export default function NameConfiguration({
   showToastMessage,
 }) {
   const [currentStep, setCurrentStep] = useState(0);
-  const steps = ["Alternatives", "Criteria", "Linguistic terms"];
+  const steps = ["alternatives", "criteria", "linguistic terms"];
 
   const handleStepChange = (step) => {
     if (step >= 0 && step <= 2) {
@@ -31,7 +31,7 @@ export default function NameConfiguration({
     return nameArray.map((name, index) => (
       <TextField
         id={`${nameType}${index + 1}`}
-        label={`${name}${index + 1}`}
+        label={`${name}`}
         key={`${nameType}-${index}`} // Use an index-based key
         variant="outlined"
         type="text"
@@ -154,7 +154,6 @@ export default function NameConfiguration({
           justifyContent="space-between"
           alignItems="center"
           spacing={2}
-          divider={<Divider orientation="vertical" flexItem />}
           sx={{ marginTop: "10px" }}
         >
           <Button

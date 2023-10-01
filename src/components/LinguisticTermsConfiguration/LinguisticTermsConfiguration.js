@@ -29,6 +29,7 @@ export default function LinguisticTermsConfiguration({
   setLinguisticTerms,
   setLinguisticTermsNormalized,
   setIsConfigurationFinished,
+  showToastMessage,
 }) {
   const [linguisticTermsInTriangleForm, setLinguisticTermsInTriangleForm] =
     useState([]);
@@ -164,13 +165,29 @@ export default function LinguisticTermsConfiguration({
   );
 
   const finishConfiguration = () => {
-    if (isDataTemplateSet) {
-      handleConfigurationMenuStepNext();
-      setIsConfigurationFinished(true);
-    } else {
-      generateExpertOpinions();
-      handleConfigurationMenuStepNext();
-      setIsConfigurationFinished(true);
+    let isValid = true; // Assume all inputs are valid initially
+
+    linguisticTerms?.forEach((linguisticTerm) => {
+      if (linguisticTerm?.confines.length !== 3) {
+        showToastMessage(
+          "Wrong confines for " + linguisticTerm.shortLinguisticTerm,
+          "error"
+        );
+        isValid = false;
+        return;
+      }
+    });
+    console.log(linguisticTerms);
+
+    if (isValid) {
+      if (isDataTemplateSet) {
+        handleConfigurationMenuStepNext();
+        setIsConfigurationFinished(true);
+      } else {
+        generateExpertOpinions();
+        handleConfigurationMenuStepNext();
+        setIsConfigurationFinished(true);
+      }
     }
   };
 
@@ -182,7 +199,7 @@ export default function LinguisticTermsConfiguration({
         key={`${nameType}-${index}`}
         variant="outlined"
         type="text"
-        value={name.confines}
+        value={name.confines.join(",")}
         onChange={(e) =>
           handleLinguisticTermsChange(nameType, index, e.target.value)
         }

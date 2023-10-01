@@ -91,19 +91,34 @@ function App() {
     alpha: "",
   });
 
-  const handleLinguisticTermsChange = (fieldName, index, value) => {
-    // Create a copy of the linguisticTerms array
-    const updatedLinguisticTerms = [...linguisticTerms];
+  // const handleLinguisticTermsChange = (fieldName, index, value) => {
+  //   // Create a copy of the linguisticTerms array
+  //   const updatedLinguisticTerms = [...linguisticTerms];
 
+  //   const confinesArray = value.split(",").map(Number);
+
+  //   // Update the confines property of the specific object
+  //   updatedLinguisticTerms[index] = {
+  //     ...updatedLinguisticTerms[index],
+  //     confines: confinesArray,
+  //   };
+
+  //   // Update the state with the new array
+  //   setLinguisticTerms(updatedLinguisticTerms);
+  // };
+  const handleLinguisticTermsChange = (fieldName, index, value) => {
     const confinesArray = value.split(",").map(Number);
 
-    // Update the confines property of the specific object
+    // Validate input: check if all elements are numbers and not empty
+    const isValidInput = confinesArray.every((num) => !isNaN(num));
+
+    const updatedLinguisticTerms = [...linguisticTerms];
     updatedLinguisticTerms[index] = {
       ...updatedLinguisticTerms[index],
-      confines: confinesArray,
+      confines: isValidInput ? confinesArray : [], // Update only if input is valid
+      error: !isValidInput, // Set error state for the input
     };
 
-    // Update the state with the new array
     setLinguisticTerms(updatedLinguisticTerms);
   };
 
