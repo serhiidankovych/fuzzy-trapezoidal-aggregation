@@ -1,7 +1,10 @@
 import React from "react";
 import { Typography } from "@mui/material";
 
-export default function OptimisticPosition({ optimisticPositionResults }) {
+export default function OptimisticPosition({
+  optimisticPositionResults,
+  optimisticProbability,
+}) {
   return (
     <>
       {optimisticPositionResults.map((result, index) => (
@@ -10,6 +13,9 @@ export default function OptimisticPosition({ optimisticPositionResults }) {
             .map(([key, value]) => `${key}: ${value.toFixed(3)}`)
             .join(", ")}`}
         </Typography>
+      ))}
+      {Object.entries(optimisticProbability).map(([key, value]) => (
+        <div key={key}>{`${key}: ${value.toFixed(3)}`}</div>
       ))}
     </>
   );
