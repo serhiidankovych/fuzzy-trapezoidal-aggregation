@@ -2,10 +2,10 @@ import React from "react";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 
-export default function AdvancedPessimisticProbability({
-  minIntervals,
-  pessimisticProbability,
-  pessimisticProbabilityRanked,
+export default function AdvancedOptimisticPosition({
+  maxIntervals,
+  optimisticProbability,
+  optimisticProbabilityRanked,
 }) {
   return (
     <>
@@ -31,10 +31,12 @@ export default function AdvancedPessimisticProbability({
             display: "flex",
             flexDirection: "column",
             gap: "3px",
+            fontSize: "12px",
+            color: "#fff",
           }}
         >
-          {Object.entries(minIntervals).map(([key, item]) => (
-            <div key={key}>{`Imin(${key})=[${item[0].toFixed(
+          {Object.entries(maxIntervals).map(([key, item]) => (
+            <div key={key}>{`Imax(${key})=[${item[0].toFixed(
               2
             )},${item[1].toFixed(2)}]`}</div>
           ))}
@@ -49,15 +51,17 @@ export default function AdvancedPessimisticProbability({
             display: "flex",
             flexDirection: "column",
             gap: "3px",
+            fontSize: "12px",
+            color: "#fff",
           }}
         >
-          {Object.entries(minIntervals).map(([key, item]) => (
+          {Object.entries(maxIntervals).map(([key, item]) => (
             <div key={key}>
-              {`p(Imin(${key}))=max(1-max(1-${item[0].toFixed(
+              {`p(Imax(${key}))=max(1-max(1-${item[0].toFixed(
                 2
               )}/${item[1].toFixed(2)}-${item[0].toFixed(
                 2
-              )}+1,0),0) = ${pessimisticProbability[key].toFixed(2)}`}
+              )}+1,0),0) = ${optimisticProbability[key].toFixed(2)}`}
             </div>
           ))}
         </Box>
@@ -71,9 +75,15 @@ export default function AdvancedPessimisticProbability({
             display: "flex",
             flexDirection: "column",
             gap: "3px",
+            fontSize: "12px",
+            color: "#fff",
           }}
         >
-          {pessimisticProbabilityRanked.map((rank) => rank[0]).join(", ")}
+          {optimisticProbabilityRanked
+            .map((rank) => {
+              return `${rank[0]} ${rank[2] && `${rank[2]}`}`;
+            })
+            .join(" ")}
         </Box>
       </Box>
     </>

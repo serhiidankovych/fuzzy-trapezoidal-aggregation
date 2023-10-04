@@ -177,7 +177,6 @@ export default function LinguisticTermsConfiguration({
         return;
       }
     });
-    console.log(linguisticTerms);
 
     if (isValid) {
       if (isDataTemplateSet) {

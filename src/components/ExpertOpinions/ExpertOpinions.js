@@ -156,8 +156,8 @@ export default function ExpertOpinions({
       }
     });
 
-    setTrapezoidalExpertOpinions(trapezoidalOpinions);
     estimateIntervals(trapezoidalOpinions);
+    setTrapezoidalExpertOpinions(trapezoidalOpinions);
   };
 
   const estimateIntervals = (trapezoidalOpinions) => {
@@ -183,9 +183,10 @@ export default function ExpertOpinions({
         selectedIntervalsEstimate,
       };
     });
+
     setIntervalEstimates(intervalEstimates);
-    //
   };
+
   const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
 

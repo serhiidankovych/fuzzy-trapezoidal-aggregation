@@ -1,7 +1,9 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { IconButton } from "@mui/material";
 
+import { GoSidebarExpand } from "react-icons/go";
 export default function Title({ setIsConfigurationPanelOpen }) {
   return (
     <Box
@@ -17,16 +19,25 @@ export default function Title({ setIsConfigurationPanelOpen }) {
         flexDirection: "row",
         justifyContent: "center",
         textAlign: "center",
+        alignItems: "center",
       }}
     >
       <Typography
         variant="h5"
         gutterBottom
         align="center"
-        onClick={() => setIsConfigurationPanelOpen((prevState) => !prevState)}
+        sx={{ margin: "0px" }}
       >
         THE METHOD OF AGGREGATION OF TRAPEZOIDAL LINGUISTIC TERMS
       </Typography>
+      <IconButton
+        aria-label="menu"
+        color="primary"
+        size="large"
+        onClick={() => setIsConfigurationPanelOpen(true)}
+      >
+        <GoSidebarExpand />
+      </IconButton>
     </Box>
   );
 }

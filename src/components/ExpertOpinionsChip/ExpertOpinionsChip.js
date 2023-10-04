@@ -184,7 +184,7 @@ export default function ExpertOpinionsChip({
           {menuItems}
 
           {/* {selectedValues[0]?.type === "linguistic terms" &&
-            console.log(selectedLinguisticTerms)} */}
+            
 
           {/* {selectedValues.length >= 0 &&
             linguisticTermsNormalized.map((value) => (

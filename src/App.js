@@ -91,21 +91,6 @@ function App() {
     alpha: "",
   });
 
-  // const handleLinguisticTermsChange = (fieldName, index, value) => {
-  //   // Create a copy of the linguisticTerms array
-  //   const updatedLinguisticTerms = [...linguisticTerms];
-
-  //   const confinesArray = value.split(",").map(Number);
-
-  //   // Update the confines property of the specific object
-  //   updatedLinguisticTerms[index] = {
-  //     ...updatedLinguisticTerms[index],
-  //     confines: confinesArray,
-  //   };
-
-  //   // Update the state with the new array
-  //   setLinguisticTerms(updatedLinguisticTerms);
-  // };
   const handleLinguisticTermsChange = (fieldName, index, value) => {
     const confinesArray = value.split(",").map(Number);
 
@@ -147,14 +132,6 @@ function App() {
           flexDirection: "column",
         }}
       >
-        {/* <Button
-          variant="outlined"
-          onClick={() =>
-            
-          }
-        >
-          expertOpinions
-        </Button> */}
         <ConfigurationPanel
           setExpertOpinions={setExpertOpinions}
           linguisticTerms={linguisticTerms}
@@ -229,7 +206,7 @@ function App() {
         )}
         {trapezoidalExpertOpinions.length > 0 && (
           <>
-            <Typography>Trapezoidal opinions</Typography>
+            <Typography>Trapezoidal terms</Typography>
             <TrapezoidalExpertOpinions
               trapezoidalExpertOpinions={trapezoidalExpertOpinions}
               shortNames={shortNames}
@@ -248,7 +225,8 @@ function App() {
         {intervalEstimates.length > 0 && (
           <DecisionMaker
             intervalEstimates={intervalEstimates}
-            configuration={configuration}
+            trapezoidalExpertOpinions={trapezoidalExpertOpinions}
+            numbers={numbers}
           />
         )}
       </Container>
