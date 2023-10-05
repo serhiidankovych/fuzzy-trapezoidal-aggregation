@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 
 export default function AdvancedPessimisticPosition({
-  minIntervals,
+  minIntervalsForTrapezoidalTerms,
   pessimisticProbability,
   pessimisticProbabilityRanked,
 }) {
@@ -21,7 +21,9 @@ export default function AdvancedPessimisticPosition({
           marginTop: "20px",
         }}
       >
-        <Typography variant="h5">Intervals with minimal estimates</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Intervals with minimal estimates
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -35,13 +37,17 @@ export default function AdvancedPessimisticPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(minIntervals).map(([key, item]) => (
-            <div key={key}>{`Imin(${key})=[${item[0].toFixed(
-              2
-            )},${item[1].toFixed(2)}]`}</div>
-          ))}
+          {Object.entries(minIntervalsForTrapezoidalTerms).map(
+            ([key, item]) => (
+              <div key={key}>{`Imin(${key})=[${item[0].toFixed(
+                2
+              )},${item[1].toFixed(2)}]`}</div>
+            )
+          )}
         </Box>
-        <Typography variant="h5">Probability</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Probability
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -55,17 +61,21 @@ export default function AdvancedPessimisticPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(minIntervals).map(([key, item]) => (
-            <div key={key}>
-              {`p(Imin(${key}))=max(1-max(1-${item[0].toFixed(
-                2
-              )}/${item[1].toFixed(2)}-${item[0].toFixed(
-                2
-              )}+1,0),0) = ${pessimisticProbability[key].toFixed(2)}`}
-            </div>
-          ))}
+          {Object.entries(minIntervalsForTrapezoidalTerms).map(
+            ([key, item]) => (
+              <div key={key}>
+                {`p(Imin(${key}))=max(1-max(1-${item[0].toFixed(
+                  2
+                )}/${item[1].toFixed(2)}-${item[0].toFixed(
+                  2
+                )}+1,0),0) = ${pessimisticProbability[key].toFixed(2)}`}
+              </div>
+            )
+          )}
         </Box>
-        <Typography variant="h5">Ranking</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Ranking
+        </Typography>
         <Box
           component="span"
           sx={{

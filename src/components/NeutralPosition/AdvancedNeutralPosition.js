@@ -3,10 +3,10 @@ import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 
 export default function AdvancedNeutralPosition({
-  minIntervals,
-  maxIntervals,
-  minIntervals2,
-  maxIntervals2,
+  minIntervalsForTrapezoidalTerms,
+  maxIntervalsForTrapezoidalTerms,
+  minIntervalsForAverageTrapezoidalTerms,
+  maxIntervalsForAverageTrapezoidalTerms,
   neutralProbability,
   averageTrapezoidalOptions,
   averageTrapezoidalIntervals,
@@ -18,7 +18,7 @@ export default function AdvancedNeutralPosition({
   return (
     <>
       <Typography variant="h4" sx={{ marginTop: "20px" }}>
-        Agregation of generalized trapezoidal linguistic terms
+        The neutral position*
       </Typography>
       <Box
         component="span"
@@ -31,7 +31,9 @@ export default function AdvancedNeutralPosition({
           gap: "3px",
         }}
       >
-        <Typography variant="h5">Average trapezoidal terms</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Average trapezoidal terms
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -46,12 +48,16 @@ export default function AdvancedNeutralPosition({
           }}
         >
           {averageTrapezoidalOptions.map((option, index) => (
-            <div key={index}>{`GS${index + 1}=(${option[0]}, ${option[1]}, ${
-              option[2]
-            }, ${option[3]})`}</div>
+            <div key={index}>{`GS${index + 1}=(${option[0].toFixed(
+              2
+            )}, ${option[1].toFixed(2)}, ${option[2].toFixed(
+              2
+            )}, ${option[3].toFixed(2)})`}</div>
           ))}
         </Box>
-        <Typography variant="h5">To intervals</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Interval estimates
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -67,25 +73,27 @@ export default function AdvancedNeutralPosition({
         >
           {Object.entries(averageTrapezoidalIntervals).map(
             ([key, interval], index) => (
-              <div>{`I(${key})= [${
+              <div key={key}>{`I(${key})=[${
                 numbers.alpha
-              } * (${averageTrapezoidalOptions[index][1].toFixed(
+              }*(${averageTrapezoidalOptions[index][1].toFixed(
                 2
-              )} - ${averageTrapezoidalOptions[index][0].toFixed(2)}) +
-              ${averageTrapezoidalOptions[index][0].toFixed(
+              )}-${averageTrapezoidalOptions[index][0].toFixed(
                 2
-              )},  ${averageTrapezoidalOptions[index][3].toFixed(2)} -
-              ${numbers.alpha} * (${averageTrapezoidalOptions[index][3].toFixed(
+              )})+${averageTrapezoidalOptions[index][0].toFixed(
                 2
-              )} - ${averageTrapezoidalOptions[index][2].toFixed(
+              )},  ${averageTrapezoidalOptions[index][3].toFixed(2)}-${
+                numbers.alpha
+              }*(${averageTrapezoidalOptions[index][3].toFixed(
                 2
-              )})]=[${interval[0].toFixed(2)},${interval[1].toFixed(
+              )}-${averageTrapezoidalOptions[index][2].toFixed(
                 2
-              )}] `}</div>
+              )})]=[${interval[0].toFixed(2)},${interval[1].toFixed(2)}]`}</div>
             )
           )}
         </Box>
-        <Typography variant="h5">Probability</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Probability
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -99,17 +107,21 @@ export default function AdvancedNeutralPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(minIntervals2).map(([key, item]) => (
-            <div key={key}>
-              {`p(Imin(${key}))=max(1-max(1-${item[0].toFixed(
-                2
-              )}/${item[1].toFixed(2)}-${item[0].toFixed(
-                2
-              )}+1,0),0) = ${neutralProbability[key].toFixed(2)}`}
-            </div>
-          ))}
+          {Object.entries(minIntervalsForAverageTrapezoidalTerms).map(
+            ([key, item]) => (
+              <div key={key}>
+                {`p(Imin(${key}))=max(1-max(1-${item[0].toFixed(
+                  2
+                )}/${item[1].toFixed(2)}-${item[0].toFixed(
+                  2
+                )}+1,0),0)=${neutralProbability[key].toFixed(2)}`}
+              </div>
+            )
+          )}
         </Box>
-        <Typography variant="h5">Ranking</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Ranking
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -131,7 +143,7 @@ export default function AdvancedNeutralPosition({
         </Box>
       </Box>
       <Typography variant="h4" sx={{ marginTop: "20px" }}>
-        Agregation of generalized trapezoidal linguistic terms
+        The neutral position**
       </Typography>
       <Box
         component="span"
@@ -144,8 +156,9 @@ export default function AdvancedNeutralPosition({
           gap: "3px",
         }}
       >
-        {" "}
-        <Typography variant="h5">Intervals with minimal estimates</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Intervals with extreme boundaries estimates
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -159,19 +172,23 @@ export default function AdvancedNeutralPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(minIntervals).map(([key, minValue]) => {
-            const maxValue = maxIntervals[key];
+          {Object.entries(minIntervalsForTrapezoidalTerms).map(
+            ([key, minValue]) => {
+              const maxValue = maxIntervalsForTrapezoidalTerms[key];
 
-            return (
-              <div key={key}>
-                {`(IminL(${key}),IminR(${key}))=[${minValue[0].toFixed(
-                  2
-                )},${maxValue[1].toFixed(2)}]`}
-              </div>
-            );
-          })}
+              return (
+                <div key={key}>
+                  {`(IminL(${key}),ImaxR(${key}))=[${minValue[0].toFixed(
+                    2
+                  )},${maxValue[1].toFixed(2)}]`}
+                </div>
+              );
+            }
+          )}
         </Box>
-        <Typography variant="h5">Probability</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Probability
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -185,21 +202,25 @@ export default function AdvancedNeutralPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(minIntervals).map(([key, minValue]) => {
-            const maxValue = maxIntervals[key];
+          {Object.entries(minIntervalsForTrapezoidalTerms).map(
+            ([key, minValue]) => {
+              const maxValue = maxIntervalsForTrapezoidalTerms[key];
 
-            return (
-              <div key={key}>
-                {`p((IminL(${key})+IminR(${key}))/2)=(${minValue[0].toFixed(
-                  2
-                )}+${maxValue[1].toFixed(2)})/2=${neutralAggressiveProbability[
-                  key
-                ].toFixed(2)}`}
-              </div>
-            );
-          })}
+              return (
+                <div key={key}>
+                  {`p((IminL(${key})+IminR(${key}))/2)=(${minValue[0].toFixed(
+                    2
+                  )}+${maxValue[1].toFixed(
+                    2
+                  )})/2=${neutralAggressiveProbability[key].toFixed(2)}`}
+                </div>
+              );
+            }
+          )}
         </Box>
-        <Typography variant="h5">Ranking</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Ranking
+        </Typography>
         <Box
           component="span"
           sx={{

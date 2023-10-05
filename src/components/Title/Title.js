@@ -12,7 +12,7 @@ export default function Title({ setIsConfigurationPanelOpen }) {
         borderRadius: 2,
         padding: "20px",
         border: "1px solid  rgba(81, 81, 81, 1)",
-        marginTop: "50px",
+        marginTop: "20px",
         backgroundColor: "#181819",
         marginBottom: "0",
         display: "flex",

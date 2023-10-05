@@ -15,7 +15,7 @@ function TrapezoidalExpertOpinions({ trapezoidalExpertOpinions, shortNames }) {
   // Organize the data into a table structure
   const tableData = {};
   //FIX GETTING DATA FROM DATA TEMPLATE
-  const criteriaList = ["a/c", ...shortNames.criteria];
+  const criteriaList = ["x/c", ...shortNames.criteria];
 
   trapezoidalExpertOpinions?.forEach((data) => {
     const { alternative, criteria, selectedTrapezoidal } = data;
@@ -34,16 +34,18 @@ function TrapezoidalExpertOpinions({ trapezoidalExpertOpinions, shortNames }) {
           <TableHead>
             <TableRow>
               {criteriaList.map((criteria) => (
-                <TableCell key={criteria}>{criteria}</TableCell>
+                <TableCell key={criteria} sx={{ color: "#90caf9" }}>
+                  {criteria}
+                </TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
             {Object.keys(tableData).map((alternative) => (
               <TableRow key={alternative}>
-                <TableCell>{alternative}</TableCell>
+                <TableCell sx={{ color: "#90caf9" }}>{alternative}</TableCell>
                 {criteriaList.slice(1).map((criteria) => (
-                  <TableCell key={criteria}>
+                  <TableCell key={criteria} sx={{ fontSize: "12px" }}>
                     {"["}
                     {tableData[alternative][criteria]
                       ? tableData[alternative][criteria]

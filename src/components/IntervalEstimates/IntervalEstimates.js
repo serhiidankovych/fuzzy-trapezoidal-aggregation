@@ -35,14 +35,16 @@ function IntervalEstimates({ intervalEstimates, shortNames }) {
           <TableHead>
             <TableRow>
               {criteriaList.map((criteria) => (
-                <TableCell key={criteria}>{criteria}</TableCell>
+                <TableCell key={criteria} sx={{ color: "#90caf9" }}>
+                  {criteria}
+                </TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
             {Object.keys(tableData).map((alternative) => (
               <TableRow key={alternative}>
-                <TableCell>{alternative}</TableCell>
+                <TableCell sx={{ color: "#90caf9" }}>{alternative}</TableCell>
                 {criteriaList.slice(1).map((criteria) => (
                   <TableCell key={criteria}>
                     {"["}

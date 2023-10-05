@@ -215,7 +215,7 @@ function App() {
         )}
         {intervalEstimates.length > 0 && (
           <>
-            <Typography>Interval Estimates</Typography>
+            <Typography>Interval estimates</Typography>
             <IntervalEstimates
               intervalEstimates={intervalEstimates}
               shortNames={shortNames}

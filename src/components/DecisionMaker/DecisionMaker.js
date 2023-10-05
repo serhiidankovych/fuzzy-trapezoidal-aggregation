@@ -39,14 +39,17 @@ export default function DecisionMaker({
   const [isAdvancedNeutralPositionShown, setIsAdvancedNeutralPositionShown] =
     React.useState(false);
 
-  const minIntervals = {};
-  const maxIntervals = {};
+  const minIntervalsForTrapezoidalTerms = {};
+  const maxIntervalsForTrapezoidalTerms = {};
   intervalEstimates.forEach((item, index) => {
     const { alternative, selectedIntervalsEstimate } = item;
 
     // Get the minimum intervals for the current alternative, or set them to Infinity if they don't exist yet
-    const [min0, min1] = minIntervals[alternative] || [Infinity, Infinity];
-    const [max0, max1] = maxIntervals[alternative] || [0, 0];
+    const [min0, min1] = minIntervalsForTrapezoidalTerms[alternative] || [
+      Infinity,
+      Infinity,
+    ];
+    const [max0, max1] = maxIntervalsForTrapezoidalTerms[alternative] || [0, 0];
 
     // Calculate the new minimum values by comparing the current minimum values with the selectedIntervalsEstimate
     const newMin0 = Math.min(min0, selectedIntervalsEstimate[0]);
@@ -55,21 +58,25 @@ export default function DecisionMaker({
     const newMax0 = Math.max(max0, selectedIntervalsEstimate[0]);
     const newMax1 = Math.max(max1, selectedIntervalsEstimate[1]);
 
-    // Update the minIntervals object with the new minimum values
-    minIntervals[alternative] = [newMin0, newMin1];
-    maxIntervals[alternative] = [newMax0, newMax1];
+    // Update the minIntervalsForTrapezoidalTerms object with the new minimum values
+    minIntervalsForTrapezoidalTerms[alternative] = [newMin0, newMin1];
+    maxIntervalsForTrapezoidalTerms[alternative] = [newMax0, newMax1];
   });
 
-  let minIntervals2 = {};
-  let maxIntervals2 = {};
+  let minIntervalsForAverageTrapezoidalTerms = {};
+  let maxIntervalsForAverageTrapezoidalTerms = {};
   const alpha = numbers.alpha;
 
   trapezoidalExpertOpinions.forEach((data, index) => {
     const { selectedTrapezoidal, alternative } = data;
 
     // Get the minimum intervals for the current alternative, or set them to Infinity if they don't exist yet
-    const [min0, min1] = minIntervals2[alternative] || [Infinity, Infinity];
-    const [max0, max1] = maxIntervals2[alternative] || [0, 0];
+    const [min0, min1] = minIntervalsForAverageTrapezoidalTerms[
+      alternative
+    ] || [Infinity, Infinity];
+    const [max0, max1] = maxIntervalsForAverageTrapezoidalTerms[
+      alternative
+    ] || [0, 0];
 
     // Calculate the new minimum values by comparing the current minimum values with the selectedIntervalsEstimate
     const newMin0 = Math.min(min0, selectedTrapezoidal[0]);
@@ -78,20 +85,20 @@ export default function DecisionMaker({
     const newMax0 = Math.max(max0, selectedTrapezoidal[2]);
     const newMax1 = Math.max(max1, selectedTrapezoidal[3]);
 
-    // Update the minIntervals object with the new minimum values
-    minIntervals2[alternative] = [newMin0, newMin1];
-    maxIntervals2[alternative] = [newMax0, newMax1];
+    // Update the minIntervalsForTrapezoidalTerms object with the new minimum values
+    minIntervalsForAverageTrapezoidalTerms[alternative] = [newMin0, newMin1];
+    maxIntervalsForAverageTrapezoidalTerms[alternative] = [newMax0, newMax1];
   });
 
   const averageTrapezoidalIntervals = {};
   const averageTrapezoidalOptions = [];
 
-  Object.keys(minIntervals2).forEach((key, index) => {
+  Object.keys(minIntervalsForAverageTrapezoidalTerms).forEach((key, index) => {
     const averageTrapezoidalOption = [
-      minIntervals2[key][0],
-      minIntervals2[key][1],
-      maxIntervals2[key][0],
-      maxIntervals2[key][1],
+      minIntervalsForAverageTrapezoidalTerms[key][0],
+      minIntervalsForAverageTrapezoidalTerms[key][1],
+      maxIntervalsForAverageTrapezoidalTerms[key][0],
+      maxIntervalsForAverageTrapezoidalTerms[key][1],
     ];
     averageTrapezoidalOptions.push(averageTrapezoidalOption);
 
@@ -107,8 +114,6 @@ export default function DecisionMaker({
       rightBorderOfAverageTrapezoidalOptions,
     ];
   });
-  console.log(averageTrapezoidalOptions);
-  console.log(averageTrapezoidalIntervals);
 
   const neutralProbability = {};
   Object.entries(averageTrapezoidalIntervals).forEach(([key, item]) => {
@@ -117,7 +122,6 @@ export default function DecisionMaker({
       0
     );
   });
-  console.log(neutralProbability);
 
   const neutralProbabilityRanked = Object.entries(neutralProbability).sort(
     (a, b) => b[1] - a[1]
@@ -132,10 +136,8 @@ export default function DecisionMaker({
 
   neutralProbabilityRanked[neutralProbabilityRanked.length - 1].push(" ");
 
-  console.log(neutralProbabilityRanked);
-
   const pessimisticProbability = {};
-  Object.entries(minIntervals).forEach(([key, item]) => {
+  Object.entries(minIntervalsForTrapezoidalTerms).forEach(([key, item]) => {
     pessimisticProbability[key] = Math.max(
       1 - Math.max((1 - item[0]) / (item[1] - item[0] + 1), 0),
       0
@@ -158,7 +160,7 @@ export default function DecisionMaker({
   );
 
   const optimisticProbability = {};
-  Object.entries(maxIntervals).forEach(([key, item]) => {
+  Object.entries(maxIntervalsForTrapezoidalTerms).forEach(([key, item]) => {
     optimisticProbability[key] = Math.max(
       1 - Math.max((1 - item[0]) / (item[1] - item[0] + 1), 0),
       0
@@ -233,8 +235,8 @@ export default function DecisionMaker({
   });
 
   const neutralAggressiveProbability = {};
-  Object.entries(minIntervals).forEach(([key, minValue]) => {
-    const maxValue = maxIntervals[key];
+  Object.entries(minIntervalsForTrapezoidalTerms).forEach(([key, minValue]) => {
+    const maxValue = maxIntervalsForTrapezoidalTerms[key];
     const neutralAggressive = (minValue[0] + maxValue[1]) / 2;
     neutralAggressiveProbability[key] = neutralAggressive;
   });
@@ -258,6 +260,19 @@ export default function DecisionMaker({
 
   // Find the keys with the highest probabilities in the neutral position
   const neutralPositionResults = Object.entries(neutralProbability).reduce(
+    (acc, [key, value]) => {
+      if (value > acc.maxValue) {
+        return { keys: [{ [key]: value }], maxValue: value };
+      } else if (value === acc.maxValue) {
+        acc.keys.push({ [key]: value });
+      }
+      return acc;
+    },
+    { keys: [], maxValue: Number.NEGATIVE_INFINITY }
+  ).keys;
+  const neutralAggressivePositionResults = Object.entries(
+    neutralAggressiveProbability
+  ).reduce(
     (acc, [key, value]) => {
       if (value > acc.maxValue) {
         return { keys: [{ [key]: value }], maxValue: value };
@@ -302,7 +317,9 @@ export default function DecisionMaker({
             </Box>
             {isAdvancedPessimisticPositionShown && (
               <AdvancedPessimisticPosition
-                minIntervals={minIntervals}
+                minIntervalsForTrapezoidalTerms={
+                  minIntervalsForTrapezoidalTerms
+                }
                 pessimisticProbability={pessimisticProbability}
                 pessimisticProbabilityRanked={pessimisticProbabilityRanked}
               />
@@ -325,6 +342,9 @@ export default function DecisionMaker({
               <Typography variant="h4">The neutral position</Typography>
               <NeutralPosition
                 neutralPositionResults={neutralPositionResults}
+                neutralAggressivePositionResults={
+                  neutralAggressivePositionResults
+                }
               />
               <Button
                 variant="outlined"
@@ -337,10 +357,18 @@ export default function DecisionMaker({
             </Box>
             {isAdvancedNeutralPositionShown && (
               <AdvancedNeutralPosition
-                minIntervals={minIntervals}
-                maxIntervals={maxIntervals}
-                minIntervals2={minIntervals2}
-                maxIntervals2={maxIntervals2}
+                minIntervalsForTrapezoidalTerms={
+                  minIntervalsForTrapezoidalTerms
+                }
+                maxIntervalsForTrapezoidalTerms={
+                  maxIntervalsForTrapezoidalTerms
+                }
+                minIntervalsForAverageTrapezoidalTerms={
+                  minIntervalsForAverageTrapezoidalTerms
+                }
+                maxIntervalsForAverageTrapezoidalTerms={
+                  maxIntervalsForAverageTrapezoidalTerms
+                }
                 neutralAggressiveProbability={neutralAggressiveProbability}
                 neutralAggressiveProbabilityRanked={
                   neutralAggressiveProbabilityRanked
@@ -385,7 +413,9 @@ export default function DecisionMaker({
             </Box>
             {isAdvancedOptimisticPositionShown && (
               <AdvancedOptimisticPosition
-                maxIntervals={maxIntervals}
+                maxIntervalsForTrapezoidalTerms={
+                  maxIntervalsForTrapezoidalTerms
+                }
                 optimisticProbability={optimisticProbability}
                 optimisticProbabilityRanked={optimisticProbabilityRanked}
               />

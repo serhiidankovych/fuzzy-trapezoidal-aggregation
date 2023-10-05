@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 
 export default function AdvancedOptimisticPosition({
-  maxIntervals,
+  maxIntervalsForTrapezoidalTerms,
   optimisticProbability,
   optimisticProbabilityRanked,
 }) {
@@ -21,7 +21,9 @@ export default function AdvancedOptimisticPosition({
           marginTop: "20px",
         }}
       >
-        <Typography variant="h5">Intervals with minimal estimates</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Intervals with maximal estimates
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -35,13 +37,17 @@ export default function AdvancedOptimisticPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(maxIntervals).map(([key, item]) => (
-            <div key={key}>{`Imax(${key})=[${item[0].toFixed(
-              2
-            )},${item[1].toFixed(2)}]`}</div>
-          ))}
+          {Object.entries(maxIntervalsForTrapezoidalTerms).map(
+            ([key, item]) => (
+              <div key={key}>{`Imax(${key})=[${item[0].toFixed(
+                2
+              )},${item[1].toFixed(2)}]`}</div>
+            )
+          )}
         </Box>
-        <Typography variant="h5">Probability</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Probability
+        </Typography>
         <Box
           component="span"
           sx={{
@@ -55,17 +61,21 @@ export default function AdvancedOptimisticPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(maxIntervals).map(([key, item]) => (
-            <div key={key}>
-              {`p(Imax(${key}))=max(1-max(1-${item[0].toFixed(
-                2
-              )}/${item[1].toFixed(2)}-${item[0].toFixed(
-                2
-              )}+1,0),0) = ${optimisticProbability[key].toFixed(2)}`}
-            </div>
-          ))}
+          {Object.entries(maxIntervalsForTrapezoidalTerms).map(
+            ([key, item]) => (
+              <div key={key}>
+                {`p(Imax(${key}))=max(1-max(1-${item[0].toFixed(
+                  2
+                )}/${item[1].toFixed(2)}-${item[0].toFixed(
+                  2
+                )}+1,0),0) = ${optimisticProbability[key].toFixed(2)}`}
+              </div>
+            )
+          )}
         </Box>
-        <Typography variant="h5">Ranking</Typography>
+        <Typography variant="h5" color={"#90caf9"}>
+          Ranking
+        </Typography>
         <Box
           component="span"
           sx={{
