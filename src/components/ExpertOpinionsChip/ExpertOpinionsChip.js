@@ -81,9 +81,14 @@ export default function ExpertOpinionsChip({
         {selectedValues[1].operator}
       </MenuItem>
     );
-
+    // console.log(
+    //   linguisticTermsNormalized.slice(
+    //     linguisticTermsNormalized.indexOf(selectedValues[0]) + 1
+    //   )
+    // );
     menuItems.push(
       ...linguisticTermsNormalized
+        .slice(linguisticTermsNormalized.indexOf(selectedValues[0]) + 1)
         .filter((value) => value !== selectedValues[0])
         .map((value) => (
           <MenuItem key={value.shortLinguisticTerm} value={value}>
