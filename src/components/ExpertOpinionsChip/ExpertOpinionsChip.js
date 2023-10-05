@@ -6,6 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
+import Button from "@mui/material/Button";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -81,14 +82,14 @@ export default function ExpertOpinionsChip({
         {selectedValues[1].operator}
       </MenuItem>
     );
-    // console.log(
-    //   linguisticTermsNormalized.slice(
-    //     linguisticTermsNormalized.indexOf(selectedValues[0]) + 1
-    //   )
-    // );
+
+    const index = linguisticTermsNormalized.findIndex((term) => {
+      return term.shortLinguisticTerm === selectedValues[0].shortLinguisticTerm;
+    });
+
     menuItems.push(
       ...linguisticTermsNormalized
-        .slice(linguisticTermsNormalized.indexOf(selectedValues[0]) + 1)
+        .slice(index + 1)
         .filter((value) => value !== selectedValues[0])
         .map((value) => (
           <MenuItem key={value.shortLinguisticTerm} value={value}>
@@ -187,97 +188,6 @@ export default function ExpertOpinionsChip({
           MenuProps={MenuProps}
         >
           {menuItems}
-
-          {/* {selectedValues[0]?.type === "linguistic terms" &&
-            
-
-          {/* {selectedValues.length >= 0 &&
-            linguisticTermsNormalized.map((value) => (
-              <MenuItem key={value.shortLinguisticTerm} value={value}>
-                {value.shortLinguisticTerm}
-              </MenuItem>
-            ))} */}
-
-          {/* {selectedValues.length === 0 &&
-            operators.map((value) =>
-              value.symbol === ">" || value.symbol === "<" ? (
-                <MenuItem key={value.operator} value={value}>
-                  {value.operator}
-                </MenuItem>
-              ) : null
-            )} */}
-
-          {/* {selectedValues.length >= 0 &&
-            linguisticTermsNormalized.map((value) => (
-              <MenuItem key={value.shortLinguisticTerm} value={value}>
-                {value.shortLinguisticTerm}
-              </MenuItem>
-            ))} */}
-
-          {/* {selectedValues[0]?.type === "linguistic term" &&
-            operators.map((value) =>
-              value.symbol === "&" ? (
-                <MenuItem key={value.operator} value={value}>
-                  {value.operator}
-                </MenuItem>
-              ) : null
-            )}
-
-          {selectedValues.length === 0 &&
-            operators.map((value) =>
-              value.symbol === ">" || value.symbol === "<" ? (
-                <MenuItem key={value.operator} value={value}>
-                  {value.operator}
-                </MenuItem>
-              ) : null
-            )} */}
-
-          {/* {selectedValues[0]?.type === "operator" && (
-            <MenuItem
-              key={selectedValues[0].operator}
-              value={selectedValues[0]}
-            >
-              {selectedValues[0].operator}
-            </MenuItem>
-          )} */}
-
-          {/* <MenuItem
-            key={"linguistic terms"}
-            disabled
-            sx={{ backgroundColor: "#1f1f1f" }}
-          >
-            {"available linguistic terms:"}
-          </MenuItem> */}
-
-          {/* {selectedValues[1]?.type === "linguistic terms" && (
-            <MenuItem
-              key={selectedValues[1].shortLinguisticTerm}
-              value={selectedValues[1]}
-            >
-              {selectedValues[1].shortLinguisticTerm}
-            </MenuItem>
-          )}
-
-          {selectedValues[1]?.type === "linguistic terms" && (
-            <MenuItem
-              key={selectedValues[1].shortLinguisticTerm}
-              value={selectedValues[1]}
-            >
-              {selectedValues[1].shortLinguisticTerm}
-            </MenuItem>
-          )}
-          {selectedValues.length >= 0 &&
-            linguisticTermsNormalized.map((value) => (
-              <MenuItem key={value.shortLinguisticTerm} value={value}>
-                {value.shortLinguisticTerm}
-              </MenuItem>
-            ))} */}
-
-          {/* {linguisticTermsNormalized.map((value) => (
-            <MenuItem key={value.shortLinguisticTerm} value={value}>
-              {value.shortLinguisticTerm}
-            </MenuItem>
-          ))} */}
         </Select>
       </FormControl>
     </div>

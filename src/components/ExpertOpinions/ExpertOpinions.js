@@ -218,7 +218,6 @@ export default function ExpertOpinions({
         <ExpertOpinionsChip
           key={index}
           label={data.label}
-          values={data.values}
           selectedValues={data.selectedValues}
           selectedLinguisticTerms={data.selectedLinguisticTerms}
           setExpertOpinions={setExpertOpinions}
