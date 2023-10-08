@@ -8,36 +8,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -45,36 +17,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -88,36 +32,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -128,36 +44,8 @@ const expertOpinionsData = [
         linguisticTerm: "high",
         shortLinguisticTerm: "H",
         confines: [75, 100, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 75,
-            y: 0,
-          },
-          {
-            x: 100,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.75, 1, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.75,
-            y: 0,
-          },
-          {
-            x: 1,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -165,71 +53,15 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "high",
         shortLinguisticTerm: "H",
         confines: [75, 100, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 75,
-            y: 0,
-          },
-          {
-            x: 100,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.75, 1, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.75,
-            y: 0,
-          },
-          {
-            x: 1,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -249,36 +81,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -286,36 +90,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -329,36 +105,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -366,36 +114,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -409,36 +129,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -449,36 +141,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -486,71 +150,15 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -575,36 +183,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -612,36 +192,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -661,36 +213,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -698,36 +222,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -741,36 +237,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -781,36 +249,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -818,71 +258,15 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -902,36 +286,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -939,36 +295,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -982,36 +310,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -1022,36 +322,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -1059,71 +331,15 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -1143,36 +359,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -1180,36 +368,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -1223,36 +383,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -1260,36 +392,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -1303,36 +407,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -1343,36 +419,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -1380,71 +428,15 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -1464,36 +456,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -1504,36 +468,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -1541,71 +477,15 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -1625,36 +505,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -1662,36 +514,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -1705,36 +529,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -1745,36 +541,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -1782,71 +550,15 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -1866,36 +578,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -1903,36 +587,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -1946,36 +602,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -1986,36 +614,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -2023,71 +623,15 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -2107,36 +651,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -2144,36 +660,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -2187,36 +675,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -2224,36 +684,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -2267,36 +699,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -2307,36 +711,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -2344,71 +720,15 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -2428,36 +748,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -2465,36 +757,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -2508,36 +772,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -2545,36 +781,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -2588,36 +796,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -2628,36 +808,8 @@ const expertOpinionsData = [
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -2665,71 +817,15 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "high middle",
         shortLinguisticTerm: "HM",
         confines: [50, 75, 100],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 50,
-            y: 0,
-          },
-          {
-            x: 75,
-            y: 1,
-          },
-          {
-            x: 100,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.5, 0.75, 1],
-        normalizedTriangularChart: [
-          {
-            x: 0.5,
-            y: 0,
-          },
-          {
-            x: 0.75,
-            y: 1,
-          },
-          {
-            x: 1,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -2749,36 +845,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -2789,36 +857,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -2826,71 +866,15 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -2910,36 +894,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -2947,36 +903,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -2995,36 +923,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -3032,36 +932,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -3081,36 +953,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -3118,36 +962,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -3161,36 +977,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         symbol: "&",
@@ -3201,36 +989,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -3238,71 +998,15 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
       {
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -3322,36 +1026,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -3359,36 +1035,8 @@ const expertOpinionsData = [
         linguisticTerm: "low middle",
         shortLinguisticTerm: "LM",
         confines: [0, 25, 50],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 25,
-            y: 1,
-          },
-          {
-            x: 50,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0, 0.25, 0.5],
-        normalizedTriangularChart: [
-          {
-            x: 0,
-            y: 0,
-          },
-          {
-            x: 0.25,
-            y: 1,
-          },
-          {
-            x: 0.5,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],
@@ -3407,36 +1055,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -3444,36 +1064,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [
@@ -3493,36 +1085,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedLinguisticTerms: [
@@ -3530,36 +1094,8 @@ const expertOpinionsData = [
         linguisticTerm: "middle",
         shortLinguisticTerm: "M",
         confines: [25, 50, 75],
-        type: "linguistic term",
-        triangularChart: [
-          {
-            x: 25,
-            y: 0,
-          },
-          {
-            x: 50,
-            y: 1,
-          },
-          {
-            x: 75,
-            y: 0,
-          },
-        ],
         normalizedConfines: [0.25, 0.5, 0.75],
-        normalizedTriangularChart: [
-          {
-            x: 0.25,
-            y: 0,
-          },
-          {
-            x: 0.5,
-            y: 1,
-          },
-          {
-            x: 0.75,
-            y: 0,
-          },
-        ],
+        type: "linguistic term",
       },
     ],
     selectedOperators: [],

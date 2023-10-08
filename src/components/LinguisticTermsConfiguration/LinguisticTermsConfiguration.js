@@ -177,6 +177,17 @@ export default function LinguisticTermsConfiguration({
         return;
       }
     });
+    linguisticTerms?.forEach((linguisticTerm) => {
+      const confines = linguisticTerm?.confines;
+
+      if (!(confines[0] <= confines[1] && confines[1] <= confines[2])) {
+        showToastMessage(
+          "Wrong confines values for " + linguisticTerm.shortLinguisticTerm,
+          "error"
+        );
+        isValid = false;
+      }
+    });
 
     if (isValid) {
       if (isDataTemplateSet) {
@@ -190,19 +201,50 @@ export default function LinguisticTermsConfiguration({
     }
   };
 
-  const renderInputs = (nameArray, nameType, shortName) => {
-    return nameArray?.map((name, index) => (
-      <TextField
-        id={`${nameType}${index + 1}`}
-        label={`${name.shortLinguisticTerm}`}
-        key={`${nameType}-${index}`}
-        variant="outlined"
-        type="text"
-        value={name.confines.join(",")}
-        onChange={(e) =>
-          handleLinguisticTermsChange(nameType, index, e.target.value)
-        }
-      />
+  const renderInputs = (linguisticTerms, nameType) => {
+    return linguisticTerms?.map((linguisticTerm, index) => (
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        spacing={2}
+        sx={{ marginTop: "10px" }}
+        key={index}
+      >
+        <TextField
+          id={`${nameType}${index + 1}-left`}
+          label={`${linguisticTerm.shortLinguisticTerm}-left`}
+          key={`${nameType}-${index}-left`}
+          variant="outlined"
+          type="number"
+          value={linguisticTerm.confines[0]}
+          onChange={(e) =>
+            handleLinguisticTermsChange(index, e.target.value, 0)
+          }
+        />
+        <TextField
+          id={`${nameType}${index + 1}-middle`}
+          label={`${linguisticTerm.shortLinguisticTerm}-middle`}
+          key={`${nameType}-${index}-middle`}
+          variant="outlined"
+          type="number"
+          value={linguisticTerm.confines[1]}
+          onChange={(e) =>
+            handleLinguisticTermsChange(index, e.target.value, 1)
+          }
+        />
+        <TextField
+          id={`${nameType}${index + 1}-right`}
+          label={`${linguisticTerm.shortLinguisticTerm}-right`}
+          key={`${nameType}-${index}-right`}
+          variant="outlined"
+          type="number"
+          value={linguisticTerm.confines[2]}
+          onChange={(e) =>
+            handleLinguisticTermsChange(index, e.target.value, 2)
+          }
+        />
+      </Stack>
     ));
   };
 

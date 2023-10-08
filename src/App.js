@@ -8,8 +8,8 @@ import ExpertOpinions from "./components/ExpertOpinions/ExpertOpinions";
 import IntervalExpertOpinions from "./components/IntervalExpertOpinions/IntervalExpertOpinions";
 import TrapezoidalExpertOpinions from "./components/TrapezoidalExpertOpinions/TrapezoidalExpertOpinions";
 import IntervalEstimates from "./components/IntervalEstimates/IntervalEstimates";
-import TrapezoidalChart from "./components/TrapezoidalChart/TrapezoidalChart";
 import DecisionMaker from "./components/DecisionMaker/DecisionMaker";
+import Footer from "./components/Footer/Footer";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import Button from "@mui/material/Button";
@@ -91,19 +91,19 @@ function App() {
     alpha: "",
   });
 
-  const handleLinguisticTermsChange = (fieldName, index, value) => {
-    const confinesArray = value.split(",").map(Number);
-
-    // Validate input: check if all elements are numbers and not empty
-    const isValidInput = confinesArray.every((num) => !isNaN(num));
-
+  const handleLinguisticTermsChange = (index, value, confinesIndex) => {
     const updatedLinguisticTerms = [...linguisticTerms];
+
     updatedLinguisticTerms[index] = {
       ...updatedLinguisticTerms[index],
-      confines: isValidInput ? confinesArray : [], // Update only if input is valid
-      error: !isValidInput, // Set error state for the input
+      confines: [
+        ...updatedLinguisticTerms[index].confines.slice(0, confinesIndex),
+        value,
+        ...updatedLinguisticTerms[index].confines.slice(confinesIndex + 1),
+      ],
     };
-
+    console.log([updatedLinguisticTerms]);
+    // console.log(index);
     setLinguisticTerms(updatedLinguisticTerms);
   };
 
@@ -229,6 +229,7 @@ function App() {
             numbers={numbers}
           />
         )}
+        <Footer />
       </Container>
       <ToastContainer />
     </ThemeProvider>

@@ -131,6 +131,7 @@ export default function NameConfiguration({
                 textDecoration: index === currentStep && "underline",
                 color: index === currentStep && "#90caf9",
               }}
+              onClick={() => handleStepChange(index)}
             >
               {step}
             </div>
