@@ -156,23 +156,26 @@ function App() {
         <Title setIsConfigurationPanelOpen={setIsConfigurationPanelOpen} />
         {isConfigurationFinished && <Typography>Set opinions</Typography>}
         {!isConfigurationFinished && (
-          <Box
-            sx={{
-              border: "1px dotted #90caf9",
-              borderRadius: 2,
-              backgroundColor: "#181819",
-              textAlign: "center",
-              padding: "40px",
-            }}
-          >
-            <Button
-              variant="outlined"
-              onClick={() => setIsConfigurationPanelOpen(true)}
+          <>
+            <Box
+              sx={{
+                border: "1px dotted #90caf9",
+                borderRadius: 2,
+                backgroundColor: "#181819",
+                textAlign: "center",
+                padding: "40px",
+              }}
             >
-              Let`s start
-            </Button>
-          </Box>
+              <Button
+                variant="outlined"
+                onClick={() => setIsConfigurationPanelOpen(true)}
+              >
+                Let`s start
+              </Button>
+            </Box>
+          </>
         )}
+
         {isConfigurationFinished && (
           <>
             <ExpertOpinions

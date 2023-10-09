@@ -145,8 +145,6 @@ export default function ConfigurationPanel({
     handleConfigurationMenuStepNext();
   };
 
-  //fix set names
-
   const generateExpertOpinions = () => {
     const generatedExpertOpinions = [];
     for (let i = 0; i < numbers.alternatives; i++) {
@@ -166,7 +164,7 @@ export default function ConfigurationPanel({
   };
   const generateLinguisticTerms = () => {
     const generatedLinguisticTerms = [];
-    //Fixed  confines type
+
     for (let i = 0; i < numbers.linguisticTerms; i++) {
       generatedLinguisticTerms.push({
         linguisticTerm: names.linguisticTerms[i],

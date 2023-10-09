@@ -12,7 +12,6 @@ import {
 
 import configurationData from "../../DataTemplate/configurationData";
 
-//FIX GETTING DATA FROM DATA TEMPLATE
 function IntervalExpertOpinions({ intervalExpertOpinions, shortNames }) {
   // Organize the data into a table structure
   const tableData = {};

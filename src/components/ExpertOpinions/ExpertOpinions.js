@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import ExpertOpinionsChip from "../ExpertOpinionsChip/ExpertOpinionsChip";
 import Pagination from "@mui/material/Pagination";
 // import linguisticTermsNormalized from "../../DataTemplate/linguisticTermsNormalized";
-//FIX ADDING CONFINES WITH NORMALIZED DATA
+
 const getValuesBetweenTerms = (terms, data) => {
   // Extract the start and end values from the terms array
   const [start, end] = terms.map((term) => {

@@ -14,7 +14,7 @@ import configurationData from "../../DataTemplate/configurationData";
 function TrapezoidalExpertOpinions({ trapezoidalExpertOpinions, shortNames }) {
   // Organize the data into a table structure
   const tableData = {};
-  //FIX GETTING DATA FROM DATA TEMPLATE
+
   const criteriaList = ["x/c", ...shortNames.criteria];
 
   trapezoidalExpertOpinions?.forEach((data) => {
