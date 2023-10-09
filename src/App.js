@@ -98,12 +98,11 @@ function App() {
       ...updatedLinguisticTerms[index],
       confines: [
         ...updatedLinguisticTerms[index].confines.slice(0, confinesIndex),
-        value,
+        value === "" ? "" : Number(value),
         ...updatedLinguisticTerms[index].confines.slice(confinesIndex + 1),
       ],
     };
-    console.log([updatedLinguisticTerms]);
-    // console.log(index);
+
     setLinguisticTerms(updatedLinguisticTerms);
   };
 
