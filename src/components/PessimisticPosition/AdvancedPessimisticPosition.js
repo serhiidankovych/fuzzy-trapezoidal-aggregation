@@ -9,16 +9,18 @@ export default function AdvancedPessimisticPosition({
 }) {
   return (
     <>
+      <Typography variant="h4" sx={{ marginTop: "20px" }}>
+        The pessimistic position
+      </Typography>
       <Box
         component="span"
         sx={{
-          p: 2,
+          p: 1.5,
           border: "1px dashed grey",
           borderRadius: "8px",
           display: "flex",
           flexDirection: "column",
           gap: "3px",
-          marginTop: "20px",
         }}
       >
         <Typography variant="h5" color={"#90caf9"}>
@@ -27,7 +29,7 @@ export default function AdvancedPessimisticPosition({
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",
@@ -51,7 +53,7 @@ export default function AdvancedPessimisticPosition({
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",
@@ -64,11 +66,11 @@ export default function AdvancedPessimisticPosition({
           {Object.entries(minIntervalsForTrapezoidalTerms).map(
             ([key, item]) => (
               <div key={key}>
-                {`p(Imin(${key}))=max(1-max(1-${item[0].toFixed(
+                {`p(Imin(${key}))=max(1-max((1-${item[0].toFixed(
                   2
-                )}/${item[1].toFixed(2)}-${item[0].toFixed(
+                )})/(${item[1].toFixed(2)}-${item[0].toFixed(
                   2
-                )}+1,0),0) = ${pessimisticProbability[key].toFixed(2)}`}
+                )}+1),0),0)=${pessimisticProbability[key].toFixed(2)}`}
               </div>
             )
           )}
@@ -79,7 +81,7 @@ export default function AdvancedPessimisticPosition({
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",

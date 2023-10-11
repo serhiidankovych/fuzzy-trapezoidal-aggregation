@@ -41,6 +41,10 @@ export default function DecisionMaker({
 
   const minIntervalsForTrapezoidalTerms = {};
   const maxIntervalsForTrapezoidalTerms = {};
+  const minLeftAndMaxLeftIntervalsForTrapezoidalTerms = {};
+  const minRightAndMaxRightIntervalsForTrapezoidalTerms = {};
+  const aggressiveIntervalsForTrapezoidalTerms = {};
+
   intervalEstimates.forEach((item, index) => {
     const { alternative, selectedIntervalsEstimate } = item;
 
@@ -61,6 +65,21 @@ export default function DecisionMaker({
     // Update the minIntervalsForTrapezoidalTerms object with the new minimum values
     minIntervalsForTrapezoidalTerms[alternative] = [newMin0, newMin1];
     maxIntervalsForTrapezoidalTerms[alternative] = [newMax0, newMax1];
+
+    minLeftAndMaxLeftIntervalsForTrapezoidalTerms[alternative] = [
+      newMin0,
+      newMax0,
+    ];
+    minRightAndMaxRightIntervalsForTrapezoidalTerms[alternative] = [
+      newMin1,
+      newMax1,
+    ];
+    let aggressiveLeft = (newMin0 + newMax0) / 2;
+    let aggressiveRight = (newMin1 + newMax1) / 2;
+    aggressiveIntervalsForTrapezoidalTerms[alternative] = [
+      aggressiveLeft,
+      aggressiveRight,
+    ];
   });
 
   let minIntervalsForAverageTrapezoidalTerms = {};
@@ -91,6 +110,7 @@ export default function DecisionMaker({
   });
 
   const averageTrapezoidalIntervals = {};
+
   const averageTrapezoidalOptions = [];
 
   Object.keys(minIntervalsForAverageTrapezoidalTerms).forEach((key, index) => {
@@ -226,20 +246,35 @@ export default function DecisionMaker({
     { keys: [], maxValue: Number.NEGATIVE_INFINITY }
   ).keys;
 
-  const neutralPosition = {};
-  Object.entries(pessimisticProbability).forEach(([key, pessimisticProb]) => {
-    const optimisticProb = optimisticProbability[key];
+  // const neutralPosition = {};
+  // Object.entries(pessimisticProbability).forEach(([key, pessimisticProb]) => {
+  //   const optimisticProb = optimisticProbability[key];
+  //   const neutralProb = (pessimisticProb + optimisticProb) / 2;
+  //   neutralPosition[key] = neutralProb;
+  // });
 
-    const neutralProb = (pessimisticProb + optimisticProb) / 2;
-    neutralPosition[key] = neutralProb;
-  });
-
+  // const neutralAggressiveProbability = {};
+  // Object.entries(minIntervalsForTrapezoidalTerms).forEach(([key, minValue]) => {
+  //   const maxValue = maxIntervalsForTrapezoidalTerms[key];
+  //   const neutralAggressive = (minValue[0] + maxValue[1]) / 2;
+  //   neutralAggressiveProbability[key] = neutralAggressive;
+  // });
+  // onst neutralProbability = {};
+  // Object.entries(averageTrapezoidalIntervals).forEach(([key, item]) => {
+  //   neutralProbability[key] = Math.max(
+  //     1 - Math.max((1 - item[0]) / (item[1] - item[0] + 1), 0),
+  //     0
+  //   );
+  // });
   const neutralAggressiveProbability = {};
-  Object.entries(minIntervalsForTrapezoidalTerms).forEach(([key, minValue]) => {
-    const maxValue = maxIntervalsForTrapezoidalTerms[key];
-    const neutralAggressive = (minValue[0] + maxValue[1]) / 2;
-    neutralAggressiveProbability[key] = neutralAggressive;
-  });
+  Object.entries(aggressiveIntervalsForTrapezoidalTerms).forEach(
+    ([key, item]) => {
+      neutralAggressiveProbability[key] = Math.max(
+        1 - Math.max((1 - item[0]) / (item[1] - item[0] + 1), 0),
+        0
+      );
+    }
+  );
 
   const neutralAggressiveProbabilityRanked = Object.entries(
     neutralAggressiveProbability
@@ -292,7 +327,7 @@ export default function DecisionMaker({
             <Box
               component="span"
               sx={{
-                p: 2,
+                p: 1.5,
                 border: "1px solid #515151",
                 borderRadius: "8px",
                 display: "flex",
@@ -331,7 +366,7 @@ export default function DecisionMaker({
             <Box
               component="span"
               sx={{
-                p: 2,
+                p: 1.5,
                 border: "1px solid #515151",
                 borderRadius: "8px",
                 display: "flex",
@@ -373,12 +408,21 @@ export default function DecisionMaker({
                 neutralAggressiveProbabilityRanked={
                   neutralAggressiveProbabilityRanked
                 }
-                neutralPosition={neutralPosition}
+                // neutralPosition={neutralPosition}
                 averageTrapezoidalIntervals={averageTrapezoidalIntervals}
                 averageTrapezoidalOptions={averageTrapezoidalOptions}
                 neutralProbability={neutralProbability}
                 neutralProbabilityRanked={neutralProbabilityRanked}
                 numbers={numbers}
+                minLeftAndMaxLeftIntervalsForTrapezoidalTerms={
+                  minLeftAndMaxLeftIntervalsForTrapezoidalTerms
+                }
+                minRightAndMaxRightIntervalsForTrapezoidalTerms={
+                  minRightAndMaxRightIntervalsForTrapezoidalTerms
+                }
+                aggressiveIntervalsForTrapezoidalTerms={
+                  aggressiveIntervalsForTrapezoidalTerms
+                }
               />
             )}
           </Item>
@@ -388,7 +432,7 @@ export default function DecisionMaker({
             <Box
               component="span"
               sx={{
-                p: 2,
+                p: 1.5,
                 border: "1px solid #515151",
                 borderRadius: "8px",
                 display: "flex",

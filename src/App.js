@@ -122,119 +122,121 @@ function App() {
     }
   };
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Container
-        maxWidth="lg"
-        sx={{
-          display: "flex",
-          gap: "10px",
-          flexDirection: "column",
-        }}
-      >
-        <ConfigurationPanel
-          setExpertOpinions={setExpertOpinions}
-          linguisticTerms={linguisticTerms}
-          setLinguisticTerms={setLinguisticTerms}
-          setOperators={setOperators}
-          setIsConfigurationPanelOpen={setIsConfigurationPanelOpen}
-          isConfigurationPanelOpen={isConfigurationPanelOpen}
-          setConfiguration={setConfiguration}
-          setShortNames={setShortNames}
-          shortNames={shortNames}
-          names={names}
-          setNames={setNames}
-          setNumbers={setNumbers}
-          numbers={numbers}
-          setLinguisticTermsNormalized={setLinguisticTermsNormalized}
-          handleLinguisticTermsChange={handleLinguisticTermsChange}
-          setIsConfigurationFinished={setIsConfigurationFinished}
-          linguisticTermsNormalized={linguisticTermsNormalized}
-          showToastMessage={showToastMessage}
-        />
-        <CssBaseline />
-        <Title setIsConfigurationPanelOpen={setIsConfigurationPanelOpen} />
-        {isConfigurationFinished && <Typography>Set opinions</Typography>}
-        {!isConfigurationFinished && (
-          <>
-            <Box
-              sx={{
-                border: "1px dotted #90caf9",
-                borderRadius: 2,
-                backgroundColor: "#181819",
-                textAlign: "center",
-                padding: "40px",
-              }}
-            >
-              <Button
-                variant="outlined"
-                onClick={() => setIsConfigurationPanelOpen(true)}
-              >
-                Let`s start
-              </Button>
-            </Box>
-          </>
-        )}
-
-        {isConfigurationFinished && (
-          <>
-            <ExpertOpinions
-              configuration={configuration}
-              expertOpinions={expertOpinions}
-              linguisticTerms={linguisticTerms}
-              linguisticTermsNormalized={linguisticTermsNormalized}
-              operators={operators}
-              setExpertOpinions={setExpertOpinions}
-              setIntervalExpertOpinions={setIntervalExpertOpinions}
-              setTrapezoidalExpertOpinions={setTrapezoidalExpertOpinions}
-              intervalExpertOpinions={intervalExpertOpinions}
-              setIntervalEstimates={setIntervalEstimates}
-              setLinguisticTerms={setLinguisticTerms}
-              names={names}
-              setNames={setNames}
-              setNumbers={setNumbers}
-              numbers={numbers}
-              showToastMessage={showToastMessage}
-            />
-          </>
-        )}
-        {intervalExpertOpinions.length > 0 && (
-          <>
-            <Typography>Interval opinions</Typography>
-            <IntervalExpertOpinions
-              intervalExpertOpinions={intervalExpertOpinions}
-              shortNames={shortNames}
-            />
-          </>
-        )}
-        {trapezoidalExpertOpinions.length > 0 && (
-          <>
-            <Typography>Trapezoidal terms</Typography>
-            <TrapezoidalExpertOpinions
-              trapezoidalExpertOpinions={trapezoidalExpertOpinions}
-              shortNames={shortNames}
-            />
-          </>
-        )}
-        {intervalEstimates.length > 0 && (
-          <>
-            <Typography>Interval estimates</Typography>
-            <IntervalEstimates
-              intervalEstimates={intervalEstimates}
-              shortNames={shortNames}
-            />
-          </>
-        )}
-        {intervalEstimates.length > 0 && (
-          <DecisionMaker
-            intervalEstimates={intervalEstimates}
-            trapezoidalExpertOpinions={trapezoidalExpertOpinions}
+    <>
+      <ThemeProvider theme={darkTheme}>
+        <Container
+          maxWidth="lg"
+          sx={{
+            display: "flex",
+            gap: "10px",
+            flexDirection: "column",
+          }}
+        >
+          <ConfigurationPanel
+            setExpertOpinions={setExpertOpinions}
+            linguisticTerms={linguisticTerms}
+            setLinguisticTerms={setLinguisticTerms}
+            setOperators={setOperators}
+            setIsConfigurationPanelOpen={setIsConfigurationPanelOpen}
+            isConfigurationPanelOpen={isConfigurationPanelOpen}
+            setConfiguration={setConfiguration}
+            setShortNames={setShortNames}
+            shortNames={shortNames}
+            names={names}
+            setNames={setNames}
+            setNumbers={setNumbers}
             numbers={numbers}
+            setLinguisticTermsNormalized={setLinguisticTermsNormalized}
+            handleLinguisticTermsChange={handleLinguisticTermsChange}
+            setIsConfigurationFinished={setIsConfigurationFinished}
+            linguisticTermsNormalized={linguisticTermsNormalized}
+            showToastMessage={showToastMessage}
           />
-        )}
-        <Footer />
-      </Container>
-      <ToastContainer />
-    </ThemeProvider>
+          <CssBaseline />
+          <Title setIsConfigurationPanelOpen={setIsConfigurationPanelOpen} />
+          {isConfigurationFinished && <Typography>Set opinions</Typography>}
+          {!isConfigurationFinished && (
+            <>
+              <Box
+                sx={{
+                  border: "1px dotted #90caf9",
+                  borderRadius: 2,
+                  backgroundColor: "#181819",
+                  textAlign: "center",
+                  padding: "40px",
+                }}
+              >
+                <Button
+                  variant="outlined"
+                  onClick={() => setIsConfigurationPanelOpen(true)}
+                >
+                  Let`s start
+                </Button>
+              </Box>
+            </>
+          )}
+
+          {isConfigurationFinished && (
+            <>
+              <ExpertOpinions
+                configuration={configuration}
+                expertOpinions={expertOpinions}
+                linguisticTerms={linguisticTerms}
+                linguisticTermsNormalized={linguisticTermsNormalized}
+                operators={operators}
+                setExpertOpinions={setExpertOpinions}
+                setIntervalExpertOpinions={setIntervalExpertOpinions}
+                setTrapezoidalExpertOpinions={setTrapezoidalExpertOpinions}
+                intervalExpertOpinions={intervalExpertOpinions}
+                setIntervalEstimates={setIntervalEstimates}
+                setLinguisticTerms={setLinguisticTerms}
+                names={names}
+                setNames={setNames}
+                setNumbers={setNumbers}
+                numbers={numbers}
+                showToastMessage={showToastMessage}
+              />
+            </>
+          )}
+          {intervalExpertOpinions.length > 0 && (
+            <>
+              <Typography>Interval opinions</Typography>
+              <IntervalExpertOpinions
+                intervalExpertOpinions={intervalExpertOpinions}
+                shortNames={shortNames}
+              />
+            </>
+          )}
+          {trapezoidalExpertOpinions.length > 0 && (
+            <>
+              <Typography>Trapezoidal terms</Typography>
+              <TrapezoidalExpertOpinions
+                trapezoidalExpertOpinions={trapezoidalExpertOpinions}
+                shortNames={shortNames}
+              />
+            </>
+          )}
+          {intervalEstimates.length > 0 && (
+            <>
+              <Typography>Interval estimates</Typography>
+              <IntervalEstimates
+                intervalEstimates={intervalEstimates}
+                shortNames={shortNames}
+              />
+            </>
+          )}
+          {intervalEstimates.length > 0 && (
+            <DecisionMaker
+              intervalEstimates={intervalEstimates}
+              trapezoidalExpertOpinions={trapezoidalExpertOpinions}
+              numbers={numbers}
+            />
+          )}
+          <Footer />
+        </Container>
+        <ToastContainer />
+      </ThemeProvider>
+    </>
   );
 }
 

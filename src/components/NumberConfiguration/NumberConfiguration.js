@@ -48,7 +48,7 @@ export default function NumberConfiguration({
       <Box
         component="span"
         sx={{
-          p: 2,
+          p: 1.5,
           border: "1px dashed grey",
           borderRadius: "8px",
           display: "flex",

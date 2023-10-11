@@ -6,7 +6,7 @@ export default function AdvancedNeutralPosition({
   minIntervalsForTrapezoidalTerms,
   maxIntervalsForTrapezoidalTerms,
   minIntervalsForAverageTrapezoidalTerms,
-  maxIntervalsForAverageTrapezoidalTerms,
+
   neutralProbability,
   averageTrapezoidalOptions,
   averageTrapezoidalIntervals,
@@ -14,6 +14,9 @@ export default function AdvancedNeutralPosition({
   neutralAggressiveProbability,
   neutralAggressiveProbabilityRanked,
   numbers,
+  minLeftAndMaxLeftIntervalsForTrapezoidalTerms,
+  minRightAndMaxRightIntervalsForTrapezoidalTerms,
+  aggressiveIntervalsForTrapezoidalTerms,
 }) {
   return (
     <>
@@ -23,7 +26,7 @@ export default function AdvancedNeutralPosition({
       <Box
         component="span"
         sx={{
-          p: 2,
+          p: 1.5,
           border: "1px dashed grey",
           borderRadius: "8px",
           display: "flex",
@@ -37,7 +40,7 @@ export default function AdvancedNeutralPosition({
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",
@@ -50,9 +53,9 @@ export default function AdvancedNeutralPosition({
           {averageTrapezoidalOptions.map((option, index) => (
             <div key={index}>{`GS${index + 1}=(${option[0].toFixed(
               2
-            )}, ${option[1].toFixed(2)}, ${option[2].toFixed(
+            )},${option[1].toFixed(2)},${option[2].toFixed(
               2
-            )}, ${option[3].toFixed(2)})`}</div>
+            )},${option[3].toFixed(2)})`}</div>
           ))}
         </Box>
         <Typography variant="h5" color={"#90caf9"}>
@@ -61,7 +64,7 @@ export default function AdvancedNeutralPosition({
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",
@@ -81,7 +84,7 @@ export default function AdvancedNeutralPosition({
                 2
               )})+${averageTrapezoidalOptions[index][0].toFixed(
                 2
-              )},  ${averageTrapezoidalOptions[index][3].toFixed(2)}-${
+              )},${averageTrapezoidalOptions[index][3].toFixed(2)}-${
                 numbers.alpha
               }*(${averageTrapezoidalOptions[index][3].toFixed(
                 2
@@ -97,7 +100,7 @@ export default function AdvancedNeutralPosition({
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",
@@ -107,17 +110,15 @@ export default function AdvancedNeutralPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(minIntervalsForAverageTrapezoidalTerms).map(
-            ([key, item]) => (
-              <div key={key}>
-                {`p(Imin(${key}))=max(1-max(1-${item[0].toFixed(
-                  2
-                )}/${item[1].toFixed(2)}-${item[0].toFixed(
-                  2
-                )}+1,0),0)=${neutralProbability[key].toFixed(2)}`}
-              </div>
-            )
-          )}
+          {Object.entries(averageTrapezoidalIntervals).map(([key, item]) => (
+            <div key={key}>
+              {`p(Imin(${key}))=max(1-max((1-${item[0].toFixed(
+                2
+              )})/(${item[1].toFixed(2)}-${item[0].toFixed(
+                2
+              )}+1),0),0)=${neutralProbability[key].toFixed(2)}`}
+            </div>
+          ))}
         </Box>
         <Typography variant="h5" color={"#90caf9"}>
           Ranking
@@ -125,7 +126,7 @@ export default function AdvancedNeutralPosition({
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",
@@ -148,7 +149,7 @@ export default function AdvancedNeutralPosition({
       <Box
         component="span"
         sx={{
-          p: 2,
+          p: 1.5,
           border: "1px dashed grey",
           borderRadius: "8px",
           display: "flex",
@@ -157,12 +158,12 @@ export default function AdvancedNeutralPosition({
         }}
       >
         <Typography variant="h5" color={"#90caf9"}>
-          Intervals with extreme boundaries estimates
+          Intervals with aggressive estimates
         </Typography>
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",
@@ -172,16 +173,24 @@ export default function AdvancedNeutralPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(minIntervalsForTrapezoidalTerms).map(
-            ([key, minValue]) => {
-              const maxValue = maxIntervalsForTrapezoidalTerms[key];
-
+          {Object.entries(aggressiveIntervalsForTrapezoidalTerms).map(
+            ([key, aggressiveIntervals]) => {
+              let minLeftAndMaxLeft =
+                minLeftAndMaxLeftIntervalsForTrapezoidalTerms[key];
+              let minRightAndMaxRight =
+                minRightAndMaxRightIntervalsForTrapezoidalTerms[key];
               return (
-                <div key={key}>
-                  {`(IminL(${key}),ImaxR(${key}))=[${minValue[0].toFixed(
-                    2
-                  )},${maxValue[1].toFixed(2)}]`}
-                </div>
+                <div key={key}>{`Iag(${key})=[(${minLeftAndMaxLeft[0].toFixed(
+                  2
+                )}+${minLeftAndMaxLeft[1].toFixed(
+                  2
+                )})/2,(${minRightAndMaxRight[0].toFixed(
+                  2
+                )}+${minRightAndMaxRight[1].toFixed(
+                  2
+                )})/2]=[${aggressiveIntervals[0].toFixed(
+                  2
+                )},${aggressiveIntervals[1].toFixed(2)}]`}</div>
               );
             }
           )}
@@ -192,7 +201,7 @@ export default function AdvancedNeutralPosition({
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",
@@ -202,20 +211,16 @@ export default function AdvancedNeutralPosition({
             color: "#fff",
           }}
         >
-          {Object.entries(minIntervalsForTrapezoidalTerms).map(
-            ([key, minValue]) => {
-              const maxValue = maxIntervalsForTrapezoidalTerms[key];
-
-              return (
-                <div key={key}>
-                  {`p((IminL(${key})+IminR(${key}))/2)=(${minValue[0].toFixed(
-                    2
-                  )}+${maxValue[1].toFixed(
-                    2
-                  )})/2=${neutralAggressiveProbability[key].toFixed(2)}`}
-                </div>
-              );
-            }
+          {Object.entries(aggressiveIntervalsForTrapezoidalTerms).map(
+            ([key, item]) => (
+              <div key={key}>
+                {`p(Iag(${key}))=max(1-max((1-${item[0].toFixed(
+                  2
+                )})/(${item[1].toFixed(2)}-${item[0].toFixed(
+                  2
+                )}+1),0),0)=${neutralAggressiveProbability[key].toFixed(2)}`}
+              </div>
+            )
           )}
         </Box>
         <Typography variant="h5" color={"#90caf9"}>
@@ -224,7 +229,7 @@ export default function AdvancedNeutralPosition({
         <Box
           component="span"
           sx={{
-            p: 2,
+            p: 1.5,
             border: "1px dashed grey",
             borderRadius: "8px",
             display: "flex",

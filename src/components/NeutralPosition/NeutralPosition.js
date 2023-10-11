@@ -10,7 +10,7 @@ export default function PessimisticPosition({
       <Box
         component="span"
         sx={{
-          p: 2,
+          p: 1.5,
         }}
       >
         {neutralPositionResults.map((result, index) => (

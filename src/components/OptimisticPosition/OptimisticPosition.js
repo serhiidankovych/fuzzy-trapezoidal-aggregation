@@ -7,7 +7,7 @@ export default function OptimisticPosition({ optimisticPositionResults }) {
       <Box
         component="span"
         sx={{
-          p: 2,
+          p: 1.5,
         }}
       >
         {optimisticPositionResults.map((result, index) => (

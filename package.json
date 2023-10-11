@@ -5,10 +5,13 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mediapipe/tasks-vision": "^0.10.7",
     "@mui/material": "^5.14.8",
     "@mui/styled-engine-sc": "^5.14.8",
     "@mui/x-charts": "^6.0.0-alpha.11",
     "@mui/x-data-grid": "^6.12.1",
+    "@react-three/drei": "^9.88.0",
+    "@react-three/fiber": "^8.14.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -44,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
